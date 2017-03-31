@@ -3,7 +3,7 @@ title_meta  : Chapter 2
 title       : The basics
 description : "In this chapter, you will get to know some basic features of R. You will also learn to check the summary statistics of continuous variables and draw some simple graphs."
  
---- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Let's get started
  
 In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
@@ -16,7 +16,7 @@ You can use R as a calculator. You can run basic mathematical operations like th
 - Division: `/`
 - Exponentiation: `^`
  
-In order to understand better your own code, or in case you want to save it as an actual R script (It is possible if you have R installed in your computer.) it is good to comment on your code. That can be done by typing `#` ("hash") at the beginning of the row. Any text you type on that row will be considered as a comment. For example _Calculate the mean of these numbers: 1, 3, 8, 10, 12_ in the editor window is a comment.
+In order to understand better your own code, or in case you want to save it as an actual R script (It is possible if you have R installed in your computer.) it is good to comment on your code. That can be done by typing `#` at the beginning of the row. Any text you type on that row will be considered as a comment. For example _Calculate the mean of these numbers: 1, 3, 8, 10, 12_ in the editor window is a comment.
  
 *** =instructions
  - Assume we have a sample of ten people from the cardiac-dataset. Their ejectionfractions (in percents) are 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37. 
@@ -69,7 +69,7 @@ test_output_contains("10.11187", incorrect_msg = "Make sure that you have studie
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
+--- type:NormalExercise lang:r xp:100 skills:1
 ## Barplots and histograms
  
 When taking a first look at the data it is often good to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (Outliers are the kind of values that are very different from the other values.)
@@ -121,7 +121,53 @@ hist(cardiac$age)
  
 *** =sct
 ```{r}
-test_student_typed("barplot(table(diabetes$gender))", not_typed_msg = "Make sure that you have added the table-command inside the barplot-command.")
-test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
+test_output_contains("barplot(table(diabetes$gender))", not_typed_msg = "Make sure that you have added the table-command inside the barplot-command.")
+test_output_contains("hist(cardiac$age)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
 success_msg("Awesome! You old plotting wizard!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1
+## Making plots more fancy
+ 
+Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about.
+
+*** =hint
+Just add the title and colour options inside the plotting code, just like in the example.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# Draw a barplot of the variable 'gender' in cardiac-dataset. Add a title and colour to you plot.
+ 
+barplot(table(cardiac$gender),main="Gender in cardiac-dataset",col="tomato")
+
+# Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
+ 
+
+ 
+# Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
+ 
+ 
+```
+ 
+*** =solution
+```{r}
+# Draw a barplot of the variable 'gender' in diabetes-dataset
+ 
+barplot(table(diabetes$gender),main="Gender",col="blue")
+ 
+# Draw a barplot of the variable 'age' in cardiac-dataset
+hist(cardiac$age,main="Age",col="hotpink")
+```
+ 
+*** =sct
+```{r}
+test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
+test_function("hist",args=c("main","col"), not_typed_msg = "Did you enter both title and colour options?")
+success_msg("Oh your plots look just fabulous!")
 ```
