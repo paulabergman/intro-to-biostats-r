@@ -121,7 +121,7 @@ hist(cardiac$age)
  
 *** =sct
 ```{r}
-test_output_contains("barplot(table(diabetes$gender))", incorrect_msg = "Make sure that you have added the table-command inside the barplot-command.")
-test_output_contains("hist(cardiac$age)", incorrect_msg = "Make sure that you have not made any spelling mistakes.")
+test_student_typed("barplot(table(diabetes$gender))", incorrect_msg = "Make sure that you have added the table-command inside the barplot-command.")
+test_student_typed("hist(cardiac$age)", incorrect_msg = "Make sure that you have not made any spelling mistakes.")
 success_msg("Awesome! You old plotting wizard!")
 ```
