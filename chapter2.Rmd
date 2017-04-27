@@ -72,7 +72,7 @@ success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on
 --- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
 ## Barplots and histograms
  
-When taking a first look at the data it is often good to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (Outliers are the kind of values that are very different from the other values.) TEstimuokkaus
+When taking a first look at the data it is often good to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (Outliers are the kind of values that are very different from the other values.) 
  
 *** =instructions
  - Find out how many observations does the cardiac-data contain. 
@@ -171,3 +171,4 @@ test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter bot
 test_function("hist",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
 success_msg("Oh your plots look just fabulous!")
 ```
+
