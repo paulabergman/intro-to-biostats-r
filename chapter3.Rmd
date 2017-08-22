@@ -115,7 +115,7 @@ summary(reg)
  
 *** =sct
 ```{r}
-test_output_contains("lm(sbp~age+gender+baseEF)", incorrect_msg = "Make sure you have put the variables in the right order, and they are divided by the + sign.")
+test_student_typed("lm(sbp~age+gender+baseEF)", not_typed_msg = "Make sure you have put the variables in the right order, and they are divided by the + sign.")
 test_student_typed("summary(", not_typed_msg = "Make sure you have used the summary-function to see the results.")
 test_student_typed("Regression coefficient for age is: -0.22", not_typed_msg = "Make sure you have typed the right regression coefficient for age.")
 test_student_typed("Regression coefficient for gender is: -0.1973", not_typed_msg = "Make sure you have typed the right regression coefficient for gender.")
