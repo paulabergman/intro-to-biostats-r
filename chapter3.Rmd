@@ -4,19 +4,9 @@ title       : Linear regression
 description : "This weeks exercises will focus on linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
-## Fist model with one explanatory variable
+## Linear regression with one explanatory variable
  
-In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctr+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
- 
-You can use R as a calculator. You can run basic mathematical operations like this: 
- 
-- Addition: `+`
-- Subtraction: `-`
-- Multiplication: `*`
-- Division: `/`
-- Exponentiation: `^`
- 
-In order to understand better your own code, or in case you want to save it as an actual R script (It is possible if you have R installed in your computer.) it is good to comment on your code. That can be done by typing `#` at the beginning of the row. Any text you type on that row will be considered as a comment. For example _Calculate the mean of these numbers: 1, 3, 8, 10, 12_ in the editor window is a comment.
+In this exercise you will form a linear regression model, see the results and make some interpretations based on those. In R linear regression can be done using lm()- function, for example: lm(cardiac$dobEF~cardiac$baseEF). Before the ~ sign you can put only one variable, the outcome variable. After it you can put one or multiple explanatory variables devided by the + sign. 
  
 *** =instructions
  Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age as an explanatory variable. Use the Cardiac-data. 
