@@ -4,7 +4,7 @@ title       : Odds ratio (OR) and risk ratio (RR)
 description : "In this week's exercises you will learn how to predict risks, calculate odds and risk ratios and run a logistic regression."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key: harj41
-## Crosstabulations
+## Crosstabulations, odds ratios and risk ratios 1
  
 You already probably know that a good way to start to discover the relationship between two discrete variables is to crosstabulate them. By looking at the crosstabulation between two dicotomous variables, you can see in one glimpse when these two are present together and separately. That's what makes it such a nice tool for looking at the relationship between a certain disease and a possible risk factor. 
 
@@ -12,7 +12,6 @@ Once the crosstabulation is done, it's good to calculate some numbers too. Odds 
  
  
 *** =instructions
-Testing testing
  - Use cardiac dataset. Crosstabulate event and restwma. Make sure that you have included row and column sums. 
  - Calculate the odds ratio. 
  - Calculate the risk ratio. 
@@ -49,6 +48,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Crosstabulation
 
 table1 <- with(cardiac,table(event,restwma))
+table1<-addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
+table1
  
 # Calculate the odds ratio
 
