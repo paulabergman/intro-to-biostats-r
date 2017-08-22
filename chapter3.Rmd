@@ -51,9 +51,9 @@ summary(reg1)
 ```{r}
 test_output_contains("lm(cardiac$sbp~cardiac$age)", incorrect_msg = "Make sure you have put the variables in the right order, and they are divided by the ~ sign.")
 test_student_typed("summary(", not_typed_msg = "Make sure you have used the summary-function to see the results.")
-test_output_contains("Regression coefficient is: -0.22", incorrect_msg = "Make sure you have typed the right regression coefficient.")
-test_output_contains("Intercept is: 161.7", incorrect_msg = "Make sure you have typed the right intercept.")
-test_output_contains("Variance explained is: 0.00349", incorrect_msg = "Make sure you have typed the right variance explained.")
+test_student_typed("Regression coefficient is: -0.22", not_typed_msg = "Make sure you have typed the right regression coefficient.")
+test_student_typed("Intercept is: 161.7", not_typed_msg = "Make sure you have typed the right intercept.")
+test_student_typed("Variance explained is: 0.00349", not_typed_msg = "Make sure you have typed the right variance explained.")
 
 
 ```
