@@ -9,9 +9,9 @@ description : "This weeks exercises will focus on linear regression. You will fo
 In this exercise you will form a linear regression model, see the results and make some interpretations based on those. In R linear regression can be done using lm()- function, for example: lm(cardiac$dobEF~cardiac$baseEF). Before the ~ sign you can put only one variable, the outcome variable. After it you can put one or multiple explanatory variables devided by the + sign. 
  
 *** =instructions
- - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age as an explanatory variable. Use the Cardiac-data. 
+ * Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age as an explanatory variable. Use the Cardiac-data. 
 
- - Interpret the results: 
+ * Interpret the results: 
  + What is the regression coefficient?
  + What is the intercept?
  + What is the variance explained?
