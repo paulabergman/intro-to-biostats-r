@@ -67,9 +67,11 @@ In the previous exercise you made a linear regression using one explanatory vari
 *** =instructions
  - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age, sex and ejection fraction (baseEF) as an explanatory variable. Use the Cardiac-data. 
  Interpret the results: 
- - What is the regression coefficient?
- - What is the intercept?
- - What is the variance explained?
+   - What is the regression coefficient for age?
+   - What is the regression coefficient for gender?
+   - What is the regression coefficient for ejection fraction?
+   - What is the intercept?
+   - What is the variance explained?
  
 *** =hint
 Use formula lm(data$outcome~data$explanatory1+data$explanatory2+ etc).  
@@ -86,22 +88,19 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 
 # Check the results
 
-# Regression coefficient for age
-
-# Regression coefficient for sex
-
-# Regression coefficient for ejection fraction
-
-# Intercept for age
-
-# Variance explained
-
+# Fill the following sentences with the right numbers:
+# Regression coefficient for age is:
+# Regression coefficient for sex is:
+# Regression coefficient for ejection fraction is:
+# Intercept for age is:
+# Variance explained is:
+ 
 ```
  
 *** =solution
 ```{r}
-reg1<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
-summary(reg1)
+reg<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
+summary(reg)
 # Regression coefficient for age
 -0.2219
 # Regression coefficient for gender
@@ -116,7 +115,12 @@ summary(reg1)
  
 *** =sct
 ```{r}
-test_output_contains("lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)", incorrect_msg = "Make sure you have typed all the variables separated by + sign, and their names correctly. ")
-test_output_contains("summary("", incorrect_msg = "Make sure you have used the summary-function to see the results.")
+test_output_contains("lm(sbp~age+gender+baseEF)", incorrect_msg = "Make sure you have put the variables in the right order, and they are divided by the + sign.")
+test_student_typed("summary(", not_typed_msg = "Make sure you have used the summary-function to see the results.")
+test_student_typed("Regression coefficient for age is: -0.22", not_typed_msg = "Make sure you have typed the right regression coefficient for age.")
+test_student_typed("Regression coefficient for gender is: -0.1973", not_typed_msg = "Make sure you have typed the right regression coefficient for gender.")
+test_student_typed("Regression coefficient for ejection fraction is: 0.43", not_typed_msg = "Make sure you have typed the right regression coefficient for ejection fraction.")
+test_student_typed("Intercept is: 137.9", not_typed_msg = "Make sure you have typed the right intercept.")
+test_student_typed("Variance explained is: 0.01", not_typed_msg = "Make sure you have typed the right variance explained.")
 
 ```
