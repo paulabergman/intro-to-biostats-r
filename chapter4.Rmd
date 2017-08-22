@@ -15,6 +15,7 @@ Once the crosstabulation is done, it's good to calculate some numbers too. Odds 
  - Use cardiac dataset. Crosstabulate event and restwma. Make sure that you have included row and column sums. 
  - Calculate the odds ratio. 
  - Calculate the risk ratio. 
+ - haloo
  
 *** =hint
 Try to form the table command one step at a time: First create a table, then add the sums and then look at the resulting table.
