@@ -90,9 +90,9 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 
 # Fill the following sentences with the right numbers:
 # Regression coefficient for age is:
-# Regression coefficient for sex is:
+# Regression coefficient for gender is:
 # Regression coefficient for ejection fraction is:
-# Intercept for age is:
+# Intercept is:
 # Variance explained is:
  
 ```
