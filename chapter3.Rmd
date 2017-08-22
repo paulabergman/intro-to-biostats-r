@@ -12,9 +12,9 @@ In this exercise you will form a linear regression model, see the results and ma
  - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age as an explanatory variable. Use the Cardiac-data. 
 
  - Interpret the results: 
- - What is the regression coefficient?
- - What is the intercept?
- - What is the variance explained?
+ + What is the regression coefficient?
+ + What is the intercept?
+ + What is the variance explained?
  
 *** =hint
 Use formula lm(data$outcome~data$explanatory). To show the results, use summary-fucntion. 
