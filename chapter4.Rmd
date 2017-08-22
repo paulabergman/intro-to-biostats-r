@@ -1,10 +1,10 @@
 --- 
-title_meta  : Chapter 2
-title       : The basics
-description : "In this chapter, you will get to know some basic features of R. You will also learn to check the summary statistics of continuous variables and draw some simple graphs."
+title_meta  : Chapter 4
+title       : Odds ratio (OR) and risk ratio (RR)
+description : "In this week's exercises you will learn how to predict risks, calculate odds and risk ratios and run a logistic regression."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
-## Let's get started
+## Crosstabulations
  
 In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
  
@@ -33,13 +33,14 @@ Just revise the formulas of mean and standard deviation! Write the numbers on th
  
 *** =pre_exercise_code
 ```{r}
- # no pec
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
 ```
  
 *** =sample_code
 ```{r}
-# Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
-(1 + 3 + 8 + 10 + 12) / 5
+# cardiac-data is available
+# diabetes-data is available
  
 # Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
  
