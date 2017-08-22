@@ -61,8 +61,10 @@ table1 <- with(cardiac,table(event,restwma))
  
 *** =sct
 ```{r}
-test_student_typed("with(cardiac,table(event,restwma))", not_typed_msg = "Make sure you used the right variables.")
-test_student_typed("addmargins(table1,FUN=list(Total=sum),quiet=TRUE)", not_typed_msg = "Make sure you used the right variables.")
+test_student_typed("table(", not_typed_msg = "Make sure you are using a right command for crosstabulation.")
+test_student_typed("event", not_typed_msg = "Make sure you used the right variables.")
+test_student_typed("restwma", not_typed_msg = "Make sure you used the right variables.")
+test_student_typed("addmargins(", not_typed_msg = "Make sure you added the row and column sums.")
 test_output_contains("5.259325", incorrect_msg = "Make sure you used the right variables.")
 test_output_contains("4.212182", incorrect_msg = "Make sure you used the right variables.")
 success_msg("Well done!")
