@@ -1,116 +1,174 @@
----
-title       : Descriptive statistics, tabulations, dependencies
-description : Insert the chapter description here
-attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
-
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:aedd59be16
-## A really bad movie
-
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
-
+--- 
+title_meta  : Chapter 1
+title       : Basics of R, summary statistics and tabulation
+description : "In this chapter, you will get to know some basic features of R. You will also learn to check the summary statistics of continuous variables and draw some simple graphs."
+ 
+--- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
+## Let's get started
+ 
+In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
+ 
+You can use R as a calculator. You can run basic mathematical operations like this: 
+ 
+- Addition: `+`
+- Subtraction: `-`
+- Multiplication: `*`
+- Division: `/`
+- Exponentiation: `^`
+ 
+In order to understand better your own code, or in case you want to save it as an actual R script (It is possible if you have R installed in your computer.) it is good to comment on your code. That can be done by typing `#` at the beginning of the row. Any text you type on that row will be considered as a comment. For example _Calculate the mean of these numbers: 1, 3, 8, 10, 12_ in the editor window is a comment.
+ 
 *** =instructions
-- Adventure
-- Action
-- Animation
-- Comedy
+ - Assume we have a sample of ten people from the cardiac-dataset. Their ejectionfractions (in percents) are 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37. 
+ - Calculate the mean of ejectionfraction for the sample. 
+ - Calculate the standard deviation of ejectionfraction for the sample. 
 
+ - Why did you draw a barplot for gender and histogram for age? Are the variables different from each other somehow? (You don't have to write the answer down, just think about it.)
+ - Draw a histogram of the variable 'bhr' (basal heart rate) in cardiac-dataset. Can you spot any outliers?
+ - Calculate the mean, the median and the standard deviation of the 'bhr'-variable in cardiac-dataset. Are the mean and the median different from each other?
+ - Draw a boxplot of the variable 'chol' (cholesterol) by the variable 'gender'. Can you see any difference between genders?
+ 
 *** =hint
-Have a look at the plot. Which color does the point with the lowest rating have?
-
+Just revise the formulas of mean and standard deviation! Write the numbers on the console and run the lines.
+ 
 *** =pre_exercise_code
 ```{r}
-# The pre exercise code runs code to initialize the user's workspace.
-# You can use it to load packages, initialize datasets and draw a plot in the viewer
-
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-library(ggplot2)
-
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
+ # no pec
 ```
-
-*** =sct
-```{r}
-# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
-
-msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
-```
-
---- type:NormalExercise lang:r xp:100 skills:1 key:3d7169699a
-## More movies
-
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
-
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
-
-*** =instructions
-- Check out the structure of `movie_selection`.
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
-
-*** =hint
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`.
-
-*** =pre_exercise_code
-```{r}
-# You can also prepare your dataset in a specific way in the pre exercise code
-
-library(MindOnStats)
-data(Movies)
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
-
-# Clean up the environment
-rm(Movies)
-```
-
+ 
 *** =sample_code
 ```{r}
-# movie_selection is available in your workspace
-
-# Check out the structure of movie_selection
-
-
-# Select movies that have a rating of 5 or higher: good_movies
-
-
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
+# Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
+(1 + 3 + 8 + 10 + 12) / 5
+ 
+# Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
+ 
+sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
+ 
+# Calculate the arithmetic mean of the ejectiofraction
+ 
+ 
+# Calculate the standard deviation of the ejectiofraction
+ 
 
 ```
-
+ 
 *** =solution
 ```{r}
-# movie_selection is available in your workspace
-
-# Check out the structure of movie_selection
-str(movie_selection)
-
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
-
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+# Calculate the arithmetic mean of the ejectiofraction
+(64 + 57 + 52 + 37 + 57 + 62 + 60 + 57 + 57) / 9
+ 
+# Calculate the standard deviation of the ejectiofraction
+sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)^2) + ((62 - 54)^2) + ((60 - 54)^2) + ((57 - 54)^2) + ((57 - 54)^2) + ((37 - 54)^2)) / (9 - 1))
 ```
-
+ 
 *** =sct
 ```{r}
-# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
-
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
-
-test_object("good_movies")
-
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
-
-test_error()
-
-success_msg("Good work!")
+test_output_contains("55.88889", incorrect_msg = "Make sure to add the values together and divide them by the number of values.")
+test_output_contains("10.11187", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
+success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
+## Barplots and histograms
+ 
+When taking a first look at the data it is often good to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (Outliers are the kind of values that are very different from the other values.) 
+ 
+*** =instructions
+ - Find out how many observations does the cardiac-data contain. 
+ - Find out how many observations does the diabetes-data contain.
+ - Draw a barplot of the variable 'gender' in diabetes-dataset.
+ - Draw a histogram of the variable 'age' in cardiac-dataset.
+
+*** =hint
+Checking the dimensions of the dataset is a good way to find out how many observations are there. 
+Remember to connect variables to the dataset with a '$' sign.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# Draw a barplot of the variable 'gender' in cardiac-dataset
+ 
+barplot(table(cardiac$gender))
+ 
+# Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
+ 
+hist(diabetes$cholmmol)
+ 
+# Draw a barplot of the variable 'gender' in diabetes-dataset
+ 
+
+ 
+# Draw a histogram of the variable 'age' in cardiac-dataset
+ 
+ 
+```
+ 
+*** =solution
+```{r}
+# Draw a barplot of the variable 'gender' in diabetes-dataset
+ 
+barplot(table(diabetes$gender))
+ 
+# Draw a barplot of the variable 'age' in cardiac-dataset
+hist(cardiac$age)
+```
+ 
+*** =sct
+```{r}
+test_student_typed("barplot(table(diabetes$gender))", not_typed_msg = "Make sure that you have added the table-command inside the barplot-command.")
+test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
+success_msg("Awesome! You old plotting wizard!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:1c76838a8c
+## Making plots more fancy
+ 
+Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about.
+
+*** =hint
+Just add the title and colour options inside the plotting code, just like in the example.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# Draw a barplot of the variable 'gender' in cardiac-dataset. Add a title and colour to you plot.
+ 
+barplot(table(cardiac$gender),main="Gender in cardiac-dataset",col="tomato")
+
+# Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
+ 
+
+ 
+# Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
+ 
+ 
+```
+ 
+*** =solution
+```{r}
+# Draw a barplot of the variable 'gender' in diabetes-dataset
+ 
+barplot(table(diabetes$gender),main="Gender",col="blue")
+ 
+# Draw a barplot of the variable 'age' in cardiac-dataset
+hist(cardiac$age,main="Age",col="hotpink")
+```
+ 
+*** =sct
+```{r}
+test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
+test_function("hist",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
+success_msg("Oh your plots look just fabulous!")
+```
+
