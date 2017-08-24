@@ -20,8 +20,8 @@ In order to understand better your own code, or in case you want to save it as a
  
 *** =instructions
  - Assume we have a sample of ten people from the cardiac-dataset. Their ejectionfractions (in percents) are 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37. 
- - Calculate the mean of ejectionfraction for the sample. 
- - Calculate the standard deviation of ejectionfraction for the sample. 
+   - Calculate the mean of ejectionfraction for the sample. 
+   - Calculate the standard deviation of ejectionfraction for the sample. 
 
 *** =hint
 Just revise the formulas of mean and standard deviation! Write the numbers on the console and run the lines.
@@ -60,13 +60,13 @@ sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)
  
 *** =sct
 ```{r}
-test_output_contains("55.88889", incorrect_msg = "Make sure to add the values together and divide them by the number of values.")
-test_output_contains("10.11187", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
+test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
+test_output_contains("9.533566", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
-## Barplots and histograms
+## Checking out the data! 
  
 When taking a first look at the data it is often good to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (Outliers are the kind of values that are very different from the other values.) 
  
@@ -88,11 +88,13 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 *** =sample_code
 ```{r}
-# Draw a barplot of the variable 'gender' in cardiac-dataset
+# Hint! You can refer to our data sets just by typing "cardiac" and "diabetes". To refer to any variable in that data just type it in tho form data$variable, for example cardiac$gender.
+
+# Example: Draw a barplot of the variable 'gender' in cardiac-dataset
  
 barplot(table(cardiac$gender))
  
-# Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
+# Example: Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
  
 hist(diabetes$cholmmol)
  
