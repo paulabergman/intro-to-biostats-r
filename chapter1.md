@@ -23,11 +23,6 @@ In order to understand better your own code, or in case you want to save it as a
  - Calculate the mean of ejectionfraction for the sample. 
  - Calculate the standard deviation of ejectionfraction for the sample. 
 
- - Why did you draw a barplot for gender and histogram for age? Are the variables different from each other somehow? (You don't have to write the answer down, just think about it.)
- - Draw a histogram of the variable 'bhr' (basal heart rate) in cardiac-dataset. Can you spot any outliers?
- - Calculate the mean, the median and the standard deviation of the 'bhr'-variable in cardiac-dataset. Are the mean and the median different from each other?
- - Draw a boxplot of the variable 'chol' (cholesterol) by the variable 'gender'. Can you see any difference between genders?
- 
 *** =hint
 Just revise the formulas of mean and standard deviation! Write the numbers on the console and run the lines.
  
@@ -38,15 +33,16 @@ Just revise the formulas of mean and standard deviation! Write the numbers on th
  
 *** =sample_code
 ```{r}
-# Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
+# Example: Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
 (1 + 3 + 8 + 10 + 12) / 5
  
-# Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
+# Example: Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
+(sqrt()= square root)
  
 sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
  
 # Calculate the arithmetic mean of the ejectiofraction
- 
+
  
 # Calculate the standard deviation of the ejectiofraction
  
