@@ -97,6 +97,12 @@ barplot(table(cardiac$gender))
 # Example: Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
  
 hist(diabetes$cholmmol)
+
+
+# Fill in the sample sizes:
+# Cardiac:
+# Diabetes: 
+
  
 # Draw a barplot of the variable 'gender' in diabetes-dataset
  
