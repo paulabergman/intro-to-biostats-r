@@ -136,11 +136,67 @@ test_student_typed("234", not_typed_msg = "Make sure that you have the right fem
 success_msg("Awesome! You old plotting wizard!")
 ```
 
+--- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
+## Basic plotting
+ 
+When checking out your data, the good next step is to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (the kind of values that are very different from the other values.) 
+ 
+*** =instructions
+ - Draw a barplot of the variable 'gender' in diabetes-dataset.
+ 
+ - Draw a histogram of the variable 'age' in cardiac-dataset.
+
+
+*** =hint
+Checking the dimensions of the dataset is a good way to find out how many observations are there. 
+Remember to connect variables to the dataset with a '$' sign.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# Draw a barplot of the variable 'gender' in cardiac-dataset
+ 
+barplot(table(cardiac$gender))
+ 
+# Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
+ 
+hist(diabetes$cholmmol)
+ 
+# Draw a barplot of the variable 'gender' in diabetes-dataset
+ 
+
+ 
+# Draw a histogram of the variable 'age' in cardiac-dataset
+ 
+ 
+```
+ 
+*** =solution
+```{r}
+# Draw a barplot of the variable 'gender' in diabetes-dataset
+ 
+barplot(table(diabetes$gender))
+ 
+# Draw a barplot of the variable 'age' in cardiac-dataset
+hist(cardiac$age)
+```
+ 
+*** =sct
+```{r}
+test_student_typed("barplot(table(diabetes$gender))", not_typed_msg = "Make sure that you have added the table-command inside the barplot-command.")
+test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
+success_msg("Awesome! You old plotting wizard!")
+```
 --- type:NormalExercise lang:r xp:100 skills:1 key:1c76838a8c
 
 ## Making plots more fancy
  
-Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about.
+Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about. One of R's best features is it wide range of colours, and easy wat of adjusting your plots to be exactly as you want.
 
 *** =hint
 Just add the title and colour options inside the plotting code, just like in the example.
@@ -178,8 +234,8 @@ hist(cardiac$age,main="Title",col="red")
  
 *** =sct
 ```{r}
-test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
-test_function("hist",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
+test_function("barplot", incorrect_msg = "Did you enter both title and colour options?")
+test_function("hist",, incorrect_msg = "Did you enter both title and colour options?")
 success_msg("Oh your plots look just fabulous!")
 ```
 
