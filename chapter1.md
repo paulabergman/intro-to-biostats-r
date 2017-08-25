@@ -227,6 +227,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 *** =instructions
 - Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
 - Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
+- Draw a boxplot for cholesterol ('chol') in diabetes- data by gender. Add a title and different colours for the two boxes. 
  
 *** =sample_code
 ```{r}
@@ -237,8 +238,11 @@ barplot(table(cardiac$gender),main="Gender in cardiac-dataset",col="tomato")
 # Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
  
 
- 
 # Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
+
+
+# Draw a boxplot for cholesterol ('chol') in diabetes- data by gender. Add a title and different colours for the two boxes. Hint! use col=c("colour1","colour2")  
+ 
  
  
 ```
@@ -251,6 +255,10 @@ barplot(table(diabetes$gender),main="Title",col="red")
  
 # Draw a barplot of the variable 'age' in cardiac-dataset
 hist(cardiac$age,main="Title",col="red")
+
+# Draw a boxplot for cholesterol ('chol') in diabetes- data by gender. Add a title and different colours for the two boxes. 
+boxplot(diabetes$chol~diabetes$gender, col=c("red", "blue"))
+
 ```
  
 *** =sct
