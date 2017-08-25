@@ -136,7 +136,7 @@ test_student_typed("234", not_typed_msg = "Make sure that you have the right fem
 success_msg("Awesome! You old plotting wizard!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
+--- type:NormalExercise lang:r xp:100 skills:1 key:1428bf2042
 ## Basic plotting
  
 When checking out your data, the good next step is to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (the kind of values that are very different from the other values.) 
