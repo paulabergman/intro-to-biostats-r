@@ -97,8 +97,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Cardiac:
 # Diabetes: 
 
-# Females in cardiac-data: 
-# Females in diabetes-data:
+# Females in cardiac-data:
+# Females in diabetes-data: 
  
 # Age distribution in cardiac-data:
 
@@ -114,8 +114,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Cardiac: 558
 # Diabetes: 403
 
-# Females in cardiac-data: 300
-# Females in diabetes-data: 230
+# Females in cardiac-data: 338
+# Females in diabetes-data: 234
  
 # Age distribution in cardiac-data:
 
@@ -130,8 +130,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 ```{r}
 test_student_typed("558", not_typed_msg = "Make sure that you have the right sample size for cardiac-data.")
 test_student_typed("403", not_typed_msg = "Make sure that you have the right sample size for diabetes-data.")
-test_student_typed("300", not_typed_msg = "Make sure that you have the right female number cardiac-data.")
-test_student_typed("230", not_typed_msg = "Make sure that you have the right female number for diabetes-data.")
+test_student_typed("338", not_typed_msg = "Make sure that you have the right female number cardiac-data.")
+test_student_typed("234", not_typed_msg = "Make sure that you have the right female number for diabetes-data.")
 
 success_msg("Awesome! You old plotting wizard!")
 ```
