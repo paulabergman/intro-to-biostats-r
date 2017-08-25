@@ -206,6 +206,10 @@ Just add the title and colour options inside the plotting code, just like in the
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
+*** =instructions
+ - Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
+ 
+ - Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
  
 *** =sample_code
 ```{r}
