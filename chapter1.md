@@ -171,9 +171,8 @@ hist(cardiac$age,main="Age",col="hotpink")
  
 *** =sct
 ```{r}
-test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
-test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
-test_function("hist",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
+test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options_barplot?")
+test_function("hist",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options_hist?")
 success_msg("Oh your plots look just fabulous!")
 ```
 
