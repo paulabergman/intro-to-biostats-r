@@ -33,12 +33,11 @@ Just revise the formulas of mean and standard deviation! Write the numbers on th
  
 *** =sample_code
 ```{r}
-# Example: Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
+# Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
 (1 + 3 + 8 + 10 + 12) / 5
  
-# Example: Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
-(sqrt()= square root)
- 
+# Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
+
 sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
  
 # Calculate the arithmetic mean of the ejectiofraction
@@ -55,13 +54,13 @@ sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.
 (64 + 57 + 52 + 37 + 57 + 62 + 60 + 57 + 57) / 9
  
 # Calculate the standard deviation of the ejectiofraction
-sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)^2) + ((62 - 54)^2) + ((60 - 54)^2) + ((57 - 54)^2) + ((57 - 54)^2) + ((37 - 54)^2)) / (9 - 1))
+sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)^2) + ((62 - 54)^2) + ((60 - 54)^2) + ((57 - 54)^2) + ((57 - 54)^2) + ((37 - 54)^2)) / 9 ))
 ```
  
 *** =sct
 ```{r}
 test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
-test_output_contains("9.533566", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
+test_output_contains("", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
 
