@@ -207,9 +207,7 @@ cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bio
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
 *** =instructions
- - Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
- 
- - Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
+- Testi
  
 *** =sample_code
 ```{r}
