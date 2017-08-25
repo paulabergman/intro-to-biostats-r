@@ -51,16 +51,17 @@ sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.
 *** =solution
 ```{r}
 # Calculate the arithmetic mean of the ejectiofraction
-(64 + 57 + 52 + 37 + 57 + 62 + 60 + 57 + 57) / 9
+(64 + 57 + 52 + 37 + 57 + 62 + 60 + 57 + 57 + 37) /10 
  
 # Calculate the standard deviation of the ejectiofraction
-sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)^2) + ((62 - 54)^2) + ((60 - 54)^2) + ((57 - 54)^2) + ((57 - 54)^2) + ((37 - 54)^2)) / 9 ))
+sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)^2) + ((62 - 54)^2) + ((60 - 54)^2) + ((57 - 54)^2) + ((57 - 54)^2) + ((37 - 54)^2)) / 9 )
+
 ```
  
 *** =sct
 ```{r}
 test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
-test_output_contains("", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
+test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
 
