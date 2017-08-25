@@ -68,13 +68,15 @@ success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on
 --- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
 ## Checking out the data! 
  
-When taking a first look at the data it is often good to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (Outliers are the kind of values that are very different from the other values.) 
+When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females/males, what is the age distrtibution for example. For categorical variables, table() is a good idea and for continous variables use summary(). To know what variables you have in your data, just type colnames(data).
  
 *** =instructions
  - Find out how many observations does the cardiac-data contain. 
  - Find out how many observations does the diabetes-data contain.
- - Draw a barplot of the variable 'gender' in diabetes-dataset.
- - Draw a histogram of the variable 'age' in cardiac-dataset.
+ - Find out how many females are in cardiac-data.
+ - Find out how many female are in diabetes- data.
+ - What is the age-range in cardiac-data?
+ - What is the age-range in diabetes-data?
 
 *** =hint
 Checking the dimensions of the dataset is a good way to find out how many observations are there. 
@@ -90,47 +92,52 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 ```{r}
 # Hint! You can refer to our data sets just by typing "cardiac" and "diabetes". To refer to any variable in that data just type it in tho form data$variable, for example cardiac$gender.
 
-# Example: Draw a barplot of the variable 'gender' in cardiac-dataset
- 
-barplot(table(cardiac$gender))
- 
-# Example: Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
- 
-hist(diabetes$cholmmol)
-
 
 # Fill in the sample sizes:
 # Cardiac:
 # Diabetes: 
 
+# Females in cardiac-data: 
+# Females in diabetes-data:
  
-# Draw a barplot of the variable 'gender' in diabetes-dataset
- 
+# Age distribution in cardiac-data:
 
- 
-# Draw a histogram of the variable 'age' in cardiac-dataset
+
+# Age distribution in cardiac-data:
  
  
 ```
  
 *** =solution
 ```{r}
-# Draw a barplot of the variable 'gender' in diabetes-dataset
+# Fill in the sample sizes:
+# Cardiac: 558
+# Diabetes: 403
+
+# Females in cardiac-data: 300
+# Females in diabetes-data: 230
  
-barplot(table(diabetes$gender))
+# Age distribution in cardiac-data:
+
+
+# Age distribution in cardiac-data:
+
  
-# Draw a barplot of the variable 'age' in cardiac-dataset
-hist(cardiac$age)
+ 
 ```
  
 *** =sct
 ```{r}
-test_student_typed("barplot(table(diabetes$gender))", not_typed_msg = "Make sure that you have added the table-command inside the barplot-command.")
-test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
+test_student_typed("558", not_typed_msg = "Make sure that you have the right sample size for cardiac-data.")
+test_student_typed("403", not_typed_msg = "Make sure that you have the right sample size for diabetes-data.")
+test_student_typed("300", not_typed_msg = "Make sure that you have the right female number cardiac-data.")
+test_student_typed("230", not_typed_msg = "Make sure that you have the right female number for diabetes-data.")
+
 success_msg("Awesome! You old plotting wizard!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:1c76838a8c
+
 ## Making plots more fancy
  
 Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about.
