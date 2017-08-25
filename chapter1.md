@@ -174,14 +174,19 @@ barplot(table(cardiac$gender))
 hist(diabetes$cholmmol)
  
 # Draw a barplot of the variable 'gender' in diabetes-dataset
+
  
 # Draw a histogram of the variable 'age' in cardiac-dataset
 
+
 # Draw a histogram of the variable 'bhr' (= "basal heart rate") in cardiac-dataset. Is there anything weird?
+
  
 # Draw a boxplot for cholesterol ('chol') in diabetes- data by gender.
+
  
 # Draw a scatter-plot for the variables maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data 
+
  
 ```
  
