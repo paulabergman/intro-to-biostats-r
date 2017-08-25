@@ -139,12 +139,18 @@ success_msg("Great! You're getting a master at this!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:1428bf2042
 ## Basic plotting
  
-When checking out your data, the good next step is to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (the kind of values that are very different from the other values.) 
+When checking out your data, the good next step is to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (the kind of values that are very different from the other values.) The propably most commonly used plotting commands are hist() for histrogram, barplot() for barplot, plot() for scatter plot and boxplot() for boxplot. 
  
 *** =instructions
  - Draw a barplot of the variable 'gender' in diabetes-dataset.
  
  - Draw a histogram of the variable 'age' in cardiac-dataset.
+ 
+ - Draw a histogram of the variable 'bhr' (= "basal heart rate") in cardiac-dataset. Is there anything weird?
+ 
+ - Draw a boxplot for cholesterol ('chol') in diabetes- data by gender.
+ 
+ - Draw a scatter-plot for the variables maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data 
 
 
 *** =hint
@@ -169,10 +175,13 @@ hist(diabetes$cholmmol)
  
 # Draw a barplot of the variable 'gender' in diabetes-dataset
  
-
- 
 # Draw a histogram of the variable 'age' in cardiac-dataset
+
+# Draw a histogram of the variable 'bhr' (= "basal heart rate") in cardiac-dataset. Is there anything weird?
  
+# Draw a boxplot for cholesterol ('chol') in diabetes- data by gender.
+ 
+# Draw a scatter-plot for the variables maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data 
  
 ```
  
@@ -190,6 +199,10 @@ hist(cardiac$age)
 ```{r}
 test_student_typed("barplot(table(diabetes$gender))", not_typed_msg = "Make sure that you have added the table-command inside the barplot-command.")
 test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
+test_student_typed("hist(cardiac$bhr)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
+test_student_typed("boxplot(diabetes$chol~diabetes$gender)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
+test_student_typed("plot(cardiac$maxhr,cardiac$sbp)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
+
 success_msg("Awesome! You old plotting wizard!")
 ```
 --- type:NormalExercise lang:r xp:100 skills:1 key:1c76838a8c
