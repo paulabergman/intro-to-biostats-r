@@ -133,7 +133,7 @@ test_student_typed("403", not_typed_msg = "Make sure that you have the right sam
 test_student_typed("338", not_typed_msg = "Make sure that you have the right female number cardiac-data.")
 test_student_typed("234", not_typed_msg = "Make sure that you have the right female number for diabetes-data.")
 
-success_msg("Awesome! You old plotting wizard!")
+success_msg("Great! You're getting a master at this!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:1428bf2042
