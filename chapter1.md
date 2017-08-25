@@ -163,16 +163,16 @@ barplot(table(cardiac$gender),main="Gender in cardiac-dataset",col="tomato")
 ```{r}
 # Draw a barplot of the variable 'gender' in diabetes-dataset
  
-barplot(table(diabetes$gender),main="Gender",col="blue")
+barplot(table(diabetes$gender),main="Title",col="colour")
  
 # Draw a barplot of the variable 'age' in cardiac-dataset
-hist(cardiac$age,main="Age",col="hotpink")
+hist(cardiac$age,main="Title",col="colour")
 ```
  
 *** =sct
 ```{r}
-test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options_barplot?")
-test_function("hist",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options_hist?")
+test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
+test_function("hist",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
 success_msg("Oh your plots look just fabulous!")
 ```
 
