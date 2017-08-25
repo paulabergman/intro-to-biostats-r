@@ -163,10 +163,10 @@ barplot(table(cardiac$gender),main="Gender in cardiac-dataset",col="tomato")
 ```{r}
 # Draw a barplot of the variable 'gender' in diabetes-dataset
  
-barplot(table(diabetes$gender),main="Title",col="colour")
+barplot(table(diabetes$gender),main="Title",col="red")
  
 # Draw a barplot of the variable 'age' in cardiac-dataset
-hist(cardiac$age,main="Title",col="colour")
+hist(cardiac$age,main="Title",col="red")
 ```
  
 *** =sct
