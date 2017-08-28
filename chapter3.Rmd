@@ -125,7 +125,7 @@ test_student_typed("Variance explained is: 0.01", not_typed_msg = "Make sure you
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:harj32
+--- type:NormalExercise lang:r xp:100 skills:1 key:99950f38b0
 ## Checking the assumptions for your model graphically
  
 Now you now how to for linear regression models and check the results. Next thing is to check how yor model fits the assumptions. 
