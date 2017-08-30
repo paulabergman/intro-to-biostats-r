@@ -133,7 +133,7 @@ test_student_typed("403", not_typed_msg = "Make sure that you have the right sam
 test_student_typed("338", not_typed_msg = "Make sure that you have the right female number cardiac-data.")
 test_student_typed("234", not_typed_msg = "Make sure that you have the right female number for diabetes-data.")
 
-success_msg("Great! You're getting a master at this!")
+success_msg("Great! You're getting a master at R!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:1428bf2042
@@ -225,7 +225,7 @@ cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bio
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
 *** =instructions
-- Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
+- Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot. Don't be afraid to get creative!
 - Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
 - Draw a boxplot for cholesterol ('chol') in diabetes- data by gender. Add a title and different colours for the two boxes. 
  
