@@ -52,8 +52,8 @@ df
 # Search for the right value from the distribution table
 # The value is: 
 
-# Does this support the alternative hypothesis (on significance level 0.05)? (Answer YES if yes and NO if no)
-# Your answer: 
+# Does this support the alternative hypothesis (on significance level 0.05)? Remove the wrong answer.
+# Your answer: YES / NO
 ```
  
 *** =solution
@@ -131,8 +131,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 # Compare the BMIs
 
-# There is a statistically significant difference, do you agree? (answer AGREE or DISAGREE) 
-# Your answer: 
+# There is a statistically significant difference, do you agree? Remove the wrong answer.
+# Your answer: I DO / DON't agree.
 
 ```
  
