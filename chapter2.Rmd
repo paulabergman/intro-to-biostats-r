@@ -102,19 +102,17 @@ test_student_typed("NO", not_typed_msg = "Perhaps you need to check again how to
 success_msg("t-test seems to be your cup of tea! You know the name actually originates from the lady who was convinced she can taste whether the milk or the tea was poured first on her teacup?")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
-## Barplots and histograms
+--- type:NormalExercise lang:r xp:100 skills:1 key:ex2point2
+## Getting more familiar with the t-test
  
-When taking a first look at the data it is often good to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (Outliers are the kind of values that are very different from the other values.) 
+The t-test is often used to check whether there is differences between two independent groups, quite often men and women.
  
 *** =instructions
- - Find out how many observations does the cardiac-data contain. 
- - Find out how many observations does the diabetes-data contain.
- - Draw a barplot of the variable 'gender' in diabetes-dataset.
- - Draw a histogram of the variable 'age' in cardiac-dataset.
+ - Run a t-test to compare systolic blood pressure between genders in cardiac-dataset. Is there any difference between men and women?
+ - Run a t-test to compare BMI between genders in diabetes-dataset. Is there any difference between men and women?
 
 *** =hint
-
+Use the R function t.test and just enter the variables.
  
 *** =pre_exercise_code
 ```{r}
@@ -124,38 +122,47 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 *** =sample_code
 ```{r}
-# Draw a barplot of the variable 'gender' in cardiac-dataset
+# The datasets cardiac and diabetes are available
  
-barplot(table(cardiac$gender))
- 
-# Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
- 
-hist(diabetes$cholmmol)
- 
-# Draw a barplot of the variable 'gender' in diabetes-dataset
- 
+# Compare the systolic blood pressures
 
+# Is there a statistically significant difference? (answer YES or NO)
+# Your answer: 
  
-# Draw a histogram of the variable 'age' in cardiac-dataset
- 
- 
+# Compare the BMIs
+
+# There is a statistically significant difference, do you agree? (answer AGREE or DISAGREE) 
+# Your answer: 
+
 ```
  
 *** =solution
 ```{r}
-# Draw a barplot of the variable 'gender' in diabetes-dataset
+# The datasets cardiac and diabetes are available
  
-barplot(table(diabetes$gender))
+# Compare the systolic blood pressures
+with(cardiac,t.test(sbp~gender))
+
+# Is there a statistically significant difference? (answer YES or NO)
+# Your answer: NO
  
-# Draw a barplot of the variable 'age' in cardiac-dataset
-hist(cardiac$age)
+# Compare the BMIs
+with(diabetes,t.test(bmi~gender))
+
+# There is a statistically significant difference, do you agree? (answer AGREE or DISAGREE) 
+# Your answer: AGREE
+
 ```
  
 *** =sct
 ```{r}
-test_student_typed("barplot(table(diabetes$gender))", not_typed_msg = "Make sure that you have added the table-command inside the barplot-command.")
+test_student_typed("t.test", not_typed_msg = "Are you using R's function for t-test?")
+test_student_typed("sbp~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
+test_student_typed("NO", not_typed_msg = "Your interpretation of the first t-test needs re-checking.")
+test_student_typed("bmi~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
 test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
-success_msg("Awesome! You old plotting wizard!")
+test_student_typed("AGREE", not_typed_msg = "Your interpretation of the second t-test needs re-checking.")
+success_msg("Wow, you can already analyze the results of the t-test, congrats! Now let's move on to a next letter.")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:1c76838a8c
