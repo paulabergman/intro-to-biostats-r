@@ -286,9 +286,9 @@ test_student_typed("Event and restwma DO depend on each other.", not_typed_msg =
 test_student_typed("Smoking and gender DO depend on each other.", not_typed_msg = "Make sure your interpretation of the second chi square test result is correct.")
 test_student_typed("Categorized cholesterol and gender DON't depend on each other.", not_typed_msg = "Make sure your interpretation of the third chi square test result is correct.")
 test_function("chisq.test", incorrect_msg = "Are you using the right test function?")
-test_output_contains("3.359e-09", incorrect_msg = "Your first chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
-test_output_contains("4.793e-07", incorrect_msg = "Your second chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
-test_output_contains("0.858", incorrect_msg = "Your third chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+test_output_contains("3.359", incorrect_msg = "Your first chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+test_output_contains("4.79", incorrect_msg = "Your second chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+test_output_contains("0.85", incorrect_msg = "Your third chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
 success_msg("Be there or be chi square(d)! You definately are there, well done with your chi square tests!")
 ```
 
