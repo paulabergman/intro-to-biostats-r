@@ -85,7 +85,7 @@ df
 # The value is: 1.860
 
 # Does this support the alternative hypothesis (on significance level 0.05)? Remove the wrong answer.
-# Your answer: YES / NO
+# Your answer: NO
 ```
  
 *** =sct
@@ -144,13 +144,13 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 with(cardiac,t.test(sbp~gender))
 
 # Is there a statistically significant difference? Remove the wrong answer.
-# Your answer: YES / NO
+# Your answer: NO
  
 # Compare the BMIs
 with(diabetes,t.test(bmi~gender))
 
 # There is a statistically significant difference, do you agree? Remove the wrong answer.
-# Your answer: I DO / DON't agree.
+# Your answer: I DO agree.
 
 ```
  
