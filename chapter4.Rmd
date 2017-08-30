@@ -196,7 +196,7 @@ summary(model1)
 # woman (gender=1) who had restwma and whose stress ECG was positive.
 logit1 <- - 3.199416 + 0.006424 * 65 - 0.130453 * 1 + 1.215453 * 1 + 1.031930 * 1
 logit1
-prob1 <- (e^(logit1))/(1+(e^(logit1)))
+prob1 <- (exp(logit1))/(1+(exp(logit1)))
 prob1 
 
 ```
