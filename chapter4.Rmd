@@ -136,7 +136,7 @@ test_student_typed("table(", not_typed_msg = "Make sure you are using a right co
 test_student_typed("hxofHT", not_typed_msg = "Make sure you used the right variables.")
 test_student_typed("event", not_typed_msg = "Make sure you used the right variables.")
 test_student_typed("addmargins(", not_typed_msg = "Make sure you added the row and column sums.")
-test_output_contains("1.12", incorrect_msg = "Make sure you used the right variables.")
+test_output_contains("2.12", incorrect_msg = "Make sure you used the right variables.")
 test_output_contains("1.9", incorrect_msg = "Make sure you used the right variables.")
 success_msg("Congrats, that was some awesome calculation!")
 ```
