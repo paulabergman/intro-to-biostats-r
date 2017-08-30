@@ -41,35 +41,65 @@ sd1 <-
 # Now remember how to calculate the t-value? 
 # If not, you can revise it from the course material or from the internet.
 # Remember that variance is squared standard deviation.
+# Now just calculate it here below and print the value
+t <- 
+t
 
+# Calculate the degrees of freedom and print the value
+df <- 
+df
 
+# Search for the right value from the distribution table
+# The value is: 
+
+# Does this support the alternative hypothesis (on significance level 0.05)? (Answer Y if yes and N if no)
+# Your answer: 
 ```
  
 *** =solution
 ```{r}
 # Assign the number of women to n1 and number of men to n2
-n1 <-
-n2 <-
+n1 <- 4
+n2 <- 6
  
 # Assign the mean value of basal heart rate of women to mean1 and standard deviation to sd1
-mean1 <-
-sd1 <-
+mean1 <- 78.5
+sd1 <- 6.65
  
 # Do similarly to men
- 
+mean2 <- 75.67
+sd2 <- 20.93
  
 # Now remember how to calculate the t-value? 
 # If not, you can revise it from the course material or from the internet.
 # Remember that variance is squared standard deviation.
+# Now just calculate it here below
+t <- (mean1 - mean2) / (sqrt(((sd1^2) / n1) + ((sd2^2) / n2)))
+t
 
+# Calculate the degrees of freedom
+df <- n1 + n2 - 2
+df
 
+# Search for the right value from the distribution table
+# The value is: 1.860
+
+# Does this support the alternative hypothesis (on significance level 0.05)? (Answer Y if yes and N if no)
+# Your answer: N
 ```
  
 *** =sct
 ```{r}
-test_output_contains("55.88889", incorrect_msg = "Make sure to add the values together and divide them by the number of values.")
-test_output_contains("10.11187", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
-success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
+test_student_typed("n1 <- 4", not_typed_msg = "Make sure you entered the right values given in the exercise.")
+test_student_typed("mean1 <- 78.5", not_typed_msg = "Make sure you entered the right values given in the exercise.")
+test_student_typed("sd1 <- 6.65", not_typed_msg = "Make sure you entered the right values given in the exercise.")
+test_student_typed("mean2 <- 75.67", not_typed_msg = "Make sure you entered the right values given in the exercise.")
+test_student_typed("sd2 <- 20.93", not_typed_msg = "Make sure you entered the right values given in the exercise.")
+test_output_contains("0.3086563", incorrect_msg = "Make sure that you have studied well the formula for the t-value.")
+test_output_contains("8", incorrect_msg = "Are you sure you calculated the degrees of freedom correctly?")
+test_student_typed("1.86", not_typed_msg = "Are you sure you looked at the right spot on the distribution table?")
+test_student_typed("N", not_typed_msg = "Perhaps you need to check again how to interpret your results.")
+success_msg("t-test seems to be your cup of tea! You know the name actually originates from the lady who was convinced she can taste whether the milk or the tea was poured first on her teacup?")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
