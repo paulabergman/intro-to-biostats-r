@@ -1,35 +1,24 @@
 --- 
 title_meta  : Chapter 2
-title       : The basics
-description : "In this chapter, you will get to know some basic features of R. You will also learn to check the summary statistics of continuous variables and draw some simple graphs."
+title       : Statistical testing
+description : "In this chapter, you will learn what does statistical significance mean and learn to crosstabulate and run some useful statistical tests, such as chi square and t-test."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
-## Let's get started
+## Hands on
  
-In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
- 
-You can use R as a calculator. You can run basic mathematical operations like this: 
- 
-- Addition: `+`
-- Subtraction: `-`
-- Multiplication: `*`
-- Division: `/`
-- Exponentiation: `^`
- 
-In order to understand better your own code, or in case you want to save it as an actual R script (It is possible if you have R installed in your computer.) it is good to comment on your code. That can be done by typing `#` at the beginning of the row. Any text you type on that row will be considered as a comment. For example _Calculate the mean of these numbers: 1, 3, 8, 10, 12_ in the editor window is a comment.
+Although in these days we have many tools for calculation and programming, it is good to understand the theory that lies behind R functions for example. t-test is quite a simple procedure and now we are going to learn how to run it without using the function that R offers.
  
 *** =instructions
- - Assume we have a sample of ten people from the cardiac-dataset. Their ejectionfractions (in percents) are 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37. 
- - Calculate the mean of ejectionfraction for the sample. 
- - Calculate the standard deviation of ejectionfraction for the sample. 
-
- - Why did you draw a barplot for gender and histogram for age? Are the variables different from each other somehow? (You don't have to write the answer down, just think about it.)
- - Draw a histogram of the variable 'bhr' (basal heart rate) in cardiac-dataset. Can you spot any outliers?
- - Calculate the mean, the median and the standard deviation of the 'bhr'-variable in cardiac-dataset. Are the mean and the median different from each other?
- - Draw a boxplot of the variable 'chol' (cholesterol) by the variable 'gender'. Can you see any difference between genders?
+ - Find out whether there is a difference between men and women in basal heart rate by using t-test
+    - Imagine we have a sample of 10 (n=10) people, 4 of which are women and 6 men  
+    - Mean of women's basal heart rate is 78.5 and standard deviation is 6.65
+    - Mean of men's basal heart rate is 75.67 and standard deviation is 20.93
+    - The chosen significance level is 0.05
+ - You can find the t-distribution table on the course Moodle page or from the internet, just type 't distribution table' on google.
+ - You will need to check the degrees of freedom (df) in order to use the distribution table (n1 + n2 - 2) 
  
 *** =hint
-Just revise the formulas of mean and standard deviation! Write the numbers on the console and run the lines.
+Remember to use all necessary brackets. Square root in R is sqrt()
  
 *** =pre_exercise_code
 ```{r}
@@ -38,28 +27,42 @@ Just revise the formulas of mean and standard deviation! Write the numbers on th
  
 *** =sample_code
 ```{r}
-# Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
-(1 + 3 + 8 + 10 + 12) / 5
+# Assign the number of women to n1 and number of men to n2
+n1 <-
+n2 <-
  
-# Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
+# Assign the mean value of basal heart rate of women to mean1 and standard deviation to sd1
+mean1 <-
+sd1 <-
  
-sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
- 
-# Calculate the arithmetic mean of the ejectiofractions
+# Do similarly to men
  
  
-# Calculate the standard deviation of the ejectiofractions
- 
+# Now remember how to calculate the t-value? 
+# If not, you can revise it from the course material or from the internet.
+# Remember that variance is squared standard deviation.
+
 
 ```
  
 *** =solution
 ```{r}
-# Calculate the arithmetic mean of the ejectiofractions
-(64 + 57 + 52 + 37 + 57 + 62 + 60 + 57 + 57) / 9
+# Assign the number of women to n1 and number of men to n2
+n1 <-
+n2 <-
  
-# Calculate the standard deviation of the ejectiofractions
-sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)^2) + ((62 - 54)^2) + ((60 - 54)^2) + ((57 - 54)^2) + ((57 - 54)^2) + ((37 - 54)^2)) / (9 - 1))
+# Assign the mean value of basal heart rate of women to mean1 and standard deviation to sd1
+mean1 <-
+sd1 <-
+ 
+# Do similarly to men
+ 
+ 
+# Now remember how to calculate the t-value? 
+# If not, you can revise it from the course material or from the internet.
+# Remember that variance is squared standard deviation.
+
+
 ```
  
 *** =sct
@@ -81,8 +84,7 @@ When taking a first look at the data it is often good to visualize the variables
  - Draw a histogram of the variable 'age' in cardiac-dataset.
 
 *** =hint
-Checking the dimensions of the dataset is a good way to find out how many observations are there. 
-Remember to connect variables to the dataset with a '$' sign.
+
  
 *** =pre_exercise_code
 ```{r}
