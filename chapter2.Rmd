@@ -194,7 +194,11 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 table1 <-
 
 # Run the chi square test for the table you just created
+test1 <- 
+test1
 
+# Print out the p-value of the test separately
+test1$p.value
 
 # Do the variables depend on each other? 
 # Event and restwma DO / DON't depend on each other.
@@ -203,7 +207,11 @@ table1 <-
 table2 <-
 
 # Run the chi square test for the table you just created
+test2 <-
+test2
 
+# Print out the p-value of the test separately
+test2$p.value
 
 # Do the variables depend on each other? 
 # Smoking and gender DO / DON't depend on each other.
@@ -213,7 +221,11 @@ table2 <-
 table3 <-
 
 # Run the chi square test for the table you just created
+test3 <-
+test3
 
+# Print out the p-value of the test separately
+test3$p.value
 
 # Do the variables depend on each other? 
 # Categorized cholesterol and gender DO / DON't depend on each other.
@@ -228,7 +240,10 @@ table3 <-
 table1 <- with(cardiac, table(event, restwma))
 
 # Run the chi square test for the table you just created
-chisq.test(table1)
+test1 <- chisq.test(table1)
+
+# Print out the p-value of the test separately
+test1$p.value
 
 # Do the variables depend on each other? 
 # Event and restwma DO depend on each other.
@@ -237,7 +252,10 @@ chisq.test(table1)
 table2 <- with(cardiac, table(smoking, gender))
 
 # Run the chi square test for the table you just created
-chisq.test(table2)
+test2 <- chisq.test(table2)
+
+# Print out the p-value of the test separately
+test2$p.value
 
 # Do the variables depend on each other? 
 # Smoking and gender DO depend on each other.
@@ -247,7 +265,10 @@ chisq.test(table2)
 table3 <- with(diabetes, table(cholcat, gender))
 
 # Run the chi square test for the table you just created
-chisq.test(table3)
+test3 <- chisq.test(table3)
+
+# Print out the p-value of the test separately
+test3$p.value
 
 # Do the variables depend on each other? 
 # Categorized cholesterol and gender DON't depend on each other.
@@ -265,9 +286,9 @@ test_student_typed("Event and restwma DO depend on each other.", not_typed_msg =
 test_student_typed("Smoking and gender DO depend on each other.", not_typed_msg = "Make sure your interpretation of the second chi square test result is correct.")
 test_student_typed("Categorized cholesterol and gender DON't depend on each other.", not_typed_msg = "Make sure your interpretation of the third chi square test result is correct.")
 test_function("chisq.test", incorrect_msg = "Are you using the right test function?")
-test_output_contains("34.964", incorrect_msg = "Your first chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
-test_output_contains("25.346", incorrect_msg = "Your second chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
-test_output_contains("0.031994", incorrect_msg = "Your third chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+test_output_contains("3.359e-09", incorrect_msg = "Your first chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+test_output_contains("4.793e-07", incorrect_msg = "Your second chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+test_output_contains("0.858", incorrect_msg = "Your third chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
 success_msg("Be there or be chi square(d)! You definately are there, well done with your chi square tests!")
 ```
 
