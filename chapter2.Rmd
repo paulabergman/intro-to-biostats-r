@@ -52,7 +52,7 @@ df
 # Search for the right value from the distribution table
 # The value is: 
 
-# Does this support the alternative hypothesis (on significance level 0.05)? (Answer Y if yes and N if no)
+# Does this support the alternative hypothesis (on significance level 0.05)? (Answer YES if yes and NO if no)
 # Your answer: 
 ```
  
