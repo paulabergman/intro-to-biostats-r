@@ -142,7 +142,7 @@ success_msg("Congrats, that was some awesome calculation!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key: ex4point3
-## Crosstabulations, odds ratios and risk ratios 2
+## Performing a logistic regression and calculating probabilities
  
 Last week you learned what is linear regression. It can be used when we are dealing with a continuous variable that we want to explain with other variables. Logistic regression is used when our variable of interest is discrete, binary logistic regression, that we are doing today, is used with binary variables. 
  
