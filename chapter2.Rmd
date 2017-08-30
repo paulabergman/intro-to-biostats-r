@@ -84,8 +84,8 @@ df
 # Search for the right value from the distribution table
 # The value is: 1.860
 
-# Does this support the alternative hypothesis (on significance level 0.05)? (Answer YES if yes and NO if no)
-# Your answer: NO
+# Does this support the alternative hypothesis (on significance level 0.05)? Remove the wrong answer.
+# Your answer: YES / NO
 ```
  
 *** =sct
@@ -143,14 +143,14 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Compare the systolic blood pressures
 with(cardiac,t.test(sbp~gender))
 
-# Is there a statistically significant difference? (answer YES or NO)
-# Your answer: NO
+# Is there a statistically significant difference? Remove the wrong answer.
+# Your answer: YES / NO
  
 # Compare the BMIs
 with(diabetes,t.test(bmi~gender))
 
-# There is a statistically significant difference, do you agree? (answer AGREE or DISAGREE) 
-# Your answer: AGREE
+# There is a statistically significant difference, do you agree? Remove the wrong answer.
+# Your answer: I DO / DON't agree.
 
 ```
  
@@ -158,19 +158,27 @@ with(diabetes,t.test(bmi~gender))
 ```{r}
 test_student_typed("t.test", not_typed_msg = "Are you using R's function for t-test?")
 test_student_typed("sbp~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
-test_student_typed("NO", not_typed_msg = "Your interpretation of the first t-test needs re-checking.")
+test_student_typed("NO", not_typed_msg = "Your interpretation of the first t-test needs re-checking. Check whether the confidence interval contains zero or not.")
 test_student_typed("bmi~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
-test_student_typed("AGREE", not_typed_msg = "Your interpretation of the second t-test needs re-checking.")
+test_student_typed("Your answer: I DO agree.", not_typed_msg = "Your interpretation of the second t-test needs re-checking. Check whether the confidence interval contains zero or not.")
 success_msg("Wow, you can already analyze the results of the t-test, congrats! Now let's move on to a next letter.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:1c76838a8c
-## Making plots more fancy
+--- type:NormalExercise lang:r xp:100 skills:1 key:ex2point3
+## The Chi square test
  
-Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about.
+When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.
 
+*** =instructions
+ - Crosstabulate event and restwma from the cardiac-dataset.
+   - Run the chi square test to check whether those two variables depend on each other.
+ - Crosstabulate smoking and gender from the cardiac-dataset. 
+   - Run the chi square test to check whether those two variables depend on each other.
+ - Crosstabulate categorized cholesterol (cholcat) and gender from the diabetes-dataset. 
+   - Run the chi square test to check whether those two variables depend on each other.
+   
 *** =hint
-Just add the title and colour options inside the plotting code, just like in the example.
+First make a table and then put the table inside the chi square function. The chi square test in R is chisq.test()
  
 *** =pre_exercise_code
 ```{r}
@@ -180,33 +188,87 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 *** =sample_code
 ```{r}
-# Draw a barplot of the variable 'gender' in cardiac-dataset. Add a title and colour to you plot.
- 
-barplot(table(cardiac$gender),main="Gender in cardiac-dataset",col="tomato")
+# The datasets cardiac and diabetes are available
 
-# Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
- 
+# Crosstabulate event and restwma
+table1 <-
 
- 
-# Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
- 
+# Run the chi square test for the table you just created
+
+
+# Do the variables depend on each other? 
+# Event and restwma DO / DON't depend on each other.
+
+# Crosstabulate smoking and gender
+table2 <-
+
+# Run the chi square test for the table you just created
+
+
+# Do the variables depend on each other? 
+# Smoking and gender DO / DON't depend on each other.
+
+
+# Crosstabulate categorized cholesterol and gender
+table3 <-
+
+# Run the chi square test for the table you just created
+
+
+# Do the variables depend on each other? 
+# Categorized cholesterol and gender DO / DON't depend on each other.
  
 ```
  
 *** =solution
 ```{r}
-# Draw a barplot of the variable 'gender' in diabetes-dataset
+# The datasets cardiac and diabetes are available
+
+# Crosstabulate event and restwma
+table1 <- with(cardiac, table(event, restwma))
+
+# Run the chi square test for the table you just created
+chisq.test(table1)
+
+# Do the variables depend on each other? 
+# Event and restwma DO depend on each other.
+
+# Crosstabulate smoking and gender
+table2 <- with(cardiac, table(smoking, gender))
+
+# Run the chi square test for the table you just created
+chisq.test(table2)
+
+# Do the variables depend on each other? 
+# Smoking and gender DO depend on each other.
+
+
+# Crosstabulate categorized cholesterol and gender
+table3 <- with(diabetes, table(cholcat, gender))
+
+# Run the chi square test for the table you just created
+chisq.test(table3)
+
+# Do the variables depend on each other? 
+# Categorized cholesterol and gender DON't depend on each other.
  
-barplot(table(diabetes$gender),main="Gender",col="blue")
- 
-# Draw a barplot of the variable 'age' in cardiac-dataset
-hist(cardiac$age,main="Age",col="hotpink")
 ```
  
 *** =sct
 ```{r}
-test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
-test_function("hist",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
-success_msg("Oh your plots look just fabulous!")
+test_student_typed("event", not_typed_msg = "Make sure you entered the right variables in your command.")
+test_student_typed("restwma", not_typed_msg = "Make sure you entered the right variables in your command.")
+test_student_typed("smoking", not_typed_msg = "Make sure you entered the right variables in your command.")
+test_student_typed("gender", not_typed_msg = "Make sure you entered the right variables in your command.")
+test_student_typed("cholcat", not_typed_msg = "Make sure you entered the right variables in your command.")
+test_student_typed("Event and restwma DO depend on each other.", not_typed_msg = "Make sure your interpretation of the first chi square test result is correct.")
+test_student_typed("Smoking and gender DO depend on each other.", not_typed_msg = "Make sure your interpretation of the second chi square test result is correct.")
+test_student_typed("Categorized cholesterol and gender DON't depend on each other.", not_typed_msg = "Make sure your interpretation of the third chi square test result is correct.")
+test_function("chisq.test", incorrect_msg = "Are you using the right test function?")
+test_student_typed("AGREE", not_typed_msg = "Your interpretation of the second t-test needs re-checking. Check whether the confidence interval contains zero or not.")
+test_output_contains("X-squared = 34.964", incorrect_msg = "Your chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+test_output_contains("X-squared = 25.346", incorrect_msg = "Your chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+test_output_contains("X-squared = 0.031994", incorrect_msg = "Your chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+success_msg("Be there or be chi square(d)! You definately are there, well done with your chi square tests!")
 ```
 
