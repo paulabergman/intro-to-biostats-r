@@ -84,8 +84,8 @@ df
 # Search for the right value from the distribution table
 # The value is: 1.860
 
-# Does this support the alternative hypothesis (on significance level 0.05)? (Answer Y if yes and N if no)
-# Your answer: N
+# Does this support the alternative hypothesis (on significance level 0.05)? (Answer YES if yes and NO if no)
+# Your answer: NO
 ```
  
 *** =sct
@@ -98,7 +98,7 @@ test_student_typed("sd2 <- 20.93", not_typed_msg = "Make sure you entered the ri
 test_output_contains("0.3086563", incorrect_msg = "Make sure that you have studied well the formula for the t-value.")
 test_output_contains("8", incorrect_msg = "Are you sure you calculated the degrees of freedom correctly?")
 test_student_typed("1.86", not_typed_msg = "Are you sure you looked at the right spot on the distribution table?")
-test_student_typed("N", not_typed_msg = "Perhaps you need to check again how to interpret your results.")
+test_student_typed("NO", not_typed_msg = "Perhaps you need to check again how to interpret your results.")
 success_msg("t-test seems to be your cup of tea! You know the name actually originates from the lady who was convinced she can taste whether the milk or the tea was poured first on her teacup?")
 ```
 
