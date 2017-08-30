@@ -160,7 +160,6 @@ test_student_typed("t.test", not_typed_msg = "Are you using R's function for t-t
 test_student_typed("sbp~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
 test_student_typed("NO", not_typed_msg = "Your interpretation of the first t-test needs re-checking.")
 test_student_typed("bmi~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
-test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
 test_student_typed("AGREE", not_typed_msg = "Your interpretation of the second t-test needs re-checking.")
 success_msg("Wow, you can already analyze the results of the t-test, congrats! Now let's move on to a next letter.")
 ```
