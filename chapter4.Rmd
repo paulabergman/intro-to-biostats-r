@@ -167,8 +167,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # cardiac-data is available
 # diabetes-data is available
  
-# Run the logistic regression analysis using the code provided below
-model1 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
+# Run the logistic regression analysis using the code provided below. Replace variables with the ones told in the instructions.
+model1 <- (with(cardiac, glm("dependent variable" ~ "variable1" + "variable2" + "variable3" + "variable4", family = "binomial")))
 
 # Look at the summary of the logistic regression analysis
 summary(model1) 
@@ -206,4 +206,96 @@ prob1
 test_output_contains("-0.664926", incorrect_msg = "Make sure your formula doesn't have any typos.")
 test_output_contains("0.3396", incorrect_msg = "Did you use the right formula?")
 success_msg("Now you can calculate the risks and probabilities for almost anything, that's just amazing!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key: ex4point4
+## Plotting the odds ratios
+ 
+Now we have learned to build a logistic regression model. One of the main interests in interpreting the results of the logistic regression are the odds ratios. So as our last exercise we will learn how to plot them, as well as their confidence intervals.
+ 
+ 
+*** =instructions
+ - Get the Epi-package from the package library. 
+ - Print a table of the odds ratios and their confidence intervals for model1. 
+ - Draw a plot of odds ratios.
+ - Add the confidence intervals.
+ - Add a legend to the plot.
+ 
+*** =hint
+Odds ratios and confidence intervals can be calculated by ci.exp()-command.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
+model1 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
+```
+ 
+*** =sample_code
+```{r}
+# cardiac-data is available
+# diabetes-data is available
+# model1 is available
+ 
+# Get the Epi-package by using the library()-command
+
+
+# Print a table of the odds ratios and their confidence intervals for model1
+
+table1 <-
+table1
+
+# Modify the plotting command appropriately
+
+plot("write here the name of the odds ratio table"[,1],ylim=c(0,7), xaxt="n",
+     ylab="OR",xlab="Variables",main="Odds ratios in the \nlogistic regression model")
+axis(side=1,at=c(1,2,3,4,5),labels=c("Intercept","age","gender","reswma","posSE"))
+lines("write here the name of the odds ratio table"[,1])
+
+points("write here the name of the odds ratio table"[,2],col="color of your choice")
+lines("write here the name of the odds ratio table"[,2],col="color of your choice",lty=2)
+
+points("write here the name of the odds ratio table"[,3],col="color of your choice")
+lines("write here the name of the odds ratio table"[,3],col="color of your choice",lty=2)
+
+legend("define here the position of the legend",c("OR","95% CI"),lty=c(1,2),col=c("black","color of your choice"))
+
+
+
+```
+ 
+*** =solution
+```{r}
+# Get the Epi-package by using the library()-command
+library(Epi)
+
+# Print a table of the odds ratios and their confidence intervals for model1
+
+table1 <- ci.exp(model1)
+table1
+
+# Modify the plotting command appropriately
+
+plot(table1[,1],ylim=c(0,7), xaxt="n",
+     ylab="OR",xlab="Variables",main="Odds ratios in the \nlogistic regression model")
+axis(side=1,at=c(1,2,3,4,5),labels=c("Intercept","age","gender","reswma","posSE"))
+lines(table1[,1])
+
+points(table1[,2],col="pink")
+lines(table1[,2],col="pink",lty=2)
+
+points(table1[,3],col="pink")
+lines(table1[,3],col="pink",lty=2)
+
+legend("topleft",c("OR","95% CI"),lty=c(1,2),col=c("black","pink"))
+
+
+```
+ 
+*** =sct
+```{r}
+test_student_typed("library(Epi)", not_typed_msg = "You have to load the Epi-package before doing anything else.")
+test_student_typed("ci.exp(model1)", not_typed_msg = "Make sure you are using the right command for the odds ratio table.")
+test_student_typed("plot(table1[,1]", not_typed_msg = "Make sure you entered the name of the table in the plotting-command.")
+success_msg("Awesome, you have completed all the exercises! Well done!")
 ```
