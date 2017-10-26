@@ -215,9 +215,8 @@ Now we have learned to build a logistic regression model. One of the main intere
  
  
 *** =instructions
- - Get the Epi-package from the package library. 
- - Print a table of the odds ratios and their confidence intervals for model1. 
- - Draw a plot of odds ratios.
+ - Form a table of the odds ratios and their confidence intervals for model1. 
+ - Draw a plot of odds ratios based on the table just formed.
  - Add the confidence intervals.
  - Add a legend to the plot.
  
@@ -237,13 +236,15 @@ model1 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "b
 # diabetes-data is available
 # model1 is available
  
-# Get the Epi-package by using the library()-command
+# Form a table of the odds ratios and their confidence intervals for model1
 
+sum.coef<-summary(model1)$coef 
 
-# Print a table of the odds ratios and their confidence intervals for model1
+est<-exp(sum.coef[,1]) 
+upper.ci<-exp(sum.coef[,1]+1.96*sum.coef[,2]) 
+lower.ci<-exp(sum.coef[,1]-1.96*sum.coef[,2]) 
 
-table1 <-
-table1
+table1 <-cbind(est,upper.ci,lower.ci) 
 
 # Modify the plotting command appropriately
 
@@ -266,13 +267,15 @@ legend("define here the position of the legend",c("OR","95% CI"),lty=c(1,2),col=
  
 *** =solution
 ```{r}
-# Get the Epi-package by using the library()-command
-library(Epi)
+# Form a table of the odds ratios and their confidence intervals for model1
 
-# Print a table of the odds ratios and their confidence intervals for model1
+sum.coef<-summary(model1)$coef 
 
-table1 <- ci.exp(model1)
-table1
+est<-exp(sum.coef[,1]) 
+upper.ci<-exp(sum.coef[,1]+1.96*sum.coef[,2]) 
+lower.ci<-exp(sum.coef[,1]-1.96*sum.coef[,2]) 
+
+table1 <-cbind(est,upper.ci,lower.ci) 
 
 # Modify the plotting command appropriately
 
