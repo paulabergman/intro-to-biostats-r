@@ -238,7 +238,7 @@ model1 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "b
  
 # Form a table of the odds ratios and their confidence intervals for model1
 
-sum.coef<-summary(model1)$coef 
+sum.coef<-summary("logistic regression model")$coef 
 
 est<-exp(sum.coef[,1]) 
 upper.ci<-exp(sum.coef[,1]+1.96*sum.coef[,2]) 
@@ -299,7 +299,7 @@ legend("topleft",c("OR","95% CI"),lty=c(1,2),col=c("black","pink"))
  
 *** =sct
 ```{r}
-test_student_typed("ci.exp(model1)", not_typed_msg = "Make sure you are using the right command for the odds ratio table.")
-test_student_typed("table1[,1],ylim=c(0,7)", not_typed_msg = "Make sure you entered the name of the table in the plotting-command.")
+test_student_typed("summary(model1)", not_typed_msg = "Make sure you entered the name of your model in the summary command.")
+test_student_typed("plot(table1[,1]", not_typed_msg = "Make sure you entered the name of the table in the plotting-command.")
 success_msg("Awesome, you have completed all the exercises! Well done!")
 ```
