@@ -105,10 +105,58 @@ success_msg("t-test seems to be your cup of tea! You know the name actually orig
 --- type:NormalExercise lang:r xp:100 skills:1 key:ex2point2
 ## Getting more familiar with the t-test
  
-The t-test is often used to check whether there is differences between two independent groups, quite often men and women.
+The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other dicotomous groups.
  
 *** =instructions
  - Run a t-test to compare systolic blood pressure between genders in cardiac-dataset. Is there any difference between men and women?
+
+*** =hint
+Use the R function t.test and just enter the variables.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# The dataset cardiac is available
+ 
+# Compare the systolic blood pressures by using t-test
+
+# Is there a statistically significant difference? (answer YES or NO)
+# Your answer: 
+ 
+
+```
+ 
+*** =solution
+```{r}
+# The dataset cardiac is available
+ 
+# Compare the systolic blood pressures by using t-test
+with(cardiac,t.test(sbp~gender))
+
+# Is there a statistically significant difference? Remove the wrong answer.
+# Your answer: NO
+
+```
+ 
+*** =sct
+```{r}
+test_student_typed("t.test", not_typed_msg = "Are you using R's function for t-test?")
+test_student_typed("sbp~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
+test_student_typed("NO", not_typed_msg = "Your interpretation of the t-test needs re-checking. Check whether the confidence interval contains zero or not.")
+success_msg("t-test appears to be your cup of tea!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:ex2point3
+## Getting more familiar with the t-test
+ 
+The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other dicotomous groups.
+ 
+*** =instructions
  - Run a t-test to compare BMI between genders in diabetes-dataset. Is there any difference between men and women?
 
 *** =hint
@@ -122,14 +170,14 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 *** =sample_code
 ```{r}
-# The datasets cardiac and diabetes are available
+# The dataset diabetes is available
  
-# Compare the systolic blood pressures
+# Compare the systolic blood pressures by using t-test
 
 # Is there a statistically significant difference? (answer YES or NO)
 # Your answer: 
  
-# Compare the BMIs
+# Compare the BMIs by using t-test
 
 # There is a statistically significant difference, do you agree? Remove the wrong answer.
 # Your answer: I DO / DON't agree.
@@ -138,15 +186,9 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 *** =solution
 ```{r}
-# The datasets cardiac and diabetes are available
+# The dataset diabetes is available
  
-# Compare the systolic blood pressures
-with(cardiac,t.test(sbp~gender))
-
-# Is there a statistically significant difference? Remove the wrong answer.
-# Your answer: NO
- 
-# Compare the BMIs
+# Compare the BMIs by using t-test
 with(diabetes,t.test(bmi~gender))
 
 # There is a statistically significant difference, do you agree? Remove the wrong answer.
@@ -157,24 +199,18 @@ with(diabetes,t.test(bmi~gender))
 *** =sct
 ```{r}
 test_student_typed("t.test", not_typed_msg = "Are you using R's function for t-test?")
-test_student_typed("sbp~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
-test_student_typed("NO", not_typed_msg = "Your interpretation of the first t-test needs re-checking. Check whether the confidence interval contains zero or not.")
 test_student_typed("bmi~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
-test_student_typed("Your answer: I DO agree.", not_typed_msg = "Your interpretation of the second t-test needs re-checking. Check whether the confidence interval contains zero or not.")
-success_msg("Wow, you can already analyze the results of the t-test, congrats! Now let's move on to a next letter.")
+test_student_typed("Your answer: I DO agree.", not_typed_msg = "Your interpretation of the t-test needs re-checking. Check whether the confidence interval contains zero or not.")
+success_msg("Wow, you can already analyze the results of the t-test so well, congrats! Now let's move on to a next letter.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ex2point3
+--- type:NormalExercise lang:r xp:100 skills:1 key:ex2point4
 ## The Chi square test
  
 When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.
 
 *** =instructions
  - Crosstabulate event and restwma from the cardiac-dataset.
-   - Run the chi square test to check whether those two variables depend on each other.
- - Crosstabulate smoking and gender from the cardiac-dataset. 
-   - Run the chi square test to check whether those two variables depend on each other.
- - Crosstabulate categorized cholesterol (cholcat) and gender from the diabetes-dataset. 
    - Run the chi square test to check whether those two variables depend on each other.
    
 *** =hint
@@ -188,7 +224,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 *** =sample_code
 ```{r}
-# The datasets cardiac and diabetes are available
+# The dataset cardiac is available
 
 # Crosstabulate event and restwma
 table1 <-
@@ -203,6 +239,57 @@ test1$p.value
 # Do the variables depend on each other? 
 # Event and restwma DO / DON't depend on each other.
 
+```
+ 
+*** =solution
+```{r}
+# The datasets cardiac and diabetes are available
+
+# Crosstabulate event and restwma
+table1 <- with(cardiac, table(event, restwma))
+
+# Run the chi square test for the table you just created
+test1 <- chisq.test(table1)
+
+# Print out the p-value of the test separately
+test1$p.value
+
+# Do the variables depend on each other? 
+# Event and restwma DO depend on each other.
+```
+ 
+*** =sct
+```{r}
+test_student_typed("event", not_typed_msg = "Make sure you entered the right variables in your command.")
+test_student_typed("restwma", not_typed_msg = "Make sure you entered the right variables in your command.")
+test_student_typed("Event and restwma DO depend on each other.", not_typed_msg = "Make sure your interpretation of the first chi square test result is correct.")
+test_function("chisq.test", incorrect_msg = "Are you using the right test function?")
+test_output_contains("3.359", incorrect_msg = "Your chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+success_msg("That's some badass crosstabulation you did there, go you!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:ex2point5
+## The Chi square test
+ 
+When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.
+
+*** =instructions
+ - Crosstabulate smoking and gender from the cardiac-dataset. 
+   - Run the chi square test to check whether those two variables depend on each other.
+  
+*** =hint
+First make a table and then put the table inside the chi square function. The chi square test in R is chisq.test()
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# The dataset cardiac is available.
+
 # Crosstabulate smoking and gender
 table2 <-
 
@@ -216,6 +303,57 @@ test2$p.value
 # Do the variables depend on each other? 
 # Smoking and gender DO / DON't depend on each other.
 
+```
+ 
+*** =solution
+```{r}
+# The dataset cardiac is available.
+
+# Crosstabulate smoking and gender
+table2 <- with(cardiac, table(smoking, gender))
+
+# Run the chi square test for the table you just created
+test2 <- chisq.test(table2)
+
+# Print out the p-value of the test separately
+test2$p.value
+
+# Do the variables depend on each other? 
+# Smoking and gender DO depend on each other.
+```
+ 
+*** =sct
+```{r}
+test_student_typed("smoking", not_typed_msg = "Make sure you entered the right variables in your command.")
+test_student_typed("gender", not_typed_msg = "Make sure you entered the right variables in your command.")
+test_student_typed("Smoking and gender DO depend on each other.", not_typed_msg = "Make sure your interpretation of the second chi square test result is correct.")
+test_function("chisq.test", incorrect_msg = "Are you using the right test function?")
+test_output_contains("4.79", incorrect_msg = "Your chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
+test_student_typed("Smoking and gender DO depend on each other.", not_typed_msg = "Make sure your interpretation of the second chi square test result is correct.")
+success_msg("Way to go, you are getting more and more pro at this!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:ex2point6
+## The Chi square test
+ 
+When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.
+
+*** =instructions
+ - Crosstabulate categorized cholesterol (cholcat) and gender from the diabetes-dataset. 
+   - Run the chi square test to check whether those two variables depend on each other.
+   
+*** =hint
+First make a table and then put the table inside the chi square function. The chi square test in R is chisq.test()
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# The dataset diabetes is available
 
 # Crosstabulate categorized cholesterol and gender
 table3 <-
@@ -234,32 +372,7 @@ test3$p.value
  
 *** =solution
 ```{r}
-# The datasets cardiac and diabetes are available
-
-# Crosstabulate event and restwma
-table1 <- with(cardiac, table(event, restwma))
-
-# Run the chi square test for the table you just created
-test1 <- chisq.test(table1)
-
-# Print out the p-value of the test separately
-test1$p.value
-
-# Do the variables depend on each other? 
-# Event and restwma DO depend on each other.
-
-# Crosstabulate smoking and gender
-table2 <- with(cardiac, table(smoking, gender))
-
-# Run the chi square test for the table you just created
-test2 <- chisq.test(table2)
-
-# Print out the p-value of the test separately
-test2$p.value
-
-# Do the variables depend on each other? 
-# Smoking and gender DO depend on each other.
-
+# The datasets diabetes is available
 
 # Crosstabulate categorized cholesterol and gender
 table3 <- with(diabetes, table(cholcat, gender))
@@ -277,18 +390,10 @@ test3$p.value
  
 *** =sct
 ```{r}
-test_student_typed("event", not_typed_msg = "Make sure you entered the right variables in your command.")
-test_student_typed("restwma", not_typed_msg = "Make sure you entered the right variables in your command.")
-test_student_typed("smoking", not_typed_msg = "Make sure you entered the right variables in your command.")
 test_student_typed("gender", not_typed_msg = "Make sure you entered the right variables in your command.")
 test_student_typed("cholcat", not_typed_msg = "Make sure you entered the right variables in your command.")
-test_student_typed("Event and restwma DO depend on each other.", not_typed_msg = "Make sure your interpretation of the first chi square test result is correct.")
-test_student_typed("Smoking and gender DO depend on each other.", not_typed_msg = "Make sure your interpretation of the second chi square test result is correct.")
 test_student_typed("Categorized cholesterol and gender DON't depend on each other.", not_typed_msg = "Make sure your interpretation of the third chi square test result is correct.")
 test_function("chisq.test", incorrect_msg = "Are you using the right test function?")
-test_output_contains("3.359", incorrect_msg = "Your first chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
-test_output_contains("4.79", incorrect_msg = "Your second chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
 test_output_contains("0.85", incorrect_msg = "Your third chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
 success_msg("Be there or be chi square(d)! You definately are there, well done with your chi square tests!")
 ```
-
