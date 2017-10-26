@@ -245,6 +245,7 @@ upper.ci<-exp(sum.coef[,1]+1.96*sum.coef[,2])
 lower.ci<-exp(sum.coef[,1]-1.96*sum.coef[,2]) 
 
 table1 <-cbind(est,upper.ci,lower.ci) 
+table1
 
 # Modify the plotting command appropriately
 
@@ -276,6 +277,7 @@ upper.ci<-exp(sum.coef[,1]+1.96*sum.coef[,2])
 lower.ci<-exp(sum.coef[,1]-1.96*sum.coef[,2]) 
 
 table1 <-cbind(est,upper.ci,lower.ci) 
+table1
 
 # Modify the plotting command appropriately
 
@@ -298,6 +300,6 @@ legend("topleft",c("OR","95% CI"),lty=c(1,2),col=c("black","pink"))
 *** =sct
 ```{r}
 test_student_typed("ci.exp(model1)", not_typed_msg = "Make sure you are using the right command for the odds ratio table.")
-test_student_typed("plot(table1[,1]", not_typed_msg = "Make sure you entered the name of the table in the plotting-command.")
+test_student_typed("table1[,1],ylim=c(0,7)", not_typed_msg = "Make sure you entered the name of the table in the plotting-command.")
 success_msg("Awesome, you have completed all the exercises! Well done!")
 ```
