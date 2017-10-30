@@ -9,7 +9,7 @@ description : "This weeks exercises will focus on linear regression. You will fo
 In this exercise you will form a linear regression model, see the results and make some interpretations based on those. In R linear regression can be done using lm()- function, for example: lm(cardiac$dobEF~cardiac$baseEF). Before the ~ sign you can put only one variable, the outcome variable. After it you can put one or multiple explanatory variables devided by the + sign. 
  
 *** =instructions
- - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age as an explanatory variable. Use the Cardiac-data. 
+ - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age as an explanatory variable. Use the Cardiac-data. (Don't use the with-function this time.)
 
  - Interpret the results: 
    + What is the regression coefficient?
@@ -50,7 +50,7 @@ summary(reg1)
  
 *** =sct
 ```{r}
-test_output_contains("lm(cardiac$sbp~cardiac$age)", incorrect_msg = "Make sure you have put the variables in the right order, and they are divided by the ~ sign.")
+test_student_typed("lm(cardiac$sbp~cardiac$age)", incorrect_msg = "Make sure you have put the variables in the right order, and they are divided by the ~ sign.")
 test_student_typed("summary(", not_typed_msg = "Make sure you have used the summary-function to see the results.")
 test_student_typed("Regression coefficient is: -0.22", not_typed_msg = "Make sure you have typed the right regression coefficient.")
 test_student_typed("Intercept is: 161.7", not_typed_msg = "Make sure you have typed the right intercept.")
@@ -65,7 +65,7 @@ test_student_typed("Variance explained is: 0.00349", not_typed_msg = "Make sure 
 In the previous exercise you made a linear regression using one explanatory variables. In this exercise you will add explanatory variables. 
  
 *** =instructions
- - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age, sex and ejection fraction (baseEF) as an explanatory variable. Use the Cardiac-data. 
+ - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age, sex and ejection fraction (baseEF) as an explanatory variable. Use the Cardiac-data. (Don't use the with-function this time.)
  Interpret the results: 
    - What is the regression coefficient for age?
    - What is the regression coefficient for gender?
@@ -115,7 +115,7 @@ summary(reg)
  
 *** =sct
 ```{r}
-test_student_typed("lm(sbp~age+gender+baseEF)", not_typed_msg = "Make sure you have put the variables in the right order, and they are divided by the + sign.")
+test_student_typed("lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)", not_typed_msg = "Make sure you have put the variables in the right order, and they are divided by the + sign.")
 test_student_typed("summary(", not_typed_msg = "Make sure you have used the summary-function to see the results.")
 test_student_typed("Regression coefficient for age is: -0.22", not_typed_msg = "Make sure you have typed the right regression coefficient for age.")
 test_student_typed("Regression coefficient for gender is: -0.1973", not_typed_msg = "Make sure you have typed the right regression coefficient for gender.")
