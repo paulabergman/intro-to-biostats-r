@@ -1,5 +1,5 @@
 --- 
-title_meta  : WEEK 2
+title_meta  : WEEK 2 (deadline 21.11. 23:59)
 title       : Statistical testing
 description : "In this chapter, you will learn what does statistical significance mean and learn to crosstabulate and run some useful statistical tests, such as chi square and t-test."
  
