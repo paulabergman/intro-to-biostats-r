@@ -50,7 +50,7 @@ summary(reg1)
  
 *** =sct
 ```{r}
-test_student_typed("lm(cardiac$sbp~cardiac$age)", incorrect_msg = "Make sure you have put the variables in the right order, and they are divided by the ~ sign.")
+test_student_typed("lm(cardiac$sbp~cardiac$age)", not_typed_msg = "Make sure you have put the variables in the right order, and they are divided by the ~ sign.")
 test_student_typed("summary(", not_typed_msg = "Make sure you have used the summary-function to see the results.")
 test_student_typed("Regression coefficient is: -0.22", not_typed_msg = "Make sure you have typed the right regression coefficient.")
 test_student_typed("Intercept is: 161.7", not_typed_msg = "Make sure you have typed the right intercept.")
@@ -89,11 +89,11 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Check the results
 
 # Fill the following sentences with the right numbers:
-# Regression coefficient for age is:
-# Regression coefficient for gender is:
-# Regression coefficient for ejection fraction is:
-# Intercept is:
-# Variance explained is:
+# Regression coefficient for age is: 
+# Regression coefficient for gender is: 
+# Regression coefficient for ejection fraction is: 
+# Intercept is: 
+# Variance explained is: 
  
 ```
  
@@ -101,16 +101,16 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 ```{r}
 reg<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
 summary(reg)
-# Regression coefficient for age
--0.2219
-# Regression coefficient for gender
--0.1973
-# Regression coefficient for ejection fraction
-0.4314
-# Intercept
-137.9916
-# Variance explained
-0.001469
+# Regression coefficient for age is: -0.2219
+
+# Regression coefficient for gender is: -0.1973
+
+# Regression coefficient for ejection fraction is: 0.4314
+
+# Intercept is: 137.9916
+
+# Variance explained is: 0.001469
+
 ```
  
 *** =sct
@@ -121,7 +121,7 @@ test_student_typed("Regression coefficient for age is: -0.22", not_typed_msg = "
 test_student_typed("Regression coefficient for gender is: -0.1973", not_typed_msg = "Make sure you have typed the right regression coefficient for gender.")
 test_student_typed("Regression coefficient for ejection fraction is: 0.43", not_typed_msg = "Make sure you have typed the right regression coefficient for ejection fraction.")
 test_student_typed("Intercept is: 137.9", not_typed_msg = "Make sure you have typed the right intercept.")
-test_student_typed("Variance explained is: 0.01", not_typed_msg = "Make sure you have typed the right variance explained.")
+test_student_typed("Variance explained is: 0.001", not_typed_msg = "Make sure you have typed the right variance explained.")
 
 ```
 
