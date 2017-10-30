@@ -1,6 +1,6 @@
 --- 
 title_meta  : WEEK 3 (deadline 28.11. 23:59)
-title       : Linear regression
+title       : Linear regression (WEEK 3 (deadline 28.11. 23:59))
 description : "This weeks exercises will focus on linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
