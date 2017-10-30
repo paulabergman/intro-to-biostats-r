@@ -1,5 +1,5 @@
 --- 
-title_meta  : WEEK 1
+title_meta  : WEEK 1 (deadline 14.11. 23:59)
 title       : Basics of R, summary statistics and tabulation
 description : "In this chapter, you will get to know some basic features of R. You will also learn to check the summary statistics of continuous variables and draw some simple graphs."
  
