@@ -1,5 +1,5 @@
 --- 
-title_meta  : Chapter 3.1
+title_meta  : WEEK 3
 title       : Linear regression
 description : "This weeks exercises will focus on linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models."
  
