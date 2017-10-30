@@ -69,7 +69,7 @@ success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on
 ## Video: Tilastolliset tunnusluvut
 
 *** =video_link
-//https://vimeo.com/240486814
+//https://youtu.be/gd4LG2Yi2ng
 
 *** =projector_key
 4af09a209c576802052d956cfdee5faf
