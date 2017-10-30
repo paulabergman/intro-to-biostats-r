@@ -74,6 +74,13 @@ success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on
 *** =projector_key
 4af09a209c576802052d956cfdee5faf
 
+
+--- type:VideoExercise lang:r xp:50 skills:1 key:879183ead4
+## <<<New Exercise>>>
+
+
+*** =video_link
+//player.vimeo.com/video/154783078
 --- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
 ## Checking out the data! 
  
