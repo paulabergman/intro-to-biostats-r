@@ -77,7 +77,7 @@ success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on
 --- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
 ## Checking out the data! 
  
-When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females/males, what is the age distrtibution for example. For categorical variables, table() is a good idea and for continous variables use summary(). To know what variables you have in your data, just type colnames(data).
+When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females / males, what is the age distrtibution for example. For categorical variables, table() is a good idea and for continous variables use summary(). To know what variables you have in your data, just type colnames(data).
  
 *** =instructions
  - Find out how many observations does the cardiac-data contain. 
