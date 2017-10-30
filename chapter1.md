@@ -65,6 +65,12 @@ test_output_contains("9.533", incorrect_msg = "Make sure that you have studied w
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
 
+--- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:video1
+## Video: Linear regression
+
+*** =video_link
+//https://www.dropbox.com/sh/vsuzf50itr5gvj1/AAA_9-KD9RDZiaxnng4aYH82a?dl=0&preview=Tilastolliset_tunnusluvut.mp4
+
 --- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
 ## Checking out the data! 
  
