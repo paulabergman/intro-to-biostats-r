@@ -209,7 +209,7 @@ barplot(table(diabetes$gender))
 hist(cardiac$age)
 
 # Draw a histogram of the variable 'bhr' (= "basal heart rate") in cardiac-dataset. Is there anything weird?
-boxplot(diabetes$chol~diabetes$gender)
+hist(cardiac$bhr)
  
 # Draw a boxplot for cholesterol ('chol') in diabetes- data by gender.
 boxplot(diabetes$chol~diabetes$gender)
