@@ -69,7 +69,7 @@ success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on
 ## Video: Linear regression
 
 *** =video_link
-//https://www.dropbox.com/sh/vsuzf50itr5gvj1/AAA_9-KD9RDZiaxnng4aYH82a?dl=0&preview=Tilastolliset_tunnusluvut.mp4
+//https://vimeo.com/240486814
 
 *** =projector_key
 4af09a209c576802052d956cfdee5faf
