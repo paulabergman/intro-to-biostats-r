@@ -1,6 +1,6 @@
 --- 
 title_meta  : Chapter 4
-title       :  WEEK 4: Odds ratio (OR) and risk ratio (RR) (deadline 9.12. 23:59)
+title       :  WEEK 4, Odds ratio (OR) and risk ratio (RR) (deadline 9.12. before midnight)
 description : "In this week's exercises you will learn how to predict risks, calculate odds and risk ratios and run a logistic regression."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key: ex4point1
