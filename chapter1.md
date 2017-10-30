@@ -66,7 +66,7 @@ success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on
 ```
 
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:video1
-## Video: Linear regression
+## Video: Tilastolliset tunnusluvut
 
 *** =video_link
 //https://vimeo.com/240486814
