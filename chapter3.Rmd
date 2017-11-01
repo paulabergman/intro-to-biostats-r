@@ -182,7 +182,7 @@ hist(cardiac$sbp)
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:99950f38b0
+--- type:NormalExercise lang:r xp:100 skills:1 key:6ab94d6198
 ## Comparing the variance explained
  
 You've learned a lot about linear regression today! There is still lot to be learned. Next we will compare the varinces explained by our one variable model and our multiple variables model. 
@@ -222,7 +222,7 @@ summary(reg2)
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:99950f38b0
+--- type:NormalExercise lang:r xp:100 skills:1 key:89e633c5f6
 ## Still one thing left to do...
  
 Now you have gone through the basics of linear model. Let's apply all these information with one more model! 
