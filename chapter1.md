@@ -64,7 +64,7 @@ test_output_contains("54", incorrect_msg = "Make sure to add the values together
 test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
---- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
+--- type:NormalExercise lang:r xp:100 skills:1 key:8759cee56a
 ## Let's get started
  
 In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
