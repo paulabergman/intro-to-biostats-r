@@ -64,23 +64,15 @@ test_output_contains("54", incorrect_msg = "Make sure to add the values together
 test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
+
 --- type:NormalExercise lang:r xp:100 skills:1 key:8759cee56b
 ## How to make these in a more simple way
- 
-In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
- 
-You can use R as a calculator. You can run basic mathematical operations like this: 
- 
-- Addition: `+`
-- Subtraction: `-`
-- Multiplication: `*`
-- Division: `/`
-- Exponentiation: `^`
- 
-In order to understand better your own code, or in case you want to save it as an actual R script (It is possible if you have R installed in your computer.) it is good to comment on your code. That can be done by typing `#` at the beginning of the row. Any text you type on that row will be considered as a comment. For example _Calculate the mean of these numbers: 1, 3, 8, 10, 12_ in the editor window is a comment.
+In the previous exercise we calculated mean and standard deviation manually. R, however, has many equations often used in it. For example, to calculate the mean of values 4,6 and 7, you can just type mean(c(4,6,7)). Or to calculate the standard deviation of these numbers, just type sd(c(4,6,7))
+
  
 *** =instructions
-In the previous exercise we calculated mean and standard deviation manually. R, however, has many equations often used in it. For example, to calculate the mean of values 4,6 and 7, you can just type mean(c(4,6,7)). Or to calculate the standard deviation of these numbers, just type sd(c(4,6,7))
+
+Calculate the mean and standard deviation for the same data set as in previous exercise using function mean() and sd(). You should get the same results as in previous exercise.
 
 *** =hint
 Make sure you have not forget to put those numbers in vector c()!
