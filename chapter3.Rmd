@@ -146,6 +146,7 @@ cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bio
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 reg1<-lm(cardiac$sbp~cardiac$age)
 reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
+library(MASS)
 ```
  
 *** =sample_code
@@ -164,9 +165,9 @@ reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
  
 *** =solution
 ```{r}
-qqnorm(studred(reg1))
+qqnorm(studres(reg1))
 hist(studres(reg1))
-qqnorm(studred(reg2))
+qqnorm(studres(reg2))
 hist(studres(reg2))
 hist(cardiac$sbp)
 ```
