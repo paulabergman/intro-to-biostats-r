@@ -111,7 +111,7 @@ sd(c(64,57,52,7,57,62,60,57, 57 ,37))
 ```{r}
 test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
 test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
-success_msg("Super! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
+success_msg("Super! Now let's move on to the next exercise.")
 ```
 
 
@@ -137,7 +137,7 @@ e7226e36f6be9721b95f59d210e0aded
 --- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
 ## Checking out the data! 
  
-When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females / males, what is the age distrtibution for example. For categorical variables, table() is a good idea and for continous variables use summary(). To know what variables you have in your data, just type colnames(data).
+When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females / males, and what is the age distrtibution for example. To get the number of samples and variables in your data, just type dim(data). For categorical variables, table() is a good idea and for continous variables use summary(). To know what variables you have in your data, just type colnames(data).
  
 *** =instructions
  - Find out how many observations does the cardiac-data contain. 
@@ -201,6 +201,8 @@ test_student_typed("558", not_typed_msg = "Make sure that you have the right sam
 test_student_typed("403", not_typed_msg = "Make sure that you have the right sample size for diabetes-data.")
 test_student_typed("338", not_typed_msg = "Make sure that you have the right female number cardiac-data.")
 test_student_typed("234", not_typed_msg = "Make sure that you have the right female number for diabetes-data.")
+test_student_typed("summary(cardiac$age)", not_typed_msg = "Make sure you checked the summary of the variable 'age' in cardiac- dataset.")
+test_student_typed("summary(diabetes$age)", not_typed_msg = "Make sure you checked the summary of the variable 'age' in diabetes- dataset.")
 
 success_msg("Great! You're getting master at R! ")
 ```
@@ -293,7 +295,7 @@ success_msg("Awesome! You old plotting wizard!")
 
 ## Making plots more fancy
  
-Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about. One of R's best features is it wide range of colours, and easy wat of adjusting your plots to be exactly as you want.
+Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about. One of R's best features is it wide range of colours, and easy wat of adjusting your plots to be exactly as you want. The basic colours, such as red and green can be gained by just typing 'red' or 'green'. To fin out more about colours in R, and their names, google colours in R and you are on your way to a super fancy plots!
 
 *** =hint
 Just add the title and colour options inside the plotting code, just like in the example.
