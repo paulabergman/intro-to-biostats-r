@@ -135,8 +135,11 @@ The models you created in the previous exercises are named reg1 and reg2, accord
  - reg1<-lm(cardiac$sbp~cardiac$age)
  - reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
 You don't need to run these by yourself anymore!
- - Create Q-Q plot from your 'one explanatory variable' model, reg1
- - Create Q-Q plot from your 'multiple explanatory variables' model, reg2
+ - Create Q-Q plot from your 'one explanatory variable' model, reg1, and add the unity line by typing abline(0,1) after your plotting command. How does it look?
+ - Plot the histogram from the residuals of that same model. 
+ - Create Q-Q plot from your 'multiple explanatory variables' model, reg2, and add the unity line. How does it look?
+ - Plot the histogram from the residuals of that same model.
+ - Plot histogram from your outcome variable, sbp.
 *** =hint
   
  
@@ -166,8 +169,10 @@ library(MASS)
 *** =solution
 ```{r}
 qqnorm(studres(reg1))
+abline(0,1)
 hist(studres(reg1))
 qqnorm(studres(reg2))
+abline(0,1)
 hist(studres(reg2))
 hist(cardiac$sbp)
 ```
