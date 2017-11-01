@@ -3,7 +3,7 @@ title_meta  : Chapter 3
 title       : WEEK 3, Linear regression (deadline 28.11. 23:59)
 description : "This weeks exercises will focus on linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models."
  
---- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_1
 ## Linear regression with one explanatory variable
  
 In this exercise you will form a linear regression model, see the results and make some interpretations based on those. In R linear regression can be done using lm()- function, for example: lm(cardiac$dobEF~cardiac$baseEF). Before the ~ sign you can put only one variable, the outcome variable. After it you can put one or multiple explanatory variables devided by the + sign. 
@@ -59,7 +59,7 @@ test_student_typed("Variance explained is: 0.00349", not_typed_msg = "Make sure 
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:harj32
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_2
 ## Linear regression with multiple explanatory variables
  
 In the previous exercise you made a linear regression using one explanatory variables. In this exercise you will add explanatory variables. 
@@ -125,7 +125,7 @@ test_student_typed("Variance explained is: 0.01", not_typed_msg = "Make sure you
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:99950f38b0
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_3
 ## Checking the assumptions for your model graphically
  
 Now you know how to form linear regression models and check their results. In this exercise you will learn how to check how your model fits the assumptions (normality). You can do this for example creating a Q-Q plot from your model using qqnorm(studred(model))- command, or plotting a histogram from the residuals of your model typing hist(studres(model)).
@@ -182,7 +182,7 @@ hist(cardiac$sbp)
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:6ab94d6198
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_4
 ## Comparing the variance explained
  
 You've learned a lot about linear regression today! There is still lot to be learned. Next we will compare the varinces explained by our one variable model and our multiple variables model. 
@@ -226,7 +226,7 @@ summary(reg2)
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:89e633c5f6
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_5
 ## Still one thing left to do...
  
 Now you have gone through the basics of linear model. Let's apply all these information with one more model! 
