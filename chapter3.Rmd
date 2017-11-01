@@ -208,6 +208,10 @@ library(MASS)
 *** =sample_code
 ```{r}
 ## Check the variance explained (adjusted R squared) from both of these models
+
+## Which one is better? Leave the better one here: REG1/REG2
+
+## Which variables you would keep in the model (based on their effect's p-value)? Leave those variable names here: AGE, GENDER, BASEEF
 ```
  
 *** =solution
@@ -253,11 +257,12 @@ library(MASS)
 ## Regression coefficient for bmi is:
 ## Regression coefficient for age is:
 ## Regression coefficient for gender is:
-## Regression coefficient for is:
+## Regression coefficient for  is:
 ## Variance explained is:
  
 ##Create a Q-Q plot
 
+## Which of these variables you would keep in the model? Leave thosa here: BMI, AGE, GENDER, 
 ```
  
 *** =solution
