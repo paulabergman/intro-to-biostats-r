@@ -132,8 +132,8 @@ Now you know how to form linear regression models and check their results. In th
  
 *** =instructions
 The models you created in the previous exercises are named reg1 and reg2, accordingl with the following commands:
- -reg1<-lm(cardiac$sbp~cardiac$age)
- -reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
+ - reg1<-lm(cardiac$sbp~cardiac$age)
+ - reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
 You don't need to run these by yourself anymore!
  - Create Q-Q plot from your 'one explanatory variable' model, reg1
  - Create Q-Q plot from your 'multiple explanatory variables' model, reg2
@@ -144,9 +144,9 @@ You don't need to run these by yourself anymore!
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
-
 reg1<-lm(cardiac$sbp~cardiac$age)
 reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
+library(MASS)
 ```
  
 *** =sample_code
