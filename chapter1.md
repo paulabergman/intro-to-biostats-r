@@ -3,7 +3,7 @@ title_meta  : Chapter 1
 title       : WEEK 1, Basics of R, summary statistics and tabulation (deadline 14.11. 23:59)
 description : "In this chapter, you will get to know some basic features of R. You will also learn to check the summary statistics of continuous variables and draw some simple graphs."
  
---- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_1
 ## Let's get started
  
 In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
@@ -65,7 +65,7 @@ test_output_contains("9.533", incorrect_msg = "Make sure that you have studied w
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:8759cee56b
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_2
 ## How to make these in a more simple way
 In the previous exercise we calculated mean and standard deviation manually. R, however, has many equations often used in it. For example, to calculate the mean of values 4,6 and 7, you can just type mean(c(4,6,7)). Or to calculate the standard deviation of these numbers, just type sd(c(4,6,7))
 
@@ -134,7 +134,7 @@ success_msg("Super! Now let's move on to the next exercise.")
 *** =projector_key
 e7226e36f6be9721b95f59d210e0aded
 
---- type:NormalExercise lang:r xp:100 skills:1 key:cb2334e4d3
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_3
 ## Checking out the data! 
  
 When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females / males, and what is the age distrtibution for example. To get the number of samples and variables in your data, just type dim(data). For categorical variables, table() is a good idea and for continous variables use summary(). To know what variables you have in your data, just type colnames(data).
@@ -207,7 +207,7 @@ test_student_typed("summary(diabetes$age)", not_typed_msg = "Make sure you check
 success_msg("Great! You're getting master at R! ")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:1428bf2042
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_4
 ## Basic plotting
  
 When checking out your data, the good next step is to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (the kind of values that are very different from the other values.) The propably most commonly used plotting commands are hist() for histrogram, barplot() for barplot, plot() for scatter plot and boxplot() for boxplot. 
@@ -291,7 +291,7 @@ test_student_typed("plot(cardiac$maxhr,cardiac$sbp)", not_typed_msg = "Make sure
 
 success_msg("Awesome! You old plotting wizard!")
 ```
---- type:NormalExercise lang:r xp:100 skills:1 key:1c76838a8c
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_5
 
 ## Making plots more fancy
  
