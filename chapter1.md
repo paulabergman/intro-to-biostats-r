@@ -40,10 +40,10 @@ Just revise the formulas of mean and standard deviation! Write the numbers on th
 
 sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
  
-# Calculate the arithmetic mean of the ejectiofraction
+# Calculate the arithmetic mean of the ejectiofraction as shown in example above
 
  
-# Calculate the standard deviation of the ejectiofraction
+# Calculate the standard deviation of the ejectiofraction as shown in example above
  
 
 ```
