@@ -121,7 +121,7 @@ test_student_typed("Regression coefficient for age is: -0.22", not_typed_msg = "
 test_student_typed("Regression coefficient for gender is: -0.1973", not_typed_msg = "Make sure you have typed the right regression coefficient for gender.")
 test_student_typed("Regression coefficient for ejection fraction is: 0.43", not_typed_msg = "Make sure you have typed the right regression coefficient for ejection fraction.")
 test_student_typed("Intercept is: 137.9", not_typed_msg = "Make sure you have typed the right intercept.")
-test_student_typed("Variance explained is: 0.001", not_typed_msg = "Make sure you have typed the right variance explained.")
+test_student_typed("Variance explained is: 0.01", not_typed_msg = "Make sure you have typed the right variance explained.")
 
 ```
 
