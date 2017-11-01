@@ -64,6 +64,64 @@ test_output_contains("54", incorrect_msg = "Make sure to add the values together
 test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
+--- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
+## Let's get started
+ 
+In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
+ 
+You can use R as a calculator. You can run basic mathematical operations like this: 
+ 
+- Addition: `+`
+- Subtraction: `-`
+- Multiplication: `*`
+- Division: `/`
+- Exponentiation: `^`
+ 
+In order to understand better your own code, or in case you want to save it as an actual R script (It is possible if you have R installed in your computer.) it is good to comment on your code. That can be done by typing `#` at the beginning of the row. Any text you type on that row will be considered as a comment. For example _Calculate the mean of these numbers: 1, 3, 8, 10, 12_ in the editor window is a comment.
+ 
+*** =instructions
+In the previous exercise we calculated mean and standard deviation manually. R, however, has many equations often used in it. For example, to calculate the mean of values 4,6 and 7, you can just type mean(c(4,6,7)). Or to calculate the standard deviation of these numbers, just type sd(c(4,6,7))
+
+*** =hint
+Make sure you have not forget to put those numbers in vector c()!
+ 
+*** =pre_exercise_code
+```{r}
+ # no pec
+```
+ 
+*** =sample_code
+```{r}
+# Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
+mean(c(1,3,8 ,10,12))
+ 
+# Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
+sd(c(1, 3, 8, 10, 12))
+ 
+# Calculate the arithmetic mean of the ejectiofraction as shown in example above
+
+ 
+# Calculate the standard deviation of the ejectiofraction as shown in example above
+ 
+
+```
+ 
+*** =solution
+```{r}
+# Calculate the arithmetic mean of the ejectiofraction
+mean(c(64,57,52,7,57,62,60,57, 57 ,37))
+ 
+# Calculate the standard deviation of the ejectiofraction
+sd(c(64,57,52,7,57,62,60,57, 57 ,37))
+```
+ 
+*** =sct
+```{r}
+test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
+test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
+success_msg("Super! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
+```
+
 
 --- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:video1
 ## Video: Tilastolliset tunnusluvut
