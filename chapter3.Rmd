@@ -144,7 +144,6 @@ You don't need to run these by yourself anymore!
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
-library(MASS)
 
 reg1<-lm(cardiac$sbp~cardiac$age)
 reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
