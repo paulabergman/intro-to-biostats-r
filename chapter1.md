@@ -72,7 +72,7 @@ In the previous exercise we calculated mean and standard deviation manually. R, 
  
 *** =instructions
 
-Calculate the mean and standard deviation for the same data set as in previous exercise using function mean() and sd(). You should get the same results as in previous exercise.
+Calculate the mean and standard deviation for the same data set as in previous exercise using function mean() and sd(). You should get the same results as in previous exercise. Just as a reminder: the ejectionfractions (in percents) as follow: : 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37.
 
 *** =hint
 Make sure you have not forget to put those numbers in vector c()!
