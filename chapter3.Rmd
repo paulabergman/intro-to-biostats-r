@@ -181,3 +181,92 @@ hist(cardiac$sbp)
 ```{r}
 
 ```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:99950f38b0
+## Comparing the variance explained
+ 
+You've learned a lot about linear regression today! There is still lot to be learned. Next we will compare the varinces explained by our one variable model and our multiple variables model. 
+ 
+*** =instructions
+Once again, you can refer to your models with reg1 and reg2.
+ - Check the variance explained (adjusted R squared) from both of these models. (You can use summary()-function for example)
+ - Which one of these models explains the blood pressure better?
+ - Based on the results of your multiple variable model, would you leave out some explanatory variables from the models, and if so, what would you leave out and why? 
+ - Do you have idea, what variables could be interesting to add to the model? Why?
+*** =hint
+  
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+reg1<-lm(cardiac$sbp~cardiac$age)
+reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
+library(MASS)
+```
+ 
+*** =sample_code
+```{r}
+## Check the variance explained (adjusted R squared) from both of these models
+```
+ 
+*** =solution
+```{r}
+summary(reg1)
+summary(reg2)
+
+```
+ 
+*** =sct
+```{r}
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:99950f38b0
+## Still one thing left to do...
+ 
+Now you have gone through the basics of linear model. Let's apply all these information with one more model! 
+ 
+*** =instructions
+ - Form a linear model, in which you explain the ratio of total cholesterol and HDL cholesterol (ratio) by bmi, age, gender and . Use the diebetes- dataset. 
+ - Check the results: intercept, regression coefficients, variance explained. 
+ - Create a Q-Q plot from that model. How does it look like?
+
+*** =hint
+  
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+
+library(MASS)
+```
+ 
+*** =sample_code
+```{r}
+## Form a linear model
+
+## Check the results and fill the following:
+
+## Intercept is:
+## Regression coefficient for bmi is:
+## Regression coefficient for age is:
+## Regression coefficient for gender is:
+## Regression coefficient for is:
+## Variance explained is:
+ 
+##Create a Q-Q plot
+
+```
+ 
+*** =solution
+```{r}
+
+
+```
+ 
+*** =sct
+```{r}
+
+```
