@@ -378,10 +378,10 @@ Dog
 
  
 *** =sct
-```{r}
-test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
-test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
-success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
-```
+msg1 <- "Not good, try again!"
+msg2 <- "Not quite, give it another shot."
+msg3 <- "Nice one!"
+msg4 <- "Don't be silly..."
+test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 
