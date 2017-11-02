@@ -358,7 +358,7 @@ Which of the following is animal?
 - Flower
 - Tree
 - Dog
-- Spider
+- Bread
 
 *** =hint
 C'mon, this should be super easy!
