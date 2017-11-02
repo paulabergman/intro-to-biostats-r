@@ -349,3 +349,39 @@ test_function("hist",, incorrect_msg = "Did you enter both title and colour opti
 success_msg("Oh your plots look just fabulous!")
 ```
 
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise1_testi_multi
+## Multiple choice testing
+ 
+Which of the following is animal?
+ 
+*** =instructions
+- Flower
+- Tree
+- Dog
+- Spider
+
+*** =hint
+C'mon, this should be super easy!
+ 
+*** =pre_exercise_code
+```{r}
+ # no pec
+```
+ 
+*** =sample_code
+```{r}
+
+```
+ 
+*** =solution
+Dog
+
+ 
+*** =sct
+```{r}
+test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
+test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
+success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
+```
+
+
