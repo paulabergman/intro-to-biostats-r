@@ -397,3 +397,39 @@ test_function("chisq.test", incorrect_msg = "Are you using the right test functi
 test_output_contains("0.85", incorrect_msg = "Your third chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
 success_msg("Be there or be chi square(d)! You definately are there, well done with your chi square tests!")
 ```
+
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point7
+## Remembering t-test
+ 
+What is Student's t-test used for?
+ 
+*** =instructions
+- To check for missingness across all variables in the data
+- Counting the variables that are discrete
+- Checking whether the mean of a variable is equal in two populations
+- Calculating the median of a variable
+
+*** =hint
+It's name might give you a hint that t-test is a test. So we are testing whether something is true or not.
+ 
+*** =pre_exercise_code
+```{r}
+ # no pec
+```
+ 
+*** =sample_code
+```{r}
+
+```
+ 
+*** =solution
+Checking whether the mean of a variable is equal in two populations
+
+ 
+*** =sct
+msg1 <- "Not quite there yet!"
+msg2 <- "Think again."
+msg3 <- "There is no shame in googling, bro."
+msg4 <- "Come on, you can do better!"
+test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
+
