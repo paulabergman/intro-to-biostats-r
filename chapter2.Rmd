@@ -503,3 +503,42 @@ msg3 <- "Usually the chi square test isn't used to find summary statistics for a
 msg4 <- "Usually the chi square test isn't used to find check for single observations."
 test_mc(1, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
+
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point10
+## Interpret Chi square test results
+ 
+Type print(mydata) on the console and interpret whether there is independence between variables. (significance level 0.05)
+ 
+*** =instructions
+- The p-value of the chi square test is > 0.05, so the variables don't seem to depend on each other.
+- The p-value of the chi quare test is > 0.05, so the variables seem to depend on each other.
+- The p-value of the chi square test is < 0.05, so the variables seem to depend on each other. 
+- The p-value of the chi square test is < 0.05, so the variables don't seem to depend on each other.
+
+*** =hint
+Think first about what are we testing. Then think about the p-value: Does it have to be lower or greater than 0.05 for the test to be significant?
+ 
+*** =pre_exercise_code
+```{r}
+a<-c(15,38)
+b<-c(97,120)
+mydata<-cbind(a,b)
+```
+ 
+*** =sample_code
+```{r}
+
+```
+ 
+*** =solution
+
+
+ 
+*** =sct
+msg1 <- "Is the p-value over 0.05 though?"
+msg2 <- "Maybe revise the interpretation of the p-value."
+msg3 <- "Very well interpreted: The low p-value indicates that the test result is statistically significant, and since the null hypotheses of the chi square test is that the variables don't depend on each other, we can now reject that hypothesis."
+msg4 <- "What is the null hypotheses in the chi square test?"
+test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
+
+
