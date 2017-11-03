@@ -4,7 +4,7 @@ title       : WEEK 1, Basics of R, summary statistics and tabulation (deadline 1
 description : "In this chapter, you will get to know some basic features of R. You will also learn to check the summary statistics of continuous variables and draw some simple graphs."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_1
-## Let's get started
+## WEEK 1 STARTS HERE: Let's get started
  
 In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
  
