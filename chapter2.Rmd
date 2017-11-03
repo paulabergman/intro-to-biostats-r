@@ -154,7 +154,7 @@ success_msg("t-test appears to be your cup of tea!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:ex2point3
 ## Getting more familiar with the t-test 2
  
-The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other dicotomous groups.
+The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other binary (two classes) groups.
  
 *** =instructions
  - Run a t-test to compare BMI between genders in diabetes-dataset. Is there any difference between men and women?
@@ -404,13 +404,13 @@ success_msg("Be there or be chi square(d)! You definately are there, well done w
 What is Student's t-test used for?
  
 *** =instructions
-- To check for missingness across all variables in the data
-- Counting the variables that are discrete
-- Checking whether the mean of a variable is equal in two populations
-- Calculating the median of a variable
+- To check for missingness across all variables in the data.
+- Counting the variables that are discrete.
+- Checking whether the mean of a variable is equal in two populations.
+- Calculating the median of a variable.
 
 *** =hint
-It's name might give you a hint that t-test is a test. So we are testing whether something is true or not.
+Its name might give you a hint that t-test is a test. So we are testing whether something is true or not.
  
 *** =pre_exercise_code
 ```{r}
@@ -428,8 +428,43 @@ Checking whether the mean of a variable is equal in two populations
  
 *** =sct
 msg1 <- "Not quite there yet!"
-msg2 <- "Think again."
-msg3 <- "There is no shame in googling, bro."
+msg2 <- "There is no shame in googling, bro."
+msg3 <- "That's right, well done!"
 msg4 <- "Come on, you can do better!"
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
+
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point8
+## Remembering t-test
+ 
+Which of the following is true?
+ 
+*** =instructions
+- The t-statistic was invented by William van der Gosset who worked at Heineken brewery at the beginning of 1900s. 
+- The independent samples t-test could be done for example if one wanted to compare the heights of a certain group of school children at age 6 and then again at age 10.
+- The t-test is especially used when we have only binary variables in our data.
+- The t-test could be used to compare the BMI between the people born in winter and people born in summer. 
+
+*** =hint
+Think about what you have done with the t-test in the previous exercises.
+ 
+*** =pre_exercise_code
+```{r}
+ # no pec
+```
+ 
+*** =sample_code
+```{r}
+
+```
+ 
+*** =solution
+Checking whether the mean of a variable is equal in two populations
+
+ 
+*** =sct
+msg1 <- "It was indeed invented by a certain William that worked in a brewery, but that wasn't Heineken. Google if interested ;)"
+msg2 <- "If we are measuring the same group of people again, then we are not talking about independent, but dependent samples."
+msg3 <- "The t-test is often used to compare means, and means shouldn't be even calculated for binary variables."
+msg4 <- "Yes, that is correct! The t-test can be used to compare for example the BMI between two independent groups."
+test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
