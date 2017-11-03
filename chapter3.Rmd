@@ -4,7 +4,7 @@ title       : WEEK 3, Linear regression (deadline 28.11. 23:59)
 description : "This weeks exercises will focus on linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_1
-## Linear regression with one explanatory variable
+## WEEK 3 STARTS HERE: Linear regression with one explanatory variable
  
 In this exercise you will form a linear regression model, see the results and make some interpretations based on those. In R linear regression can be done using lm()- function, for example: lm(cardiac$dobEF~cardiac$baseEF). Before the ~ sign you can put only one variable, the outcome variable. After it you can put one or multiple explanatory variables devided by the + sign. 
  
