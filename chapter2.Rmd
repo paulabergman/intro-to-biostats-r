@@ -399,7 +399,7 @@ success_msg("Be there or be chi square(d)! You definately are there, well done w
 ```
 
 --- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point7
-## Remembering t-test
+## Remembering what was the t-test all about
  
 What is Student's t-test used for?
  
@@ -434,7 +434,7 @@ msg4 <- "Come on, you can do better!"
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 --- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point8
-## Remembering t-test
+## True or not about the t-test?
  
 Which of the following is true?
  
@@ -458,7 +458,7 @@ Think about what you have done with the t-test in the previous exercises.
 ```
  
 *** =solution
-Checking whether the mean of a variable is equal in two populations
+The t-test could be used to compare the BMI between the people born in winter and people born in summer.
 
  
 *** =sct
