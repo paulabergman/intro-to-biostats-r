@@ -115,25 +115,6 @@ success_msg("Super! Now let's move on to the next exercise.")
 ```
 
 
---- type:VideoExercise lang:r aspect_ratio:62.5 xp:50 skills:1 key:video1
-## Video: Tilastolliset tunnusluvut
-
-*** =video_link
-//player.vimeo.com/video/240486814
-
-*** =projector_key
-4af09a209c576802052d956cfdee5faf
-
-
---- type:VideoExercise lang:r xp:50 skills:1 key:879183ead4
-## Video: Testing
-
-
-*** =video_link
-//player.vimeo.com/video/154783078
-*** =projector_key
-e7226e36f6be9721b95f59d210e0aded
-
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_3
 ## Checking out the data! 
  
