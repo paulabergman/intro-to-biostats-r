@@ -115,7 +115,7 @@ msg1 <- "Good job, that's exactly how it is!"
 msg2 <- "Not quite."
 test_mc(1, feedback_msgs = c(msg1, msg2))
 
---- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex4point2
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:1d92ad17b7
 ## Interpret the risk ratio
  
 How would you interpret the risk ratio achieved in the previous exercise? (Just type table1 to the Console to see the crosstabulation and RR to see the risk ratio.)
