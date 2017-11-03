@@ -207,7 +207,7 @@ success_msg("Wow, you can already analyze the results of the t-test so well, con
 --- type:NormalExercise lang:r xp:100 skills:1 key:ex2point4
 ## The Chi square test 1
  
-When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.
+When dealing with discrete variables, especially binary ones, the test often chosen to check for independence between two of them, is the chi square test.
 
 *** =instructions
  - Crosstabulate event and restwma from the cardiac-dataset.
@@ -467,4 +467,39 @@ msg2 <- "If we are measuring the same group of people again, then we are not tal
 msg3 <- "The t-test is often used to compare means, and means shouldn't be even calculated for binary variables."
 msg4 <- "Yes, that is correct! The t-test can be used to compare for example the BMI between two independent groups."
 test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
+
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point9
+## Do you still remember the Chi square?
+ 
+What is the Chi square test usually used for?
+ 
+*** =instructions
+- To test for independence between variables. 
+- To test whether the data is continuous or not.
+- To find the upper and lower quartile of both variables.
+- To check if a certain observation has a certain variable value. 
+
+*** =hint
+Now we are talking about the chi square test that is often used after crosstabulating variables.
+ 
+*** =pre_exercise_code
+```{r}
+ # no pec
+```
+ 
+*** =sample_code
+```{r}
+
+```
+ 
+*** =solution
+To test for independence between variables.
+
+ 
+*** =sct
+msg1 <- "Awesome, you knew it!"
+msg2 <- "Chi square usually doesn't test the whole data at once."
+msg3 <- "Usually the chi square test isn't used to find summary statistics for a variable."
+msg4 <- "Usually the chi square test isn't used to find check for single observations."
+test_mc(1, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
