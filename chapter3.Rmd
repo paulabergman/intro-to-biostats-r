@@ -188,8 +188,9 @@ hist(cardiac$sbp)
 You've learned a lot about linear regression today! There is still lot to be learned. Next we will compare the varinces explained by our one variable model and our multiple variables model.Once again, you can refer to your models with reg1 and reg2. Check the variance explained (adjusted R squared) from both of these models by typing  summary(reg1) and summary(reg2) to the console. 
 Which one of these models explains the blood pressure better?
 *** =instructions
- - reg1 (one variable model)
- - reg2 (multiple variable model)
+*** =instructions
+- reg1
+- reg2
  
 *** =hint
   - Which one's adjusted R squared is bigger? 
@@ -224,10 +225,11 @@ test_mc(1, feedback_msgs = c(msg1, msg2))
 Next we will look our multiple variable model, reg2. Check out that model's summary once again. Based on every explanatory variables effects p-value, 
 which variable(s) you would keep in the model ?
 *** =instructions
+*** =instructions
+- Age
+- Gender
+- BaseEF
 
- - rage
- - gender
- - baseEF
 *** =hint
   - You should choice only those variables, which p-value is <0.05
  
