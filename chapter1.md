@@ -40,20 +40,20 @@ Just revise the formulas of mean and standard deviation! Write the numbers on th
 
 sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
  
-# Calculate the arithmetic mean of the ejectiofraction as shown in example above
+# Calculate the arithmetic mean of the ejectiofraction as shown in example above:
 
  
-# Calculate the standard deviation of the ejectiofraction as shown in example above
+# Calculate the standard deviation of the ejectiofraction as shown in example above:
  
 
 ```
  
 *** =solution
 ```{r}
-# Calculate the arithmetic mean of the ejectiofraction
+# Calculate the arithmetic mean of the ejectiofraction as shown in example above:
 (64 + 57 + 52 + 37 + 57 + 62 + 60 + 57 + 57 + 37) /10 
  
-# Calculate the standard deviation of the ejectiofraction
+# Calculate the standard deviation of the ejectiofraction as shown in example above:
 sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)^2) + ((62 - 54)^2) + ((60 - 54)^2) + ((57 - 54)^2) + ((57 - 54)^2) + ((37 - 54)^2)) / 9 )
 
 ```
@@ -67,12 +67,11 @@ success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_2
 ## How to make these in a more simple way
-In the previous exercise we calculated mean and standard deviation manually. R, however, has many equations often used in it. For example, to calculate the mean of values 4,6 and 7, you can just type mean(c(4,6,7)). Or to calculate the standard deviation of these numbers, just type sd(c(4,6,7))
+In the previous exercise we calculated mean and standard deviation manually. R, however, has many equations already in it. For example, to calculate the mean of values 4, 6 and 7 you can just type mean(c(4,6,7)). Or to calculate the standard deviation of these numbers, just type sd(c(4,6,7))
 
- 
 *** =instructions
 
-Calculate the mean and standard deviation for the same data set as in previous exercise using function mean() and sd(). You should get the same results as in previous exercise. Just as a reminder: the ejectionfractions (in percents) as follow: : 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37.
+Calculate the mean and standard deviation for that same data set as in previous exercise using function mean() and sd(). You should get the same results as in previous exercise. As a reminder: the ejectionfractions (in percents) were as follow: : 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37.
 
 *** =hint
 Make sure you have not forget to put those numbers in vector c()!
@@ -109,8 +108,10 @@ sd(c(64,57,52,7,57,62,60,57, 57 ,37))
  
 *** =sct
 ```{r}
-test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
-test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
+test_output_contains("54", incorrect_msg = "Make sure put the correct values inside mean().")
+test_output_contains("9.533", incorrect_msg = "Make sure put the correct values inside sd().")
+test_student_typed("mean(", not_typed_msg = "Make sure you used mean()")
+test_student_typed("sd(", not_typed_msg = "Make sure you used sd()")
 success_msg("Super! Now let's move on to the next exercise.")
 ```
 
@@ -141,7 +142,6 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 *** =sample_code
 ```{r}
 # Hint! You can refer to our data sets just by typing "cardiac" and "diabetes". To refer to any variable in that data just type it in tho form data$variable, for example cardiac$gender.
-
 
 # Fill in the sample sizes:
 # Cardiac:
@@ -305,8 +305,6 @@ barplot(table(cardiac$gender),main="Gender in cardiac-dataset",col="tomato")
 
 # Draw a boxplot for cholesterol ('chol') in diabetes- data by gender. Add a title and different colours for the two boxes. Hint! use col=c("colour1","colour2")  
  
- 
- 
 ```
  
 *** =solution
@@ -326,7 +324,7 @@ boxplot(diabetes$chol~diabetes$gender, col=c("red", "blue"))
 *** =sct
 ```{r}
 test_function("barplot", incorrect_msg = "Did you enter both title and colour options?")
-test_function("hist",, incorrect_msg = "Did you enter both title and colour options?")
+test_function("hist", incorrect_msg = "Did you enter both title and colour options?")
 success_msg("Oh your plots look just fabulous!")
 ```
 
