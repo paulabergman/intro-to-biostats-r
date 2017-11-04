@@ -218,9 +218,45 @@ msg2 <- "Not good, try again!"
 
 test_mc(1, feedback_msgs = c(msg1, msg2))
 
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise3_5
+## To keep or not to keep?
+ 
+Next we will look our multiple variable model, reg2. Check out that model's summary once again. Based on every explanatory variables effects p-value, 
+which variable(s) you would keep in the model ?
+*** =instructions
+
+ - rage
+ - gender
+ - baseEF
+*** =hint
+  - You should choice only those variables, which p-value is <0.05
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
+
+```
+ 
+*** =sample_code
+```{r}
+## Check out the results from reg2
+
+```
+ 
+*** =solution
+
+baseEF
+*** =sct
+msg1 <- "Perfect! This shoul have been easy one..."
+msg2 <- "Not good, try again!"
+msg3 <- "Correct! BaseEF is the only significant explanatory variable for systolic blood pressure. Age and gender still should not in real wordl never be left from the model!"
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_5
+test_mc(3, feedback_msgs = c(msg1, msg2, msg3))
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_6
 ## Still one thing left to do...
  
 Now you have gone through the basics of linear model. Let's apply all these information with one more model! 
