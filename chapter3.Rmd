@@ -301,7 +301,8 @@ library(MASS)
  
 *** =solution
 ```{r}
-
+summary(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist))
+qqnorm(studres(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)))
 ```
  
 *** =sct
