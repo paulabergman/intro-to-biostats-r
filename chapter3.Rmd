@@ -273,7 +273,7 @@ Now you have gone through the basics of linear model. Let's apply all these info
  - Create a Q-Q plot from that model, and check if looks ok.
 
 *** =hint
-Form the linear model, and checd it's summary.
+Form the linear model, and checd it's summary. To create a Q-Q plot, use qqnorm(studres()).
  
 *** =pre_exercise_code
 ```{r}
@@ -307,15 +307,7 @@ qqnorm(studres())
  
 *** =sct
 ```{r}
-test_student_typed("lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)", not_typed_msg = "Make sure you used used lm() and put the righ variables inside it in a right order.")
-test_student_typed("Intercept is: 0.541", not_typed_msg = "Make sure you have the right intercept.")
-test_student_typed("Regression coefficient for age is: 0.0110", not_typed_msg = "Make sure you have the right regression coefficient for age")
-test_student_typed("Regression coefficient for gender is: 0.488757", not_typed_msg = "Make sure you have the right regression coefficient for gender")
-test_student_typed("Regression coefficient for bmi is: 0.0155", not_typed_msg = "Make sure you have the right regression coefficient for bmi") 
-test_student_typed("Regression coefficient for waist is: 0.0737", not_typed_msg = "Make sure you have the right regression coefficient for waist")
-test_student_typed("Variance explained is: 0.11", not_typed_msg = "Make sure you have the right variance explained")
-test_student_typed("qqnorm(studres(", not_typed_msg = "Did you manages to create the Q-Q plot?")
-success_msg("Great! You're such a master in modelling now!")
+
 
 ```
 
