@@ -311,11 +311,11 @@ summary(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$wai
 --- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise3_7
 ## There is a question...
  
-You can refer to the model you did in the previousexercise by reg3. Check out that model's summary once again. Based on every explanatory variables effects p-value, which variable(s) you would keep in the model ?
+You can refer to the model you did in the previous exercise by reg3. Check out that model's summary once again. Based on every explanatory variables effects p-value, which variable(s) you would NOT keep in the model ?
 *** =instructions
 - Age
 - Gender
-- Bmi
+- BMI
 - Waist
 
 *** =hint
@@ -339,9 +339,8 @@ reg3<-lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist
 
 Age, gender and waist.
 *** =sct
-msg1 <- "Correc!"
-msg2 <- "Noup..."
-msg3 <- "Correct!
-msg4 <- "Correct"
-
-test_mc(c(1,2,4), feedback_msgs = c(msg1, msg2, msg3))
+msg1 <- "Try again!"
+msg2 <- "C'moon, you can do better than this! "
+msg3 <- "This is correct! BMI was the only variable that was not significant explanatory variable for the ratio of total and HDL cholesterol"
+msg4 <- "This is not correct!"
+test_mc(3, feedback_msgs = c(msg1, msg2, msg3))
