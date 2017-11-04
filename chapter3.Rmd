@@ -279,7 +279,6 @@ Form the linear model, and checd it's summary.
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
-
 library(MASS)
 ```
  
@@ -316,7 +315,7 @@ test_student_typed("Regression coefficient for bmi is: 0.0155", not_typed_msg = 
 test_student_typed("Regression coefficient for waist is: 0.0737", not_typed_msg = "Make sure you have the right regression coefficient for waist")
 test_student_typed("Variance explained is: 0.11", not_typed_msg = "Make sure you have the right variance explained")
 test_student_typed("qqnorm(studres(", not_typed_msg = "Did you manages to create the Q-Q plot?")
-success_msg("Great! You're such a master in modelling!")
+success_msg("Great! You're such a master in modelling now!")
 
 ```
 
