@@ -225,7 +225,6 @@ test_mc(1, feedback_msgs = c(msg1, msg2))
 Next we will look our multiple variable model, reg2. Check out that model's summary once again. Based on every explanatory variables effects p-value, 
 which variable(s) you would keep in the model ?
 *** =instructions
-*** =instructions
 - Age
 - Gender
 - BaseEF
@@ -251,7 +250,7 @@ reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
 
 baseEF
 *** =sct
-msg1 <- "Perfect! This shoul have been easy one..."
+msg1 <- "C'moon, you can do better than this!"
 msg2 <- "Not good, try again!"
 msg3 <- "Correct! BaseEF is the only significant explanatory variable for systolic blood pressure. Age and gender still should not in real wordl never be left from the model!"
 
@@ -259,7 +258,8 @@ msg3 <- "Correct! BaseEF is the only significant explanatory variable for systol
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3))
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_6
-## Still one thing left to do...
+
+## Still one model left to do
  
 Now you have gone through the basics of linear model. Let's apply all these information with one more model! 
  
@@ -269,7 +269,7 @@ Now you have gone through the basics of linear model. Let's apply all these info
  - Create a Q-Q plot from that model, and check if looks ok.
 
 *** =hint
-  
+Form the linear model, and checd it's summary.
  
 *** =pre_exercise_code
 ```{r}
@@ -299,7 +299,7 @@ library(MASS)
  
 *** =solution
 ```{r}
-summary(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes+diabetes$waist))
+summary(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist))
 
 ```
  
@@ -307,3 +307,41 @@ summary(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes+dia
 ```{r}
 
 ```
+
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise3_7
+## There is a question...
+ 
+You can refer to the model you did in the previousexercise by reg3. Check out that model's summary once again. Based on every explanatory variables effects p-value, which variable(s) you would keep in the model ?
+*** =instructions
+- Age
+- Gender
+- Bmi
+- Waist
+
+*** =hint
+  - You should chooce only those variables, which p-value is <0.05
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+reg3<-lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)
+
+```
+ 
+*** =sample_code
+```{r}
+## Check out the results from reg3
+
+```
+ 
+*** =solution
+
+Age, gender and waist.
+*** =sct
+msg1 <- "Correc!"
+msg2 <- "Noup..."
+msg3 <- "Correct!
+msg4 <- "Correct"
+
+test_mc(c(1,2,4), feedback_msgs = c(msg1, msg2, msg3))
