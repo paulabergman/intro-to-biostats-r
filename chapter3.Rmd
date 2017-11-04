@@ -182,19 +182,17 @@ hist(cardiac$sbp)
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_4
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise3_4
 ## Comparing the variance explained
  
-You've learned a lot about linear regression today! There is still lot to be learned. Next we will compare the varinces explained by our one variable model and our multiple variables model. 
- 
+You've learned a lot about linear regression today! There is still lot to be learned. Next we will compare the varinces explained by our one variable model and our multiple variables model.Once again, you can refer to your models with reg1 and reg2. Check the variance explained (adjusted R squared) from both of these models by typing  summary(reg1) and summary(reg2) to the console. 
+Which one of these models explains the blood pressure better?
 *** =instructions
-Once again, you can refer to your models with reg1 and reg2.
- - Check the variance explained (adjusted R squared) from both of these models. (You can use summary()-function for example)
- - Which one of these models explains the blood pressure better?
- - Based on the results of your multiple variable model, would you leave out some explanatory variables from the models, and if so, what would you leave out and why? 
- - Do you have idea, what variables could be interesting to add to the model? Why?
+ - reg1 (one variable model)
+ - reg2 (multiple variable model)
+ 
 *** =hint
-  
+  - Which one's adjusted R squared is bigger? 
  
 *** =pre_exercise_code
 ```{r}
@@ -209,22 +207,18 @@ library(MASS)
 ```{r}
 ## Check the variance explained (adjusted R squared) from both of these models
 
-## Which one is better? Leave the better one here: REG1/REG2
-
-## Which variables you would keep in the model (based on their effect's p-value)? Leave those variable names here: AGE, GENDER, BASEEF
 ```
  
 *** =solution
-```{r}
-summary(reg1)
-summary(reg2)
-
-```
+Reg1
  
 *** =sct
-```{r}
+msg1 <- "Perfect! This shoul have been easy one..."
+msg2 <- "Not good, try again!"
 
-```
+test_mc(1, feedback_msgs = c(msg1, msg2))
+
+
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_5
 ## Still one thing left to do...
