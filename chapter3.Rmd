@@ -55,8 +55,7 @@ test_student_typed("summary(", not_typed_msg = "Make sure you have used the summ
 test_student_typed("Regression coefficient is: -0.22", not_typed_msg = "Make sure you have typed the right regression coefficient.")
 test_student_typed("Intercept is: 161.7", not_typed_msg = "Make sure you have typed the right intercept.")
 test_student_typed("Variance explained is: 0.00349", not_typed_msg = "Make sure you have typed the right variance explained.")
-
-
+success_msg("Super! This, however, is just a beginning...")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_2
@@ -122,7 +121,7 @@ test_student_typed("Regression coefficient for gender is: -0.1973", not_typed_ms
 test_student_typed("Regression coefficient for ejection fraction is: 0.43", not_typed_msg = "Make sure you have typed the right regression coefficient for ejection fraction.")
 test_student_typed("Intercept is: 137.9", not_typed_msg = "Make sure you have typed the right intercept.")
 test_student_typed("Variance explained is: 0.01", not_typed_msg = "Make sure you have typed the right variance explained.")
-
+success_msg("Great! This is a great startfor this week")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_3
@@ -179,6 +178,11 @@ hist(cardiac$sbp)
  
 *** =sct
 ```{r}
+test_student_typed("qqnorm(studres(reg1))", not_typed_msg = "Make sure you used the qqnorm(studres) for your models to create the Q-Q plot")
+test_student_typed("qqnorm(studres(reg2))", not_typed_msg = "Make sure you used the qqnorm(studres) for your models to create the Q-Q plot")
+test_student_typed("hist(studres(reg1))", not_typed_msg = "Make sure you used the qqnorm(studres) for your models to create histograms required.")
+test_student_typed("hist(studres(reg2))", not_typed_msg = "Make sure you used the qqnorm(studres) for your models to create histograms required.")
+success_msg("Awesome! You old Q-Q plotting wizard!")
 
 ```
 
@@ -214,7 +218,7 @@ library(MASS)
 Reg1
  
 *** =sct
-msg1 <- "Perfect! This shoul have been easy one..."
+msg1 <- "Perfect! This should have been easy one..."
 msg2 <- "Not good, try again!"
 
 test_mc(1, feedback_msgs = c(msg1, msg2))
@@ -294,17 +298,25 @@ library(MASS)
  
 ##Create a Q-Q plot
 
-
 ```
  
 *** =solution
 ```{r}
 summary(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist))
-
+qqnorm(studres())
 ```
  
 *** =sct
 ```{r}
+test_student_typed("lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)", not_typed_msg = "Make sure you used used lm() and put the righ variables inside it in a right order.")
+test_student_typed("Intercept is: 0.541", not_typed_msg = "Make sure you have the right intercept.")
+test_student_typed("Regression coefficient for age is: 0.0110", not_typed_msg = "Make sure you have the right regression coefficient for age")
+test_student_typed("Regression coefficient for gender is: 0.488757", not_typed_msg = "Make sure you have the right regression coefficient for gender")
+test_student_typed("Regression coefficient for bmi is: 0.0155", not_typed_msg = "Make sure you have the right regression coefficient for bmi") 
+test_student_typed("Regression coefficient for waist is: 0.0737", not_typed_msg = "Make sure you have the right regression coefficient for waist")
+test_student_typed("Variance explained is: 0.11", not_typed_msg = "Make sure you have the right variance explained")
+test_student_typed("qqnorm(studres(", not_typed_msg = "Did you manages to create the Q-Q plot?")
+success_msg("Great! You're such a master in modelling!")
 
 ```
 
@@ -344,3 +356,41 @@ msg2 <- "C'moon, you can do better than this! "
 msg3 <- "This is correct! BMI was the only variable that was not significant explanatory variable for the ratio of total and HDL cholesterol"
 msg4 <- "This is not correct!"
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3))
+
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise3_8
+## Make sure you have understood these thing
+ 
+ Forming a linear model and checking the results in R should be now piece of cake to you. Now, we want to make surey ou have understood what you have been doing. Type summary(reg3) on the console. Which of the following is correct?
+ 
+*** =instructions
+- The ratio of total and HDL cholesterol is major risk factor for BMI
+- Age increases the ratio of total and HDL cholesterol significantly
+- Gender and waist circumference does not have an effect on the ratio of total and HDL cholesterol
+- These variables explain about 20 per cent of the variation of the ratio of total and HDL cholesterol
+
+*** =hint
+  - If this is difficult to you, maybe you shoud read the materialfor this week more thoroughly...
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+reg3<-lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)
+
+```
+ 
+*** =sample_code
+```{r}
+## Check out the results from reg3
+
+```
+ 
+*** =solution
+
+Age, gender and waist.
+*** =sct
+msg1 <- "Try again!"
+msg2 <- "This is correct! When age increases, the also the ratio of total and HDL cholesterol increases. "
+msg3 <- "Not quite correct..."
+msg4 <- "This is not correct!"
+test_mc(2, feedback_msgs = c(msg1, msg2, msg3))
