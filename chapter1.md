@@ -330,39 +330,6 @@ test_function("hist",, incorrect_msg = "Did you enter both title and colour opti
 success_msg("Oh your plots look just fabulous!")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise1_testi_multi
-## Multiple choice testing
- 
-Which of the following is animal?
- 
-*** =instructions
-- Flower
-- Tree
-- Dog
-- Bread
 
-*** =hint
-C'mon, this should be super easy!
- 
-*** =pre_exercise_code
-```{r}
- # no pec
-```
- 
-*** =sample_code
-```{r}
-
-```
- 
-*** =solution
-Dog
-
- 
-*** =sct
-msg1 <- "Not good, try again!"
-msg2 <- "Not quite, give it another shot."
-msg3 <- "Nice one!"
-msg4 <- "Don't be silly..."
-test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 
