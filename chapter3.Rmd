@@ -301,7 +301,19 @@ library(MASS)
  
 *** =solution
 ```{r}
+## Form a linear model
+lm(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist))
+
+## Check the results and fill the following:
 summary(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist))
+## Intercept is: 0.541166
+## Regression coefficient for age is: 0.011061
+## Regression coefficient for gender is: 0.488757
+## Regression coefficient for bmi is: 0.015597
+## Regression coefficient for waist is: 0.073764
+## Variance explained is: 0.1114
+ 
+##Create a Q-Q plot
 qqnorm(studres(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)))
 ```
  
