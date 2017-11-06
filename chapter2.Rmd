@@ -507,7 +507,7 @@ test_mc(1, feedback_msgs = c(msg1, msg2, msg3, msg4))
 --- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point10
 ## Interpret Chi square test results
  
-Type print(mydata) on the console and interpret whether there is independence between variables. (significance level 0.05)
+Type print(mydata) on the console and interpret whether there is independence between variables. (significance level 0.05) Hint: Perform a chi square test, either by hand or in console.
  
 *** =instructions
 - The p-value of the chi square test is > 0.05, so the variables don't seem to depend on each other.
