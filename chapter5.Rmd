@@ -1,10 +1,10 @@
 --- 
 title_meta  : Chapter 5
-title       : Jari Haukka
-description : "Lecture material. Pohjana 1.chapterin tekstit."
+title       : Jari Haukka lecture material (not part of the course exercises)
+description : "Lecture material. This is not part of the course exercises."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:3d083aaefb
-## Let's get started
+## Lecture material
  
 In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
  
@@ -67,107 +67,4 @@ sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)
 test_output_contains("55.88889", incorrect_msg = "Make sure to add the values together and divide them by the number of values.")
 test_output_contains("10.11187", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
-```
-
---- type:NormalExercise lang:r xp:00 skills:1 key:cb2334e4d3
-## Barplots and histograms
- 
-When taking a first look at the data it is often good to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (Outliers are the kind of values that are very different from the other values.) 
- 
-*** =instructions
- - Find out how many observations does the cardiac-data contain. 
- - Find out how many observations does the diabetes-data contain.
- - Draw a barplot of the variable 'gender' in diabetes-dataset.
- - Draw a histogram of the variable 'age' in cardiac-dataset.
-
-*** =hint
-Checking the dimensions of the dataset is a good way to find out how many observations are there. 
-Remember to connect variables to the dataset with a '$' sign.
- 
-*** =pre_exercise_code
-```{r}
-cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
-diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
-```
- 
-*** =sample_code
-```{r}
-# Draw a barplot of the variable 'gender' in cardiac-dataset
- 
-barplot(table(cardiac$gender))
- 
-# Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
- 
-hist(diabetes$cholmmol)
- 
-# Draw a barplot of the variable 'gender' in diabetes-dataset
- 
-
- 
-# Draw a histogram of the variable 'age' in cardiac-dataset
- 
- 
-```
- 
-*** =solution
-```{r}
-# Draw a barplot of the variable 'gender' in diabetes-dataset
- 
-barplot(table(diabetes$gender))
- 
-# Draw a barplot of the variable 'age' in cardiac-dataset
-hist(cardiac$age)
-```
- 
-*** =sct
-```{r}
-test_student_typed("barplot(table(diabetes$gender))", not_typed_msg = "Make sure that you have added the table-command inside the barplot-command.")
-test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
-success_msg("Awesome! You old plotting wizard!")
-```
-
---- type:NormalExercise lang:r xp:00 skills:1 key:1c76838a8c
-## Making plots more fancy
- 
-Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about.
-
-*** =hint
-Just add the title and colour options inside the plotting code, just like in the example.
- 
-*** =pre_exercise_code
-```{r}
-cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
-diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
-```
- 
-*** =sample_code
-```{r}
-# Draw a barplot of the variable 'gender' in cardiac-dataset. Add a title and colour to you plot.
- 
-barplot(table(cardiac$gender),main="Gender in cardiac-dataset",col="tomato")
-
-# Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
- 
-
- 
-# Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
- 
- 
-```
- 
-*** =solution
-```{r}
-# Draw a barplot of the variable 'gender' in diabetes-dataset
- 
-barplot(table(diabetes$gender),main="Gender",col="blue")
- 
-# Draw a barplot of the variable 'age' in cardiac-dataset
-hist(cardiac$age,main="Age",col="hotpink")
-```
- 
-*** =sct
-```{r}
-test_function("barplot",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
-test_function("hist",args=c("main","col"), incorrect_msg = "Did you enter both title and colour options?")
-success_msg("Oh your plots look just fabulous!")
 ```
