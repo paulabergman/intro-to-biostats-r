@@ -33,11 +33,10 @@ Just revise the formulas of mean and standard deviation! Write the numbers on th
  
 *** =sample_code
 ```{r}
-# Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
+# Example: Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
 (1 + 3 + 8 + 10 + 12) / 5
  
-# Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
-
+# Example: Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
 sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
  
 # Calculate the arithmetic mean of the ejectiofraction as shown in example above:
@@ -50,6 +49,12 @@ sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.
  
 *** =solution
 ```{r}
+# Example: Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
+(1 + 3 + 8 + 10 + 12) / 5
+ 
+# Example: Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
+sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
+
 # Calculate the arithmetic mean of the ejectiofraction as shown in example above:
 (64 + 57 + 52 + 37 + 57 + 62 + 60 + 57 + 57 + 37) /10 
  
@@ -108,10 +113,10 @@ sd(c(64,57,52,7,57,62,60,57, 57 ,37))
  
 *** =sct
 ```{r}
-test_output_contains("54", incorrect_msg = "Make sure put the correct values inside mean().")
-test_output_contains("9.533", incorrect_msg = "Make sure put the correct values inside sd().")
-test_student_typed("mean(", not_typed_msg = "Make sure you used mean()")
-test_student_typed("sd(", not_typed_msg = "Make sure you used sd()")
+test_output_contains("54", incorrect_msg = "Make sure that you have put the correct values inside mean()-function.")
+test_output_contains("9.533", incorrect_msg = "Make sure that you have put the correct values inside sd()-function.")
+test_student_typed("mean(", not_typed_msg = "Make sure you used mean()- function.")
+test_student_typed("sd(", not_typed_msg = "Make sure you used sd()- function.")
 success_msg("Super! Now let's move on to the next exercise.")
 ```
 
@@ -119,7 +124,7 @@ success_msg("Super! Now let's move on to the next exercise.")
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_3
 ## Checking out the data! 
  
-When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females / males, and what is the age distrtibution for example. To get the number of samples and variables in your data, just type dim(data). For categorical variables, table() is a good idea and for continous variables use summary(). To know what variables you have in your data, just type colnames(data).
+When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females / males, and what is the age distribution, for example. To get the number of samples and variables in your data, just type dim(data). For categorical variables, table() is a good way, and for continous variables use summary() to get an overview of that specific variable. If you need to know what variables you have in your data, just type colnames(data).
  
 *** =instructions
  - Find out how many observations does the cardiac-data contain. 
@@ -131,7 +136,7 @@ When you get a new data set, it is a good practice to first give it a quick over
 
 *** =hint
 Checking the dimensions of the dataset is a good way to find out how many observations are there. 
-Remember to connect variables to the dataset with a '$' sign.
+Remember to connect variables to the dataset with a '$' sign. Remember also the table() and summary()- functions!
  
 *** =pre_exercise_code
 ```{r}
@@ -141,7 +146,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 *** =sample_code
 ```{r}
-# Hint! You can refer to our data sets just by typing "cardiac" and "diabetes". To refer to any variable in that data just type it in tho form data$variable, for example cardiac$gender.
+# Hint! You can refer to our data sets just by typing "cardiac" and "diabetes". To refer to any variable in that data just type it in the form data$variable, for example cardiac$gender.
 
 # Fill in the sample sizes:
 # Cardiac:
@@ -150,10 +155,10 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Females in cardiac-data:
 # Females in diabetes-data: 
  
-# Age distribution in cardiac-data:
+# Check age distribution in cardiac-data (summary of the variable age in cardiac-data):
 
 
-# Age distribution in cardiac-data:
+# Chekc age distribution in diabetes-data (summary of the variable age in diabetes-data):
  
  
 ```
@@ -167,12 +172,11 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Females in cardiac-data: 338
 # Females in diabetes-data: 234
  
-# Age distribution in cardiac-data:
+# Check age distribution in cardiac-data (summary of the variable 'age' in cardiac-data):
+summary(cardiac$age)
 
-
-# Age distribution in cardiac-data:
-
- 
+# Chekc age distribution in diabetes-data (summary of the variable 'age' in diabetes-data):
+summary(diabetes$age)
  
 ```
  
@@ -180,18 +184,18 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 ```{r}
 test_student_typed("558", not_typed_msg = "Make sure that you have the right sample size for cardiac-data.")
 test_student_typed("403", not_typed_msg = "Make sure that you have the right sample size for diabetes-data.")
-test_student_typed("338", not_typed_msg = "Make sure that you have the right female number cardiac-data.")
+test_student_typed("338", not_typed_msg = "Make sure that you have the right female number for cardiac-data.")
 test_student_typed("234", not_typed_msg = "Make sure that you have the right female number for diabetes-data.")
-test_student_typed("summary(cardiac$age)", not_typed_msg = "Make sure you checked the summary of the variable 'age' in cardiac- dataset.")
-test_student_typed("summary(diabetes$age)", not_typed_msg = "Make sure you checked the summary of the variable 'age' in diabetes- dataset.")
+test_student_typed("summary(cardiac$age)", not_typed_msg = "Make sure you checked the summary of the variable age in cardiac- dataset correctly.")
+test_student_typed("summary(diabetes$age)", not_typed_msg = "Make sure you checked the summary of the variable age in diabetes- dataset correctly.")
 
-success_msg("Great! You're getting master at R! ")
+success_msg("Great! You're such a master at R! ")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_4
 ## Basic plotting
  
-When checking out your data, the good next step is to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (the kind of values that are very different from the other values.) The propably most commonly used plotting commands are hist() for histrogram, barplot() for barplot, plot() for scatter plot and boxplot() for boxplot. 
+When checking out your data, the good next step is to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (the kind of values that are very different from the other values.) Propably most commonly used plotting commands are hist() for histrogram, barplot() for barplot, plot() for scatter plot and boxplot() for boxplot. 
  
 *** =instructions
  - Draw a barplot of the variable 'gender' in diabetes-dataset.
@@ -206,8 +210,7 @@ When checking out your data, the good next step is to visualize the variables. T
 
 
 *** =hint
-Checking the dimensions of the dataset is a good way to find out how many observations are there. 
-Remember to connect variables to the dataset with a '$' sign.
+Make sure you have the right variable(s) in your plotting- command, and you have used the right plotting- command! Make also sure you have not made any spelling mistakes.
  
 *** =pre_exercise_code
 ```{r}
@@ -217,13 +220,11 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 *** =sample_code
 ```{r}
-# Draw a barplot of the variable 'gender' in cardiac-dataset
+# Example1: Draw a barplot of the variable 'gender' in cardiac-dataset
+ barplot(table(cardiac$gender))
  
-barplot(table(cardiac$gender))
- 
-# Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
- 
-hist(diabetes$cholmmol)
+# Example2: Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
+ hist(diabetes$cholmmol)
  
 # Draw a barplot of the variable 'gender' in diabetes-dataset
 
@@ -231,7 +232,7 @@ hist(diabetes$cholmmol)
 # Draw a histogram of the variable 'age' in cardiac-dataset
 
 
-# Draw a histogram of the variable 'bhr' (= "basal heart rate") in cardiac-dataset. Is there anything weird?
+# Draw a histogram of the variable 'bhr' (="basal heart rate") in cardiac-dataset. Is there anything weird?
 
  
 # Draw a boxplot for cholesterol ('chol') in diabetes- data by gender.
@@ -244,9 +245,14 @@ hist(diabetes$cholmmol)
  
 *** =solution
 ```{r}
-# Draw a barplot of the variable 'gender' in diabetes-dataset
+# Example1: Draw a barplot of the variable 'gender' in cardiac-dataset
+ barplot(table(cardiac$gender))
  
-barplot(table(diabetes$gender))
+# Example2: Draw a histogram of the variable 'cholmmol' (cholesterol in mmol) in diabetes-dataset
+ hist(diabetes$cholmmol)
+ 
+# Draw a barplot of the variable 'gender' in diabetes-dataset
+ barplot(table(diabetes$gender))
  
 # Draw a histogram of the variable 'age' in cardiac-dataset
 hist(cardiac$age)
