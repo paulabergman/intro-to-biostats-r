@@ -206,7 +206,9 @@ When checking out your data, the good next step is to visualize the variables. T
  
  - Draw a boxplot for cholesterol ('chol') in diabetes- data by gender.
  
- - Draw a scatter-plot for the variables maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data 
+ - Draw a scatter-plot for the variables maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data
+ 
+ - Check also the correlation of maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data.
 
 
 *** =hint
@@ -240,6 +242,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 # Draw a scatter-plot for the variables maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data 
 
+# Check the correlation of maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data.
+
  
 ```
  
@@ -266,6 +270,9 @@ boxplot(diabetes$chol~diabetes$gender)
 # Draw a scatter-plot for the variables maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data 
 plot(cardiac$maxhr,cardiac$sbp)
 
+# Check the correlation of maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data.
+cor(cardiac$maxhr, cardiac$sb)
+-0.04567112
 ```
  
 *** =sct
@@ -275,6 +282,7 @@ test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have
 test_student_typed("hist(cardiac$bhr)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
 test_student_typed("boxplot(diabetes$chol~diabetes$gender)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
 test_student_typed("plot(cardiac$maxhr,cardiac$sbp)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
+test_student_typed("cor(cardiac$maxhr,cardiac$sbp)", not_typed_msg = "Make sure that you have checked the correlation coefficient.")
 
 success_msg("Awesome! You old plotting wizard!")
 ```
