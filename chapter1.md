@@ -239,7 +239,6 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 # Draw a boxplot for cholesterol ('chol') in diabetes- data by gender.
 
- 
 # Draw a scatter-plot for the variables maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data 
 
 # Check the correlation of maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data.
