@@ -281,7 +281,7 @@ test_student_typed("hist(cardiac$age)", not_typed_msg = "Make sure that you have
 test_student_typed("hist(cardiac$bhr)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
 test_student_typed("boxplot(diabetes$chol~diabetes$gender)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
 test_student_typed("plot(cardiac$maxhr,cardiac$sbp)", not_typed_msg = "Make sure that you have not made any spelling mistakes.")
-test_student_typed("cor(cardiac$maxhr,cardiac$sbp)", not_typed_msg = "Make sure that you have checked the correlation coefficient.")
+test_output_contains("-0.04567112", incorrect_msg = "Make sure that you have checked the correlation coefficient.")
 
 success_msg("Awesome! You old plotting wizard!")
 ```
