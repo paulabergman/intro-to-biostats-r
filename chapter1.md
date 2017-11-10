@@ -270,7 +270,7 @@ boxplot(diabetes$chol~diabetes$gender)
 plot(cardiac$maxhr,cardiac$sbp)
 
 # Check the correlation of maximum heart rate ('maxhr') and systolic blood pressure ('sbp') in cardiac-data.
-cor(cardiac$maxhr, cardiac$sb)
+cor(cardiac$maxhr, cardiac$sbp)
 -0.04567112
 ```
  
