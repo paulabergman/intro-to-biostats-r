@@ -218,10 +218,10 @@ library(MASS)
 Reg1
  
 *** =sct
-msg1 <- "Perfect! This should have been easy one..."
-msg2 <- "Not good, try again!"
+msg1 <- "Not good, try again!"
+msg2 <- "Perfect! This should have been easy one..."
 
-test_mc(1, feedback_msgs = c(msg1, msg2))
+test_mc(2, feedback_msgs = c(msg1, msg2))
 
 --- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise3_5
 ## To keep or not to keep?
