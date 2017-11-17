@@ -531,7 +531,7 @@ mydata<-cbind(a,b)
 ```
  
 *** =solution
-
+The p-value of the chi square test is < 0.05, so the variables seem to depend on each other. 
 
  
 *** =sct
