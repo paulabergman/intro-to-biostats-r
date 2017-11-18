@@ -31,8 +31,10 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # diabetes-data is available
  
 # Crosstabulation
- 
+table1 <-
 
+# Add the row and column sums
+table1<-addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
  
 # Calculate the odds ratio
 
@@ -48,6 +50,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Crosstabulation
 
 table1 <- with(cardiac,table(event,restwma))
+
+# Add the row and column sums
 table1<-addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
 table1
  
@@ -90,6 +94,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Crosstabulation
 
 table1 <- with(cardiac,table(event,restwma))
+
+# Add the row and column sums
 table1<-addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
 table1
  
@@ -136,6 +142,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Crosstabulation
 
 table1 <- with(cardiac,table(event,restwma))
+
+# Add the row and column sums
 table1<-addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
 table1
  
@@ -193,8 +201,10 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # diabetes-data is available
  
 # Crosstabulation
- 
+table1 <-
 
+# Add the row and column sums
+table1<-addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
  
 # Calculate the odds ratio
 
@@ -210,7 +220,9 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Crosstabulation
 
 table1 <- with(cardiac,table(hxofHT,event))
-table1 <- addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
+
+# Add the row and column sums
+table1<-addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
 table1
  
 # Calculate the odds ratio
