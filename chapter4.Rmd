@@ -241,8 +241,8 @@ Last week you learned what is linear regression. It can be used when we are deal
  
  
 *** =instructions
- - Look at the code that is already provided to you to calculate a logistic regression. 
- - Run the logistic regression.
+ - Look at the code that is already provided to you to calculate a logistic regression.
+ - Run the logistic regression to explain event with age, gender, restwma and positive stress ECG (posSE) in cardiac dataset.
  - Calculate the probability of experiencing an event when a person is a 65-year-old woman (gender=1) who had restwma and whose stress ECG was positive.
  - TIP: e^x (Napier's constant to x) in R is written exp(x). 
  
@@ -267,8 +267,9 @@ model1 <- (with(cardiac, glm("dependent variable" ~ "variable1" + "variable2" + 
 summary(model1) 
 
 # What is the probability of experiencing an event when a person is a 65-year-old 
-# woman (gender=1) who had restwma and whose stress ECG was positive.
+# woman (gender=1) who had restwma and whose stress ECG (posSE) was positive. Print out the logit and probability when you have calculated them.
 logit1 <- Intercept + Estimate*age + ...
+logit1
 prob1 <- () / ()
 prob1 
 
@@ -286,7 +287,7 @@ model1 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "b
 summary(model1) 
 
 # What is the probability of experiencing an event when a person is a 65-year-old 
-# woman (gender=1) who had restwma and whose stress ECG was positive.
+# woman (gender=1) who had restwma and whose stress ECG  (posSE) was positive. Print out the logit and probability when you have calculated them.
 logit1 <- - 3.199416 + 0.006424 * 65 - 0.130453 * 1 + 1.215453 * 1 + 1.031930 * 1
 logit1
 prob1 <- (exp(logit1))/(1+(exp(logit1)))
@@ -347,13 +348,13 @@ plot("write here the name of the odds ratio table"[,1],ylim=c(0,7), xaxt="n",
 axis(side=1,at=c(1,2,3,4,5),labels=c("Intercept","age","gender","reswma","posSE"))
 lines("write here the name of the odds ratio table"[,1])
 
-points("write here the name of the odds ratio table"[,2],col="color of your choice")
-lines("write here the name of the odds ratio table"[,2],col="color of your choice",lty=2)
+points("write here the name of the odds ratio table"[,2],col="color1")
+lines("write here the name of the odds ratio table"[,2],col="color2",lty=2)
 
-points("write here the name of the odds ratio table"[,3],col="color of your choice")
-lines("write here the name of the odds ratio table"[,3],col="color of your choice",lty=2)
+points("write here the name of the odds ratio table"[,3],col="color1")
+lines("write here the name of the odds ratio table"[,3],col="color2",lty=2)
 
-legend("define here the position of the legend",c("OR","95% CI"),lty=c(1,2),col=c("black","color of your choice"))
+legend("define here the position of the legend",c("OR","95% CI"),lty=c(1,2),col=c("black","color2"))
 
 
 
