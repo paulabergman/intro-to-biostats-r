@@ -332,7 +332,7 @@ success_msg("Great! You're such a master in modelling now!")
 ```
 
 --- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise3_7
-## There is a question...
+## To keep or not to keep? part 2
  
 You can refer to the model you did in the previous exercise by reg3. Check out that model's summary once again. Based on every explanatory variables effects p-value, which variable(s) you would NOT keep in the model ?
 *** =instructions
