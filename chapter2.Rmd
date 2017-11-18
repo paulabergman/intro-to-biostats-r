@@ -175,7 +175,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Compare the BMIs between genders by using t-test
 
 # There is a statistically significant difference, do you agree? Remove the wrong answer.
-# Your answer: I DO / DON't agree.
+# Your answer: I DO  DON't agree.
 
 ```
  
@@ -234,7 +234,7 @@ test1
 test1$p.value
 
 # Do the variables depend on each other? Remove the wrong answer.
-# Event and restwma DO / DON't depend on each other.
+# Event and restwma DO  DON't depend on each other.
 
 ```
  
@@ -300,7 +300,7 @@ test2
 test2$p.value
 
 # Do the variables depend on each other? Remove the wrong answer.
-# Smoking and gender DO / DON't depend on each other.
+# Smoking and gender DO  DON't depend on each other.
 
 ```
  
@@ -365,7 +365,7 @@ test3
 test3$p.value
 
 # Do the variables depend on each other? Remove the wrong answer.
-# Categorized cholesterol and gender DO / DON't depend on each other.
+# Categorized cholesterol and gender DO  DON't depend on each other.
  
 ```
  
