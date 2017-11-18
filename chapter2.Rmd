@@ -6,7 +6,7 @@ description : "In this chapter, you will learn what does statistical significanc
 --- type:NormalExercise lang:r xp:100 skills:1 key:ex2point1
 ## WEEK 2 STARTS HERE: Hands on to t-test
  
-Although in these days we have many tools for calculation and programming, it is good to understand the theory that lies behind R functions for example. t-test is quite a simple procedure and now we are going to learn how to run it without using the function that R offers.
+Although in these days we have many tools for calculation and programming, it is good to understand the theory that lies behind R functions for example. t-test is quite a simple procedure and now we are going to learn how to run it without using the function that R offers. You just have to calculate the difference between two means and then divide it with the square root of (variance1 / n1) + (variance2 / n2)
  
 *** =instructions
  - Find out whether there is a difference between men and women in basal heart rate by using t-test
@@ -35,7 +35,7 @@ n2 <-
 mean1 <-
 sd1 <-
  
-# Do similarly to men
+# Do similarly to men (so assign values to mean2 and sd2)
  
  
 # Now remember how to calculate the t-value? 
@@ -105,7 +105,7 @@ success_msg("t-test seems to be your cup of tea! You know the name actually orig
 --- type:NormalExercise lang:r xp:100 skills:1 key:ex2point2
 ## Getting more familiar with the t-test 1
  
-The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other dicotomous groups.
+The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other dicotomous groups. T-test can be easily done in R by using the function t.test(variable1~variable2)
  
 *** =instructions
  - Run a t-test to compare systolic blood pressure between genders in cardiac-dataset. Is there any difference between men and women?
@@ -125,7 +125,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 # Compare the systolic blood pressures by using t-test
 
-# Is there a statistically significant difference? (answer YES or NO)
+# Is there a statistically significant difference? (answer YES or NO, use capital letters)
 # Your answer: 
  
 
@@ -138,7 +138,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Compare the systolic blood pressures by using t-test
 with(cardiac,t.test(sbp~gender))
 
-# Is there a statistically significant difference? Remove the wrong answer.
+# Is there a statistically significant difference?  (answer YES or NO, use capital letters)
 # Your answer: NO
 
 ```
@@ -154,7 +154,7 @@ success_msg("t-test appears to be your cup of tea!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:ex2point3
 ## Getting more familiar with the t-test 2
  
-The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other binary (two classes) groups.
+The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other binary (two classes) groups.  T-test can be easily done in R by using the function t.test(variable1~variable2)
  
 *** =instructions
  - Run a t-test to compare BMI between genders in diabetes-dataset. Is there any difference between men and women?
@@ -172,12 +172,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 ```{r}
 # The dataset diabetes is available
  
-# Compare the systolic blood pressures by using t-test
-
-# Is there a statistically significant difference? (answer YES or NO)
-# Your answer: 
- 
-# Compare the BMIs by using t-test
+# Compare the BMIs between genders by using t-test
 
 # There is a statistically significant difference, do you agree? Remove the wrong answer.
 # Your answer: I DO / DON't agree.
@@ -188,7 +183,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 ```{r}
 # The dataset diabetes is available
  
-# Compare the BMIs by using t-test
+# Compare the BMIs between genders by using t-test
 with(diabetes,t.test(bmi~gender))
 
 # There is a statistically significant difference, do you agree? Remove the wrong answer.
@@ -207,7 +202,7 @@ success_msg("Wow, you can already analyze the results of the t-test so well, con
 --- type:NormalExercise lang:r xp:100 skills:1 key:ex2point4
 ## The Chi square test 1
  
-When dealing with discrete variables, especially binary ones, the test often chosen to check for independence between two of them, is the chi square test.
+When dealing with discrete variables, especially binary ones, the test often chosen to check for independence between two of them, is the chi square test. The chi square test in R can be done simply with the function chisq.test(nameofyourtable)
 
 *** =instructions
  - Crosstabulate event and restwma from the cardiac-dataset.
@@ -225,6 +220,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 *** =sample_code
 ```{r}
 # The dataset cardiac is available
+# HINT! In order to see the variable names in table output, you can use command with(nameofyourdata, table(variable1,variable2))
+# HINT! You can use the with-function in all other codes too, such as with(nameofyourdata, plot(variable1,variable2)
 
 # Crosstabulate event and restwma
 table1 <-
@@ -236,7 +233,7 @@ test1
 # Print out the p-value of the test separately
 test1$p.value
 
-# Do the variables depend on each other? 
+# Do the variables depend on each other? Remove the wrong answer.
 # Event and restwma DO / DON't depend on each other.
 
 ```
@@ -244,6 +241,8 @@ test1$p.value
 *** =solution
 ```{r}
 # The datasets cardiac and diabetes are available
+# HINT! In order to see the variable names in table output, you can use command with(nameofyourdata, table(variable1,variable2))
+# HINT! You can use the with-function in all other codes too, such as with(nameofyourdata, plot(variable1,variable2)
 
 # Crosstabulate event and restwma
 table1 <- with(cardiac, table(event, restwma))
@@ -254,7 +253,7 @@ test1 <- chisq.test(table1)
 # Print out the p-value of the test separately
 test1$p.value
 
-# Do the variables depend on each other? 
+# Do the variables depend on each other? Remove the wrong answer.
 # Event and restwma DO depend on each other.
 ```
  
@@ -271,7 +270,7 @@ success_msg("That's some badass crosstabulation you did there, go you!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:ex2point5
 ## The Chi square test 2
  
-When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.
+When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.  The chi square test in R can be done simply with the function chisq.test(nameofyourtable)
 
 *** =instructions
  - Crosstabulate smoking and gender from the cardiac-dataset. 
@@ -300,7 +299,7 @@ test2
 # Print out the p-value of the test separately
 test2$p.value
 
-# Do the variables depend on each other? 
+# Do the variables depend on each other? Remove the wrong answer.
 # Smoking and gender DO / DON't depend on each other.
 
 ```
@@ -318,7 +317,7 @@ test2 <- chisq.test(table2)
 # Print out the p-value of the test separately
 test2$p.value
 
-# Do the variables depend on each other? 
+# Do the variables depend on each other? Remove the wrong answer.
 # Smoking and gender DO depend on each other.
 ```
  
@@ -336,7 +335,7 @@ success_msg("Way to go, you are getting more and more pro at this!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:ex2point6
 ## The Chi square test 3
  
-When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.
+When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test. The chi square test in R can be done simply with the function chisq.test(nameofyourtable)
 
 *** =instructions
  - Crosstabulate categorized cholesterol (cholcat) and gender from the diabetes-dataset. 
@@ -365,7 +364,7 @@ test3
 # Print out the p-value of the test separately
 test3$p.value
 
-# Do the variables depend on each other? 
+# Do the variables depend on each other? Remove the wrong answer.
 # Categorized cholesterol and gender DO / DON't depend on each other.
  
 ```
@@ -383,7 +382,7 @@ test3 <- chisq.test(table3)
 # Print out the p-value of the test separately
 test3$p.value
 
-# Do the variables depend on each other? 
+# Do the variables depend on each other? Remove the wrong answer.
 # Categorized cholesterol and gender DON't depend on each other.
  
 ```
