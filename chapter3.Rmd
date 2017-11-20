@@ -64,7 +64,7 @@ success_msg("Super! This, however, is just a beginning...")
 In the previous exercise you made a linear regression using one explanatory variables. In this exercise you will add explanatory variables. 
  
 *** =instructions
- - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age, sex and ejection fraction (baseEF) as an explanatory variable. Use the Cardiac-data. (Don't use the with-function this time.)
+ - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age, gender and ejection fraction (baseEF) as an explanatory variable. Use the Cardiac-data. (Don't use the with-function this time.)
  Interpret the results: 
    - What is the regression coefficient for age?
    - What is the regression coefficient for gender?
