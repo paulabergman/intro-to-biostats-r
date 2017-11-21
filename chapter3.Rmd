@@ -127,7 +127,7 @@ success_msg("Great! This is a great startfor this week")
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise3_3
 ## Checking the assumptions for your model graphically
  
-Now you know how to form linear regression models and check their results. In this exercise you will learn how to check how your model fits the assumptions (normality). You can do this for example creating a Q-Q plot from your model using qqnorm(studred(model))- command, or plotting a histogram from the residuals of your model typing hist(studres(model)).
+Now you know how to form linear regression models and check their results. In this exercise you will learn how to check how your model fits the assumptions (normality). You can do this for example creating a Q-Q plot from your model using qqnorm(studres(model))- command, or plotting a histogram from the residuals of your model typing hist(studres(model)).
  
 *** =instructions
 The models you created in the previous exercises are named reg1 and reg2, accordingl with the following commands:
