@@ -268,7 +268,7 @@ test_mc(3, feedback_msgs = c(msg1, msg2, msg3))
 Now you have gone through the basics of linear model. Let's apply all these information with one more model! 
  
 *** =instructions
- - Form a linear model, in which you explain the ratio of total cholesterol and HDL cholesterol (ratio) by age, gender, bmi and waist 	circumference (wais). Use the diebetes- dataset. 
+ - Form a linear model, in which you explain the ratio of total cholesterol and HDL cholesterol (ratio) by age, gender, bmi and waist 	circumference (waist). Use the diebetes- dataset. 
  - Check the results: intercept, regression coefficients, variance explained. 
  - Create a Q-Q plot from that model, and check if looks ok.
 
