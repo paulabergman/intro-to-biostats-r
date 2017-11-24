@@ -259,8 +259,8 @@ reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
 ```
  
 *** =solution
-
 baseEF
+
 *** =sct
 msg1 <- "C'moon, you can do better than this!"
 msg2 <- "Not good, try again!"
