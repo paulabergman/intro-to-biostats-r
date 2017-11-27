@@ -366,8 +366,8 @@ reg3<-lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist
 ```
  
 *** =solution
+BMI
 
-Age, gender and waist.
 *** =sct
 msg1 <- "Try again!"
 msg2 <- "C'moon, you can do better than this! "
@@ -404,8 +404,8 @@ reg3<-lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist
 ```
  
 *** =solution
+Age increases the ratio of total and HDL cholesterol significantly
 
-Age, gender and waist.
 *** =sct
 msg1 <- "Try again!"
 msg2 <- "This is correct! When age increases, the also the ratio of total and HDL cholesterol increases. "
