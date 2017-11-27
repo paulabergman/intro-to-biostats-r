@@ -373,7 +373,7 @@ msg1 <- "Try again!"
 msg2 <- "C'moon, you can do better than this! "
 msg3 <- "This is correct! BMI was the only variable that was not significant explanatory variable for the ratio of total and HDL cholesterol"
 msg4 <- "This is not correct!"
-test_mc(3, feedback_msgs = c(msg1, msg2, msg3))
+test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 --- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:exercise3_8
 ## Make sure you have understood these thing
@@ -411,4 +411,4 @@ msg1 <- "Try again!"
 msg2 <- "This is correct! When age increases, the also the ratio of total and HDL cholesterol increases. "
 msg3 <- "Not quite correct..."
 msg4 <- "This is not correct!"
-test_mc(2, feedback_msgs = c(msg1, msg2, msg3))
+test_mc(2, feedback_msgs = c(msg1, msg2, msg3, msg4))
