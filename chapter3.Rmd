@@ -309,7 +309,7 @@ library(MASS)
 *** =solution
 ```{r}
 ## Form a linear model
-lm(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist))
+lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)
 
 ## Check the results and fill the following:
 summary(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist))
