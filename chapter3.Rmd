@@ -109,7 +109,7 @@ summary(reg2)
 # Regression coefficient for gender is: -0.1973
 # Regression coefficient for ejection fraction is: 0.4314
 # Intercept is: 137.9916
-# Variance explained is: 0.001469
+# Variance explained is: 0.01469
 
 ```
  
