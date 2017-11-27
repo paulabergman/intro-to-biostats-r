@@ -89,7 +89,7 @@ Make sure you have not forget to put those numbers in vector c()!
 *** =sample_code
 ```{r}
 # Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
-mean(c(1,3,8 ,10,12))
+mean(c(1, 3, 8, 10, 12))
  
 # Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
 sd(c(1, 3, 8, 10, 12))
@@ -104,11 +104,17 @@ sd(c(1, 3, 8, 10, 12))
  
 *** =solution
 ```{r}
+# Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
+mean(c(1, 3, 8, 10, 12))
+ 
+# Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
+sd(c(1, 3, 8, 10, 12))
+
 # Calculate the arithmetic mean of the ejectiofraction
-mean(c(64,57,52,7,57,62,60,57, 57 ,37))
+mean(c(64,57,52,37,57,62,60,57, 57 ,37))
  
 # Calculate the standard deviation of the ejectiofraction
-sd(c(64,57,52,7,57,62,60,57, 57 ,37))
+sd(c(64,57,52,37,57,62,60,57, 57 ,37))
 ```
  
 *** =sct
