@@ -67,7 +67,7 @@ table1
  
 *** =sct
 ```{r}
-test_student_typed("table(", not_typed_msg = "Make sure you are using a right command for crosstabulation.")
+test_student_typed("tab", not_typed_msg = "Make sure you are using a right command for crosstabulation.")
 test_student_typed("event", not_typed_msg = "Make sure you used the right variables.")
 test_student_typed("restwma", not_typed_msg = "Make sure you used the right variables.")
 test_student_typed("addmargins(", not_typed_msg = "Make sure you added the row and column sums.")
@@ -237,7 +237,7 @@ table1
  
 *** =sct
 ```{r}
-test_student_typed("table(", not_typed_msg = "Make sure you are using a right command for crosstabulation.")
+test_student_typed("tab", not_typed_msg = "Make sure you are using a right command for crosstabulation.")
 test_student_typed("hxofHT", not_typed_msg = "Make sure you used the right variables.")
 test_student_typed("event", not_typed_msg = "Make sure you used the right variables.")
 test_student_typed("addmargins(", not_typed_msg = "Make sure you added the row and column sums.")
@@ -406,6 +406,6 @@ legend("topleft",c("OR","95% CI"),lty=c(1,2),col=c("black","pink"))
 *** =sct
 ```{r}
 test_student_typed("summary(model1)", not_typed_msg = "Make sure you entered the name of your model in the summary command.")
-test_student_typed("plot(table1[,1]", not_typed_msg = "Make sure you entered the name of the table in the plotting-command.")
+test_student_typed("plot(table1[,1]", not_typed_msg = "Make sure you entered the name of the table (table1) in the plotting-command.")
 success_msg("Awesome, you have completed all the exercises! Well done!")
 ```
