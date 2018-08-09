@@ -46,7 +46,7 @@ solution, you will loose your points for that exercise.
  - Whenever the commented line asks you to do something, you should write the answer under that line unless told otherwise.
 
 *** =hint
-Just follow the instructions written in the console. If you do exactly as they say, you should be able to complete this
+Just follow the instructions written in the editor. If you do exactly as they say, you should be able to complete this
 exercise. Try submitting your code and maybe the error messages help you to continue. If this doesn't help, ask the course
 staff or a friend or try posting your question on Moodle, maybe there are other students struggling with the same problem!
  
@@ -74,7 +74,7 @@ staff or a friend or try posting your question on Moodle, maybe there are other 
 *** =solution
 ```{r}
 # Write your name here
-Name
+Maija Meikalainen
  
 # Write here numbers from one to ten without spaces
 12345678910
@@ -94,9 +94,11 @@ test_output_contains("65", incorrect_msg = "Try counting the apples again.")
 success_msg("It seems that you are getting the idea. Let's still continue the warm up for a little bit.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_2
-## How to make these in a more simple way
-In the previous exercise we calculated mean and standard deviation manually. R, however, has many equations already in it. For example, to calculate the mean of values 4, 6 and 7 you can just type mean(c(4,6,7)). Or to calculate the standard deviation of these numbers, just type sd(c(4,6,7))
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise0_2
+## Warming up your special characters
+In the previous exercise we learned how to write simple things on the editor and what they look like in the console.
+This time we want to focus on special characters so that when they come up in the actual exercises you already know
+a little bit about them.
 
 *** =instructions
 
@@ -151,7 +153,7 @@ success_msg("Super! Now let's move on to the next exercise.")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_3
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise0_3
 ## Checking out the data! 
  
 When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females / males, and what is the age distribution, for example. To get the number of samples and variables in your data, just type dim(data). For categorical variables, table() is a good way, and for continous variables use summary() to get an overview of that specific variable. If you need to know what variables you have in your data, just type colnames(data).
@@ -222,7 +224,7 @@ test_student_typed("summary(diabetes$age)", not_typed_msg = "Make sure you check
 success_msg("Great! You're such a master at R! ")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_4
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise0_4
 ## Basic plotting
  
 When checking out your data, the good next step is to visualize the variables. This is how you get the first idea of their distributions and can spot the possible outliers (the kind of values that are very different from the other values.) Propably most commonly used plotting commands are hist() for histrogram, barplot() for barplot, plot() for scatter plot and boxplot() for boxplot. 
@@ -315,7 +317,7 @@ test_output_contains("-0.04567112", incorrect_msg = "Make sure that you have che
 
 success_msg("Awesome! You old plotting wizard!")
 ```
---- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_5
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise0_5
 
 ## Making plots more fancy
  
