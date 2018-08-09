@@ -1,12 +1,24 @@
 --- 
 title_meta  : Chapter 0
 title       : Before starting the exercises (no deadline)
-description : "In this chapter, you will learn the basics of how to work on DataCamp and how to handle with exercises. Since many of you are working with iPads, there will also be some advice regarding special characters such as `^` or `'`."
+description : "In this chapter, you will learn the basics of how to work on DataCamp and how to handle with exercises. 
+Since many of you are working with iPads, there will also be some advice regarding special characters such as `^` or `'`."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise0_1
-## WEEK 1 STARTS HERE: Let's get started
+## THE WARM UP STARTS HERE: How does DataCamp work
  
-In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
+In the box below you can see the instructions for the exercise. 
+On the right in the upper window you can type your code. That window is called editor. 
+You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command,
+and when you are done with the exercises, you can press the Submit-button.
+If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter.
+When you run your commands, the results appear in the window under the editor. That window is called console.
+
+Tips for iPad users:
+In case you are using an iPad, you can just go ahead and run all the commands by pressing the Submit-button. 
+If you do this when you are not yet 
+finished and some sort of error message appears, you can try to comment out the parts that you have not completed yet. 
+That can be done by inserting a hashtag `#` at the beginning of the not completed lines.
  
 You can use R as a calculator. You can run basic mathematical operations like this: 
  
@@ -16,15 +28,27 @@ You can use R as a calculator. You can run basic mathematical operations like th
 - Division: `/`
 - Exponentiation: `^`
  
-In order to understand better your own code, or in case you want to save it as an actual R script (It is possible if you have R installed in your computer.) it is good to comment on your code. That can be done by typing `#` at the beginning of the row. Any text you type on that row will be considered as a comment. For example _Calculate the mean of these numbers: 1, 3, 8, 10, 12_ in the editor window is a comment.
+In order to understand better your own code, or in case you want to save it as an actual R script 
+(It is possible as a simple copy-paste if you have R installed in your computer.) it is good to comment on your code. 
+At the beginning when the code is still not very clear to you, it helps you to understand what the code does. When the time
+goes by, these weird codewords start to mean something to you and it becomes easier, but the comments still help you
+and are especially useful if you need to share your code with another person.
+Commenting can be done by typing `#` at the beginning of the row. Any text you type on that row will be considered as a comment. 
+For example _Write your name here_ in the editor window is a comment.
+
+Don't be afraid of making mistakes, you do not loose any points by submitting an incorrect solution. 
+If your solution is not correct, you will receive an error message and you can simply try again.
+If, on the other hand you decide to take a hint, you will loose some points and if you decide to look at the ready-made 
+solution, you will loose your points for that exercise.
  
 *** =instructions
- - Assume we have a sample of ten people from the cardiac-dataset. Their ejectionfractions (in percents) are 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37. 
-   - Calculate the mean of ejectionfraction for the sample. 
-   - Calculate the standard deviation of ejectionfraction for the sample. 
+ - These first exercises are a warm up to get to know how does this environment work.
+ - Whenever the commented line asks you to do something, you should write the answer under that line unless told otherwise.
 
 *** =hint
-Just revise the formulas of mean and standard deviation! Write the numbers on the console and run the lines.
+Just follow the instructions written in the console. If you do exactly as they say, you should be able to complete this
+exercise. Try submitting your code and maybe the error messages help you to continue. If this doesn't help, ask the course
+staff or a friend or try posting your question on Moodle, maybe there are other students struggling with the same problem!
  
 *** =pre_exercise_code
 ```{r}
@@ -33,41 +57,41 @@ Just revise the formulas of mean and standard deviation! Write the numbers on th
  
 *** =sample_code
 ```{r}
-# Example: Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
-(1 + 3 + 8 + 10 + 12) / 5
- 
-# Example: Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
-sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
- 
-# Calculate the arithmetic mean of the ejectiofraction as shown in example above:
+# Write your name here
 
  
-# Calculate the standard deviation of the ejectiofraction as shown in example above:
+# Write here numbers from one to ten without spaces
+
+ 
+# Calculate the sum of the following numbers: 1,3,5,7,9
+
+ 
+# If Matti has 100 apples and he gives Mari 35 of them, how much apples does Matti have left? Calculate.
  
 
 ```
  
 *** =solution
 ```{r}
-# Example: Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
-(1 + 3 + 8 + 10 + 12) / 5
+# Write your name here
+Name
  
-# Example: Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
-sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
-
-# Calculate the arithmetic mean of the ejectiofraction as shown in example above:
-(64 + 57 + 52 + 37 + 57 + 62 + 60 + 57 + 57 + 37) /10 
+# Write here numbers from one to ten without spaces
+12345678910
  
-# Calculate the standard deviation of the ejectiofraction as shown in example above:
-sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)^2) + ((62 - 54)^2) + ((60 - 54)^2) + ((57 - 54)^2) + ((57 - 54)^2) + ((37 - 54)^2)) / 9 )
-
+# Calculate the sum of the following numbers: 1,3,5,7,9
+1+3+5+7+9
+ 
+# If Matti has 100 apples and he gives Mari 35 of them, how much apples does Matti have left? Calculate.
+100-35
 ```
  
 *** =sct
 ```{r}
-test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
-test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
-success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
+test_output_contains("12345678910", incorrect_msg = "When you are writing the numbers from one to ten, make sure there are no spaces between them.")
+test_output_contains("25", incorrect_msg = "Your sum is not quite correct, try again.")
+test_output_contains("65", incorrect_msg = "Try counting the apples again.")
+success_msg("It seems that you are getting the idea. Let's still continue the warm up for a little bit.")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_2
