@@ -1,6 +1,6 @@
 --- 
 title_meta  : Chapter 0
-title       : Before starting the exercises (no deadline)
+title       : Sandbox
 description : "In this chapter, you will learn the basics of how to work on DataCamp and how to handle with exercises. 
 Since many of you are working with iPads, there will also be some advice regarding special characters such as `^` or `'`."
  
