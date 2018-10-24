@@ -62,8 +62,8 @@ dim(cardiac)
  
 *** =sct
 ```{r}
-test_output_contains("gender", incorrect_msg = "Make sure to use names() command and insert the name of the dataset requested.")
-test_output_contains(""36"", incorrect_msg = "Make sure that you have understood how the dim()-function works.")
+test_output_contains(""gender"", incorrect_msg = "Make sure to use names() command and insert the name of the dataset requested.")
+test_output_contains("36", incorrect_msg = "Make sure that you have understood how the dim()-function works.")
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
 
