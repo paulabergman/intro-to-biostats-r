@@ -1,5 +1,5 @@
 --- 
-title_meta  : Chapter 2
+title_meta  : Chapter 6
 title       : Plots
 description : "In this chapter, you will learn to plot."
  
