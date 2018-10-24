@@ -19,6 +19,9 @@ In case you are using an iPad, you can just go ahead and run all the commands by
 If you do this when you are not yet 
 finished and some sort of error message appears, you can try to comment out the parts that you have not completed yet. 
 That can be done by inserting a hashtag `#` at the beginning of the not completed lines.
+
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_2
+## Arithmetic with R
  
 You can use R as a calculator. You can run basic mathematical operations like this: 
  
@@ -27,6 +30,62 @@ You can use R as a calculator. You can run basic mathematical operations like th
 - Multiplication: `*`
 - Division: `/`
 - Exponentiation: `^`
+
+With this knowledge, follow the instructions below to complete the exercise.
+
+`@instructions`
+- Type `2^5` in the editor to calculate 2 to the power 5.
+- Click 'Submit Answer' and have a look at the R output in the console.
+- Note how the `#` symbol is used to add comments on the R code.
+
+`@hint`
+Another example of the modulo operator: `9 %% 2` equals `1`.
+
+`@pre_exercise_code`
+```{r}
+# no pec
+```
+
+`@sample_code`
+```{r}
+# An addition
+5 + 5 
+# A subtraction
+5 - 5 
+# A multiplication
+3 * 5
+ # A division
+(5 + 5) / 2 
+# Exponentiation
+# Modulo
+```
+
+`@solution`
+```{r}
+# An addition
+5 + 5
+# A subtraction
+5 - 5 
+# A multiplication
+3 * 5
+ # A division
+(5 + 5) / 2 
+# Exponentiation
+2 ^ 5
+# Modulo
+28 %% 6
+```
+
+`@sct`
+```{r}
+msg = "Do not remove the other arithmetic examples!"
+test_output_contains("2^5", incorrect_msg = "The exponentiation example is not correct. Write `2 ^ 5` on a new line.")
+test_output_contains("28 %% 6", incorrect_msg = "There seems to be an issue with the modulo example. Write `28 %% 6` on a new line.")
+success_msg("Great! Head over to the next exercise.")
+```
+
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_3
+## Save yout work
  
 In order to understand better your own code, or in case you want to save it as an actual R script 
 (It is possible as a simple copy-paste if you have R installed in your computer.) it is good to comment on your code. 
