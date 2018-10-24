@@ -1,103 +1,99 @@
 --- 
 title_meta  : Chapter 1
 title       : Summary statistics and tabulation
-description : "In this chapter, you will get to know some basic features of R. You will also learn to check the summary statistics of continuous variables and draw some simple graphs."
+description : "How to get to know your data? In this chapter you will learn how to look at some basic aspects of your data."
  
---- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_1
-## WEEK 1 STARTS HERE: Let's get started
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise1_1
+## What is my dataset like?
  
-In the box below you can see the instructions for the exercise. On the right in the upper window you can type your code. That window is called editor. You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command. If your command is on multiple lines you must select all those rows and then Ctrl+Enter or Cmd+Enter. When you run your commands, the results appear in the window under the editor. That window is called console.
- 
-You can use R as a calculator. You can run basic mathematical operations like this: 
- 
-- Addition: `+`
-- Subtraction: `-`
-- Multiplication: `*`
-- Division: `/`
-- Exponentiation: `^`
- 
-In order to understand better your own code, or in case you want to save it as an actual R script (It is possible if you have R installed in your computer.) it is good to comment on your code. That can be done by typing `#` at the beginning of the row. Any text you type on that row will be considered as a comment. For example _Calculate the mean of these numbers: 1, 3, 8, 10, 12_ in the editor window is a comment.
+When you first start to work with a dataset, it is good to get a good look at it. You can check how many observations you have, how many variables and what are they like. Are there any missing values? 
+
+Depending on the type of your variable, you can either look at the summary statistics or you can tabulate the values. These are both called descriptive statistics. 
+
+Let's first start with the very basics of checking the size of your dataset and what are the names of the variables it contains.
+
+
+
  
 *** =instructions
- - Assume we have a sample of ten people from the cardiac-dataset. Their ejectionfractions (in percents) are 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37. 
-   - Calculate the mean of ejectionfraction for the sample. 
-   - Calculate the standard deviation of ejectionfraction for the sample. 
+ - The name of your dataset is cardiac. Check the list of variable names in this dataset.
+ - How many variables are in your dataset? 
+ - How many observations (people, in this case) are in your dataset? 
 
 *** =hint
-Just revise the formulas of mean and standard deviation! Write the numbers on the console and run the lines.
+Look at the sample code and try inserting the name of your dataset.
  
 *** =pre_exercise_code
 ```{r}
- # no pec
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
  
 *** =sample_code
 ```{r}
-# Example: Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
-(1 + 3 + 8 + 10 + 12) / 5
+# Example: Check the list of variable names in diabetes-dataset
+names(diabetes)
  
-# Example: Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
-sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
+# Example: Check how many variables and observations are in diabetes dataset
+dim(diabetes)
  
-# Calculate the arithmetic mean of the ejectiofraction as shown in example above:
+# Check the list of variable names in cardiac-dataset.
 
  
-# Calculate the standard deviation of the ejectiofraction as shown in example above:
+# Check how many variables and observations are in cardiac-dataset.
  
 
 ```
  
 *** =solution
 ```{r}
-# Example: Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
-(1 + 3 + 8 + 10 + 12) / 5
+# Example: Check the list of variable names in diabetes-dataset
+names(diabetes)
  
-# Example: Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
-sqrt((((1 - 6.8)^2) + ((3 - 6.8)^2) + ((8 - 6.8)^2) + ((10 - 6.8)^2) + ((12 - 6.8)^2)) / (5 - 1))
-
-# Calculate the arithmetic mean of the ejectiofraction as shown in example above:
-(64 + 57 + 52 + 37 + 57 + 62 + 60 + 57 + 57 + 37) /10 
+# Example: Check how many variables are in diabetes dataset
+dim(diabetes)
  
-# Calculate the standard deviation of the ejectiofraction as shown in example above:
-sqrt((((64 - 54)^2) + ((57 - 54)^2) + ((52 - 54)^2) + ((37 - 54)^2) + ((57 - 54)^2) + ((62 - 54)^2) + ((60 - 54)^2) + ((57 - 54)^2) + ((57 - 54)^2) + ((37 - 54)^2)) / 9 )
-
+# Check the list of variable names in cardiac-dataset.
+names(cardiac)
+ 
+# Check how many variables and observations are in cardiac-dataset.
+dim(cardiac)
 ```
  
 *** =sct
 ```{r}
-test_output_contains("54", incorrect_msg = "Make sure to add the values together and divide them by the sample size (10).")
-test_output_contains("9.533", incorrect_msg = "Make sure that you have studied well the formula of standard deviation.")
+test_output_contains("gender", incorrect_msg = "Make sure to use names() command and insert the name of the dataset requested.")
+test_output_contains("36", incorrect_msg = "Make sure that you have understood how the dim()-function works.")
 success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on to the next exercise.")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_2
-## How to make these in a more simple way
-In the previous exercise we calculated mean and standard deviation manually. R, however, has many equations already in it. For example, to calculate the mean of values 4, 6 and 7 you can just type mean(c(4,6,7)). Or to calculate the standard deviation of these numbers, just type sd(c(4,6,7))
+## Descriptive statistics for continuous variables
+Continuous variable is 
+
+Summary statistics contain minimum and maximum values, upper and lower quartiles and mean and median. When you have a continuous variable, this is usually a good approach to get a better idea about the variable and its distribution. You can obtain the summary statistics in R by typing summary() and inserting the name of your variable into brackets. Summary statistics also reveal how many missing values are in your variable.
+
+In addition to that, also standard deviation is often checked. This can be done with sd() command. 
 
 *** =instructions
 
-Calculate the mean and standard deviation for that same data set as in previous exercise using function mean() and sd(). You should get the same results as in previous exercise. As a reminder: the ejectionfractions (in percents) were as follow: : 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37.
+- Check the minimum, maximum, mean, median, and standard deviation of variable
+- How many missing values are in this variable?
+- What is the standard deviation of the variable? (Notice that if there are missing values, you have to type na.rm=TRUE in the brackets so that R knows that it can ignore them.)
 
 *** =hint
-Make sure you have not forget to put those numbers in vector c()!
+Checking the dimensions of the dataset is a good way to find out how many observations there ar.
+Also, when looking at the standard deviation, make sure you have not forgot to take care of the missing values.
  
 *** =pre_exercise_code
 ```{r}
- # no pec
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
  
 *** =sample_code
 ```{r}
-# Calculate the arithmetic mean of these numbers: 1, 3, 8, 10, 12
-mean(c(1, 3, 8, 10, 12))
- 
-# Calculate the standard deviation of these numbers: 1, 3, 8, 10, 12
-sd(c(1, 3, 8, 10, 12))
- 
-# Calculate the arithmetic mean of the ejectiofraction as shown in example above
 
- 
-# Calculate the standard deviation of the ejectiofraction as shown in example above
  
 
 ```
@@ -128,21 +124,17 @@ success_msg("Super! Now let's move on to the next exercise.")
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_3
-## Checking out the data! 
- 
-When you get a new data set, it is a good practice to first give it a quick overview: to check how many samples you have, how many variables you have, how many females / males, and what is the age distribution, for example. To get the number of samples and variables in your data, just type dim(data). For categorical variables, table() is a good way, and for continous variables use summary() to get an overview of that specific variable. If you need to know what variables you have in your data, just type colnames(data).
- 
+## Descriptive statistics for discrete variables 
+A discrete variable is.
+
+When dealing with a discrete variable it is good to check how many observations there are in each class of the variable. That is information that is often reported and it can be crucial to know in order to perform any further analysis for the data.
+
+
 *** =instructions
- - Find out how many observations does the cardiac-data contain. 
- - Find out how many observations does the diabetes-data contain.
- - Find out how many females are in cardiac-data.
- - Find out how many female are in diabetes- data.
- - What is the age-range in cardiac-data?
- - What is the age-range in diabetes-data?
+ - Make a table of a variable
 
 *** =hint
-Checking the dimensions of the dataset is a good way to find out how many observations are there. 
-Remember to connect variables to the dataset with a '$' sign. Remember also the table() and summary()- functions!
+Remember to connect variables to the dataset with a '$' sign.
  
 *** =pre_exercise_code
 ```{r}
@@ -152,37 +144,13 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 *** =sample_code
 ```{r}
-# Hint! You can refer to our data sets just by typing "cardiac" and "diabetes". To refer to any variable in that data just type it in the form data$variable, for example cardiac$gender.
-
-# Fill in the sample sizes:
-# Cardiac:
-# Diabetes: 
-
-# Females in cardiac-data:
-# Females in diabetes-data: 
- 
-# Check age distribution in cardiac-data (summary of the variable age in cardiac-data):
-
-
-# Chekc age distribution in diabetes-data (summary of the variable age in diabetes-data):
  
  
 ```
  
 *** =solution
 ```{r}
-# Fill in the sample sizes:
-# Cardiac: 558
-# Diabetes: 403
 
-# Females in cardiac-data: 338
-# Females in diabetes-data: 234
- 
-# Check age distribution in cardiac-data (summary of the variable 'age' in cardiac-data):
-summary(cardiac$age)
-
-# Chekc age distribution in diabetes-data (summary of the variable 'age' in diabetes-data):
-summary(diabetes$age)
  
 ```
  
