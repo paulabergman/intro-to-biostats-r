@@ -1,6 +1,6 @@
 --- 
 title_meta  : Chapter 1
-title       : WEEK 1, Basics of R, summary statistics and tabulation
+title       : Basics of R: Summary statistics, tabulation
 description : "In this chapter, you will get to know some basic features of R. You will also learn to check the summary statistics of continuous variables and draw some simple graphs."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_1
