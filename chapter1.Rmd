@@ -57,7 +57,7 @@ test_output_contains("22", incorrect_msg = "Make sure to add `4 + 18` on a new l
 success_msg("Awesome! See how the console shows the result of the R code you submitted? Now that you're familiar with the interface, let's get down to R business!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_1
+--- type:NormalExercise lang:r xp:0 skills:1 key:45129664b8
 ## Arithmetic with R
 
 In its most basic form, R can be used as a simple calculator. Consider the following arithmetic operators:
