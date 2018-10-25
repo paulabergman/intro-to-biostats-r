@@ -8,6 +8,9 @@ Since many of you are working with iPads, there will also be some advice regardi
 ## THE WARM UP STARTS HERE: How does DataCamp work
  
 In the box below you can see the instructions for the exercise. 
+
+In the editor on the right you should type R code to solve the exercises. When you hit the 'Submit Answer' button, every line of code is interpreted and executed by R and you get a message whether or not your code was correct. The output of your R code is shown in the console in the lower right corner. You can also execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac)
+
 On the right in the upper window you can type your code. That window is called editor. 
 You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command,
 and when you are done with the exercises, you can press the Submit-button.
@@ -19,3 +22,37 @@ In case you are using an iPad, you can just go ahead and run all the commands by
 If you do this when you are not yet 
 finished and some sort of error message appears, you can try to comment out the parts that you have not completed yet. 
 That can be done by inserting a hashtag `#` at the beginning of the not completed lines.
+
+*** =instructions
+
+- In the editor on the right there is already some sample code. Can you see which lines are actual R code and which are comments?
+- Add a line of code that calculates the sum of 4 and 18, and hit the 'Submit Answer' button.
+
+*** =hint
+Just add a line of R code that calculates the sum of 4 and 18, just like the example in the sample code!
+
+*** =pre_exercise_code
+```{r}
+ # no pec
+```
+
+*** =sample_code
+```{r}
+# Calculate 3 + 4
+3 + 4
+# Calculate 4 + 18
+```
+
+*** =solution
+```{r}
+# Calculate 3 + 4
+3 + 4
+# Calculate 4 + 18
+4 + 18
+```
+
+*** =sct
+```{r}
+test_output_contains("22", incorrect_msg = "Make sure to add `4 + 18` on a new line. Do not start the line with a `#`, otherwise your R code is not executed!")
+success_msg("Awesome! See how the console shows the result of the R code you submitted? Now that you're familiar with the interface, let's get down to R business!")
+```
