@@ -189,6 +189,15 @@ Remember that if you want to assign a number or an object to a variable in R, yo
 # Assign the value 7 to the variable my_oranges
 # Print out the value of the variable my_oranges
 ```
+
+*** =solution
+```{r}
+# Assign the value 7 to the variable my_oranges
+my_oranges <- 7
+# Print out the value of the variable my_oranges
+my_oranges
+```
+
 *** =sct
 ```{r}
 test_object("my_oranges", 
