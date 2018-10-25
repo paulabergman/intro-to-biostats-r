@@ -4,7 +4,7 @@ title       : Plots
 description : "In this chapter, you will learn to plot."
  
 --- type:NormalExercise lang:r xp:100 skills:1 key:exercise0_1
-## THE WARM UP STARTS HERE: How does DataCamp work
+##  How does DataCamp work
  
 In the box below you can see the instructions for the exercise. 
 On the right in the upper window you can type your code. That window is called editor. 
