@@ -2,9 +2,9 @@
 title_meta  : Chapter 0
 title       : Sandbox
 description : "In this chapter, you will learn the basics of how to work on DataCamp and how to handle with exercises. 
-Since many of you are working with iPads, there will also be some advice regarding special characters such as `^` or `'`."
+Since many of you are working with iPads, there will also be some advice regarding special characters such as `^` or `'`. Let's get started!"
  
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_1
+--- type:NormalExercise lang:r xp:100 skills:1 key:exercise0_1
 ## THE WARM UP STARTS HERE: How does DataCamp work
  
 In the box below you can see the instructions for the exercise. 
