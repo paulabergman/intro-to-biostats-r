@@ -56,3 +56,46 @@ Just add a line of R code that calculates the sum of 4 and 18, just like the exa
 test_output_contains("22", incorrect_msg = "Make sure to add `4 + 18` on a new line. Do not start the line with a `#`, otherwise your R code is not executed!")
 success_msg("Awesome! See how the console shows the result of the R code you submitted? Now that you're familiar with the interface, let's get down to R business!")
 ```
+
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_1
+## Arithmetic with R
+
+In its most basic form, R can be used as a simple calculator. Consider the following arithmetic operators:
+
+- Addition: `+`
+- Subtraction: `-`
+- Multiplication: `*`
+- Division: `/`
+- Exponentiation: `^` or `**`
+
+The last one might need some explaining:
+- The `^` or `**` operator raises the number to its left to the power of the number to its right: for example `3^2` or `3**2` is 9.
+
+With this knowledge, follow the instructions below to complete the exercise.
+
+*** =instructions
+- Type `2^5` in the editor after the "Exponentiation" part to calculate 2 to the power 5.
+- Click 'Submit Answer' and have a look at the R output in the console.
+- Note how the `#` symbol is used to add comments on the R code.
+
+*** =hint
+Make sure you have used either `^` or `**` signs.
+
+*** =pre_exercise_code
+```{r}
+ # no pec
+```
+
+*** =sample_code
+```{r}
+# An addition
+5 + 5 
+# A subtraction
+5 - 5 
+# A multiplication
+3 * 5
+ # A division
+(5 + 5) / 2 
+# Exponentiation
+
+```
