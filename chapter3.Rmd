@@ -1,21 +1,21 @@
 --- 
 title_meta  : Chapter 2
-title       : Plots
-description : "In this chapter, you will learn to plot."
+title       : Plotting
+description : "In this chapter, you will learn to plot in R."
  
 
---- type:NormalExercise lang:r xp:100 skills:1 key:exercise0_2
-## Warming up your special characters
-In the previous exercise we learned how to write simple things on the editor and what they look like in the console.
-This time we want to focus on special characters so that when they come up in the actual exercises you already know
-a little bit about them.
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise2_1
+## Basic plotting
+One of R's best features is its plots. In R it is easy and fun to adjust your plots just the way you like it. But now, let's start from the basics. Propably one of the first things you want to do with your data set is to check your gender distibution. The best way to do that is to draw a barplot from your variable 'gender'. To draw a barplot, use barplot(table(data$variable)).  Why table you may ask? What barplot wants inside of it is the heights of the bars, so if you would type in barplot(data$variable), it would produce as many bars as you have individuals. 
 
 *** =instructions
 
-Calculate the mean and standard deviation for that same data set as in previous exercise using function mean() and sd(). You should get the same results as in previous exercise. As a reminder: the ejectionfractions (in percents) were as follow: : 64, 57, 52, 37, 57, 62, 60, 57, 57 and 37.
+- Draw a barplot of the variable 'gender' in diabetes-dataset.
+
+- Draw a barplot of the variable 'gender' in cardiac-dataset.
 
 *** =hint
-Make sure you have not forget to put those numbers in vector c()!
+Make sure you put your variable inside table, and referred to your variable as data$variale
  
 *** =pre_exercise_code
 ```{r}
