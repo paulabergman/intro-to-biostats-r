@@ -19,7 +19,8 @@ Make sure you put your variable inside table, and referred to your variable as d
  
 *** =pre_exercise_code
 ```{r}
- # no pec
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
  
 *** =sample_code
