@@ -185,7 +185,7 @@ sd(diabetes$bmi, na.rm = TRUE)
 # Look at the summary statistics of maxhr in cardiac-dataset
 
 
-# Look at the standard deviation of bmi in diabetes-dataset 
+# Look at the standard deviation of maxhr in diabetes-dataset 
 
 
 ```
@@ -201,7 +201,7 @@ sd(diabetes$bmi, na.rm = TRUE)
 # Look at the summary statistics of maxhr in cardiac-dataset
 summary(cardiac$maxhr)
 
-# Look at the standard deviation of bmi in cardiac-dataset 
+# Look at the standard deviation of maxhr in cardiac-dataset 
 sd(cardiac$maxhr, na.rm = TRUE) 
 ```
 
