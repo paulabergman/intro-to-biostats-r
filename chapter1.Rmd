@@ -306,3 +306,61 @@ test_object("my_fruit", incorrect_msg = "The value of `my_fruit` is not correct.
 test_output_contains("my_fruit", incorrect_msg = "Don't remove the line that prints out `my_fruit`.")
 success_msg("Awesome, keep up the good work! Continue to the next exercise.")
 ```
+
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_7
+## Basic data types in R
+
+R works with numerous data types. Some of the most basic types to get started are:
+
+- Decimal values like `4.5` are called **numerics**.
+- Natural numbers like `4` are called **integers**. Integers are also numerics.
+- Boolean values (`TRUE` or `FALSE`) are called **logical**.
+- Text (or string) values are called **characters**.
+
+Note how the quotation marks on the right indicate that "some text" is a character.
+
+*** =instructions
+Change the value of the:
+
+- `my_numeric` variable to `42`.
+- `my_character` variable to `"universe"`. Note that the quotation marks indicate that `"universe"` is a character.
+- `my_logical` variable to `FALSE`.
+
+Note that R is case sensitive!
+
+*** =hint
+Replace the values in the editor with the values that are provided in the exercise. For example: 
+`my_numeric <- 42` assigns the value 42 to the variable `my_numeric`. 
+
+*** =pre_exercise_code
+```{r}
+# no pec
+```
+*** =sample_code
+```{r}
+# Change my_numeric to be 42
+my_numeric <- 42.5
+# Change my_character to be "universe"
+my_character <- "some text"
+# Change my_logical to be FALSE
+my_logical <- TRUE
+```
+
+*** =solution
+```{r}
+# Change my_numeric to be 42
+my_numeric <- 42
+# Change my_character to be "universe"
+my_character <- "universe"
+# Change my_logical to be FALSE
+my_logical <- FALSE
+```
+
+*** =sct
+```{r}
+test_object("my_numeric", incorrect_msg = "Have you correctly changed the declaration of `my_numeric` so it contains the value 42?")
+test_object("my_character", incorrect_msg = "Have you correctly changed `my_character` to `\"universe\"`? Don't forget the quotes!")
+test_object("my_logical", incorrect_msg = "Have you correctly changed `my_logical` to `FALSE`? All letters of `FALSE` should be capitalized!")
+success_msg("Great work! Continue to the next exercise.")
+```
+
