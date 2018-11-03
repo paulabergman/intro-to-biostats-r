@@ -66,6 +66,90 @@ success_msg("Awesome! This clearly was a piece of cake to you! Now let's move on
 ```
 
 --- type:NormalExercise lang:r xp:0 skills:1 key:exercise2_2
+## Variables in the data
+As we saw in the previous exercise, dataset consists of variables. Recently we learned how to look at the summaries of the variables, but what if we want to see all the values of a certain variable in the dataset?
+
+It can be done simply by printing out the variable by writing its name and running that line. Or you can use the print function and write your variable name inside it. There are many ways to do the same thing and usually it is just a question of preference how one does it.
+
+If your variable is in your dataset (and not for example variable created by you, like in the sandbox exercises), the dataset has to be referred in the command. It can be done with a dollar sign or with function. See the example code ->
+
+*** =instructions
+
+- Use the print-function. Print out the values of variable maxhr (maximum heart rate) in cardiac-dataset.
+- Use the with-function. Print out the values of variable location in diabetes-dataset.
+- Print out the values of variable basebp in cardiac-dataset without using functions. Use the dollar sign when refering to the dataset.
+
+*** =hint
+In the first one you can just write the name of your variable inside the print function.
+In the second one you are supposed to start witht the with function, then write the name or your dataset and after comma the name of your variable.
+In the last one you can simply write the name of your dataset, dollar sign and name of your variable.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# Print out the values of variable bmi in diabetes-dataset by using the print-function
+print(diabetes$bmi)
+
+# Print out the values of variable bmi in diabetes-dataset by using the with-function
+with(diabetes, bmi)
+
+# Print out the values of variable bmi in diabetes-dataset by using both print- and with-function
+with(diabetes, print(bmi))
+
+# Print out the values of variable bmi in diabetes-dataset without using functions and refering to the dataset with the dollar sign
+diabetes$bmi
+
+# Print out the values of variable maxhr (maximum heart rate) in cardiac-dataset by using the print-function
+
+
+# Print out the values of variable location in diabetes-dataset by using the with-function
+
+
+# Print out the values of variable basebp in cardiac-dataset without using functions and refering to the dataset with the dollar sign
+
+
+```
+ 
+*** =solution
+```{r}
+# Print out the values of variable bmi in diabetes-dataset by using the print-function
+print(diabetes$bmi)
+
+# Print out the values of variable bmi in diabetes-dataset by using the with-function
+with(diabetes, bmi)
+
+# Print out the values of variable bmi in diabetes-dataset by using both print- and with-function
+with(diabetes, print(bmi))
+
+# Print out the values of variable bmi in diabetes-dataset without using functions and refering to the dataset with the dollar sign
+diabetes$bmi
+
+# Print out the values of variable maxhr (maximum heart rate) in cardiac-dataset by using the print-function
+print(cardiac$maxhr)
+
+# Print out the values of variable location in diabetes-dataset by using the with-function
+with(diabetes, location)
+
+# Print out the values of variable basebp in cardiac-dataset without using functions and refering to the dataset with the dollar sign
+cardiac$basebp 
+```
+
+ 
+*** =sct
+```{r}
+test_student_typed("print(", not_typed_msg = "Make sure you used print- function.")
+test_student_typed("with(", not_typed_msg = "Make sure you used with- function.")
+test_student_typed("cardiac$basebp", not_typed_msg = "In the last exercise did you type the name of your dataset, dollar sign and name of your variable?")
+test_student_typed("location", not_typed_msg = "Make sure you used right variables.")
+success_msg("Super! Now let's move on to the next exercise.")
+```
+
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise2_3
 ## Descriptive statistics for continuous variables
 Continuous variable is basically a variable that can have any values in a certain range. For example height or weight are continuous variables, as well as blood pressure and cholesterol.
 
@@ -98,7 +182,7 @@ summary(diabetes$bmi)
 # Look at the standard deviation of bmi in diabetes-dataset
 sd(diabetes$bmi, na.rm = TRUE)
 
-# Look at the summary statistics of maxhr in diabetes-dataset
+# Look at the summary statistics of maxhr in cardiac-dataset
 
 
 # Look at the standard deviation of bmi in diabetes-dataset 
@@ -114,17 +198,16 @@ summary(diabetes$bmi)
 # Look at the standard deviation of bmi in diabetes-dataset
 sd(diabetes$bmi, na.rm = TRUE)
 
-# Look at the summary statistics of maxhr in diabetes-dataset
+# Look at the summary statistics of maxhr in cardiac-dataset
 summary(cardiac$maxhr)
 
-# Look at the standard deviation of bmi in diabetes-dataset 
+# Look at the standard deviation of bmi in cardiac-dataset 
 sd(cardiac$maxhr, na.rm = TRUE) 
 ```
 
  
 *** =sct
 ```{r}
-test_output_contains("120", incorrect_msg = "Make sure that you have put the correct variable name inside summary-function.")
 test_output_contains("21.9", incorrect_msg = "Make sure that you have put the correct variable name inside sd-function.")
 test_student_typed("summary(", not_typed_msg = "Make sure you used summary()- function.")
 test_student_typed("sd(", not_typed_msg = "Make sure you used sd()- function.")
@@ -132,7 +215,7 @@ success_msg("Super! Now let's move on to the next exercise.")
 ```
 
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise2_3
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise2_4
 ## Descriptive statistics for discrete variables 
 A discrete variable is a variable that can only have a limited number of values. They can also be values that cannot be put into order. For example person's favorite color, diabetes status and gender are discrete variables.
 
@@ -193,7 +276,7 @@ test_student_typed("summary(", not_typed_msg = "Have you used summary-function t
 success_msg("Great! You're such a master at R! ")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise1_4
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise1_5
 ## Crosstabulating variables
  
 When checking out your data, the good next step is to see how the variables might be related to each other. If you want to check for example how many females smoke and how many males smoke, you could crosstabulate these two discrete variables to take a look at the numbers. Crosstabulation can be done like a simple table, but instead of inserting just one variable name inside the table-function, you can insert two variables.
@@ -259,14 +342,18 @@ test_student_typed("cardiac", not_typed_msg = "Make sure that you used the right
 
 success_msg("Awesome! You are such a pro with crosstabulation!")
 ```
---- type:NormalExercise lang:r xp:100 skills:1 key:exercise1_5
+--- type:NormalExercise lang:r xp:0 skills:1 key:exercise1_6
 
-## Making plots more fancy
+## Making tables more fancy
  
-Plots are cooler with some colours in it. Title is a good way to tell people what the plot is about. One of R's best features is it wide range of colours, and easy wat of adjusting your plots to be exactly as you want. The basic colours, such as red and green can be gained by just typing 'red' or 'green'. To fin out more about colours in R, and their names, google colours in R and you are on your way to a super fancy plots!
+Tables that are supposed to be presentable are not usually the ones done by using just the simple table-command. There are many other programs or R-extensions that can be used in order to make nicelooking tables. But with some simple commands you can improve the quality of your table a little even in your regular scripts.
+
+R's package "gmodels" offers one of these simple table tool, a function called CrossTable. OK, let's back up a little, what is a package? R software uses packages that are collections of extra functionalities. In the R programme that you might have downloaded in your own computer new packages can be installed by using install.packages-function and inserting the name of the package inside brackets in quotation marks, like this: install.packages("nameofmypackage"). Once you have the package installed, it goes in your package-library and whenever you need it you can call it with library-function like this: library(nameofmypackage). Here in DataCamp all the necessary packages are already installed and you only have to call them with the library command. 
+
+If you are new with a package or a function, you can always look for help by typing questionmark at the beginning of line and then typing the name of the package or the function after the questionmark without spaces.
 
 *** =hint
-Just add the title and colour options inside the plotting code, just like in the example.
+Just follow the example code and don't make any big changes to that.
  
 *** =pre_exercise_code
 ```{r}
@@ -274,45 +361,45 @@ cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bio
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
 *** =instructions
-- Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot. Don't be afraid to get creative!
-- Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
-- Draw a boxplot for cholesterol ('chol') in diabetes- data by gender. Add a title and different colours for the two boxes. 
+- Load the library gmodels. 
+- Check the help page for CrossTable. See what are the default settings. (What arguments are TRUE, what FALSE and so on). If you are OK with the default settings, it is OK to just write the names of your variables in the function, like this: CrossTable(mydata$variable1, mydata$variable2) but if you want to change something, you have to add that something in the function. For example CrossTable(mydata$variable1, mydata$variable2, prop.chisq=FALSE) if you don't want to see the Chi-square contributions.
+- Use CrossTable function to make a table of variables gender and death in cardiac dataset. Exclude the Chi-square contributions.
  
 *** =sample_code
 ```{r}
-# Draw a barplot of the variable 'gender' in cardiac-dataset. Add a title and colour to you plot.
+# Load the library gmodels
+library(gmodels)
+
+# Check the help page for CrossTable
  
-barplot(table(cardiac$gender),main="Gender in cardiac-dataset",col="tomato")
 
-# Draw a barplot of the variable 'gender' in diabetes-dataset. Add a title and colour to you plot.
- 
+# Use CrossTable function to make a table of variables event and smoking in cardiac dataset. Exclude the Chi-square contributions
+CrossTable(cardiac$event, cardiac$smoking)
 
-# Draw a histogram of the variable 'age' in cardiac-dataset. Add a title and colour to you plot.
-
-
-# Draw a boxplot for cholesterol ('chol') in diabetes- data by gender. Add a title and different colours for the two boxes. Hint! use col=c("colour1","colour2")  
+# Use CrossTable function to make a table of variables gender and death in cardiac dataset. Exclude the Chi-square contributions
  
 ```
  
 *** =solution
 ```{r}
-# Draw a barplot of the variable 'gender' in diabetes-dataset
- 
-barplot(table(diabetes$gender),main="Title",col="red")
- 
-# Draw a barplot of the variable 'age' in cardiac-dataset
-hist(cardiac$age,main="Title",col="red")
+# Load the library gmodels
+library(gmodels)
 
-# Draw a boxplot for cholesterol ('chol') in diabetes- data by gender. Add a title and different colours for the two boxes. 
-boxplot(diabetes$chol~diabetes$gender, col=c("red", "blue"))
+# Check the help page for CrossTable
+?CrossTable 
 
+# Use CrossTable function to make a table of variables event and smoking in cardiac dataset. Exclude the Chi-square contributions
+CrossTable(cardiac$event, cardiac$smoking)
+
+# Use CrossTable function to make a table of variables gender and death in cardiac dataset. Exclude the Chi-square contributions
+CrossTable(cardiac$gender, cardiac$death)
 ```
  
 *** =sct
 ```{r}
-test_function("barplot", incorrect_msg = "Did you enter both title and colour options?")
-test_function("hist", incorrect_msg = "Did you enter both title and colour options?")
-success_msg("Oh your plots look just fabulous!")
+test_student_typed("?CrossTable", not_typed_msg = "Did you manage to look at the help page by typing a questionmark at the beginning of the line and then the name of the function without spaces?")
+test_student_typed("CrossTable(", not_typed_msg = "Make sure that you used the CrossTable-command.")
+success_msg("Oh your tables look just fabulous!")
 ```
 
 
