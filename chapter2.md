@@ -328,8 +328,8 @@ with(cardiac, table(anyevent, smoking))
 # Crosstabulate variables gender and death in cardiac dataset.
 with(cardiac, table(gender, death))
  
-# Crosstabulate variables anyevent and death in cardiac dataset.
-with(cardiac, table(anyevent, death))
+# Crosstabulate variables location and cholcat in diabetes dataset.
+with(diabetes, table(location, cholcat))
 
 ```
  
@@ -342,66 +342,3 @@ test_student_typed("cardiac", not_typed_msg = "Make sure that you used the right
 
 success_msg("Awesome! You are such a pro with crosstabulation!")
 ```
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise1_6
-
-## Making tables more fancy
- 
-Tables that are supposed to be presentable are not usually the ones done by using just the simple table-command. There are many other programs or R-extensions that can be used in order to make nicelooking tables. But with some simple commands you can improve the quality of your table a little even in your regular scripts.
-
-R's package "gmodels" offers one of these simple table tool, a function called CrossTable. OK, let's back up a little, what is a package? R software uses packages that are collections of extra functionalities. In the R programme that you might have downloaded in your own computer new packages can be installed by using install.packages-function and inserting the name of the package inside brackets in quotation marks, like this: install.packages("nameofmypackage"). Once you have the package installed, it goes in your package-library and whenever you need it you can call it with library-function like this: library(nameofmypackage). Here in DataCamp all the necessary packages are already installed and you only have to call them with the library command. 
-
-If you are new with a package or a function, you can always look for help by typing questionmark at the beginning of line and then typing the name of the package or the function after the questionmark without spaces.
-
-*** =hint
-Just follow the example code and don't make any big changes to that.
- 
-*** =pre_exercise_code
-```{r}
-cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
-diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
-```
-*** =instructions
-- Load the library gmodels. 
-- Check the help page for CrossTable. See what are the default settings. (What arguments are TRUE, what FALSE and so on). If you are OK with the default settings, it is OK to just write the names of your variables in the function, like this: CrossTable(mydata$variable1, mydata$variable2) but if you want to change something, you have to add that something in the function. For example CrossTable(mydata$variable1, mydata$variable2, prop.chisq=FALSE) if you don't want to see the Chi-square contributions.
-- Use CrossTable function to make a table of variables gender and death in cardiac dataset. Exclude the Chi-square contributions.
- 
-*** =sample_code
-```{r}
-# Load the library gmodels
-library(gmodels)
-
-# Check the help page for CrossTable
- 
-
-# Use CrossTable function to make a table of variables event and smoking in cardiac dataset. Exclude the Chi-square contributions
-CrossTable(cardiac$event, cardiac$smoking)
-
-# Use CrossTable function to make a table of variables gender and death in cardiac dataset. Exclude the Chi-square contributions
- 
-```
- 
-*** =solution
-```{r}
-# Load the library gmodels
-library(gmodels)
-
-# Check the help page for CrossTable
-?CrossTable 
-
-# Use CrossTable function to make a table of variables event and smoking in cardiac dataset. Exclude the Chi-square contributions
-CrossTable(cardiac$event, cardiac$smoking)
-
-# Use CrossTable function to make a table of variables gender and death in cardiac dataset. Exclude the Chi-square contributions
-CrossTable(cardiac$gender, cardiac$death)
-```
- 
-*** =sct
-```{r}
-test_student_typed("?CrossTable", not_typed_msg = "Did you manage to look at the help page by typing a questionmark at the beginning of the line and then the name of the function without spaces?")
-test_student_typed("CrossTable(", not_typed_msg = "Make sure that you used the CrossTable-command.")
-success_msg("Oh your tables look just fabulous!")
-```
-
-
-
-
