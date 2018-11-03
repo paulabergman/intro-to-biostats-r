@@ -3,8 +3,8 @@ title_meta  : Chapter 3
 title       : Statistical testing
 description : "In this chapter, you will learn what does statistical significance mean and learn to crosstabulate and run some useful statistical tests, such as chi square and t-test."
  
---- type:NormalExercise lang:r xp:100 skills:1 key:ex2point1
-## WEEK 2 STARTS HERE: Hands on to t-test
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point1
+## Hands on to t-test
  
 Although in these days we have many tools for calculation and programming, it is good to understand the theory that lies behind R functions for example. t-test is quite a simple procedure and now we are going to learn how to run it without using the function that R offers. You just have to calculate the difference between two means and then divide it with the square root of (variance1 / n1) + (variance2 / n2)
  
@@ -14,7 +14,7 @@ Although in these days we have many tools for calculation and programming, it is
     - Mean of women's basal heart rate is 78.5 and standard deviation is 6.65
     - Mean of men's basal heart rate is 75.67 and standard deviation is 20.93
     - The chosen significance level is 0.05
- - You can find the t-distribution table on the course Moodle page or from the internet, just type 't distribution table' on google.
+ - You can find the t-distribution table from the internet, just type 't distribution table' on google.
  - You will need to check the degrees of freedom (df) in order to use the distribution table (n1 + n2 - 2) 
  
 *** =hint
@@ -99,10 +99,10 @@ test_output_contains("0.3086563", incorrect_msg = "Make sure that you have studi
 test_output_contains("8", incorrect_msg = "Are you sure you calculated the degrees of freedom correctly?")
 test_student_typed("1.86", not_typed_msg = "Are you sure you looked at the right spot on the distribution table?")
 test_student_typed("NO", not_typed_msg = "Perhaps you need to check again how to interpret your results.")
-success_msg("t-test seems to be your cup of tea! You know the name actually originates from the lady who was convinced she can taste whether the milk or the tea was poured first on her teacup?")
+success_msg("t-test seems to be your cup of tea! You know the name of the test actually originates from the lady who was convinced she can taste whether the milk or the tea was poured first on her teacup?")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ex2point2
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point2
 ## Getting more familiar with the t-test 1
  
 The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other dicotomous groups. T-test can be easily done in R by using the function t.test(variable1~variable2)
@@ -151,7 +151,7 @@ test_student_typed("NO", not_typed_msg = "Your interpretation of the t-test need
 success_msg("t-test appears to be your cup of tea!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ex2point3
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point3
 ## Getting more familiar with the t-test 2
  
 The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other binary (two classes) groups.  T-test can be easily done in R by using the function t.test(variable1~variable2)
@@ -174,8 +174,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 # Compare the BMIs between genders by using t-test
 
-# There is a statistically significant difference, do you agree? Remove the wrong answer.
-# Your answer: I DO  DON't agree.
+# Is there a statistically significant difference? Remove the wrong answer.
+# Your answer: NO YES
 
 ```
  
@@ -187,7 +187,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 with(diabetes,t.test(bmi~gender))
 
 # There is a statistically significant difference, do you agree? Remove the wrong answer.
-# Your answer: I DO agree.
+# Your answer: YES
 
 ```
  
@@ -195,14 +195,14 @@ with(diabetes,t.test(bmi~gender))
 ```{r}
 test_student_typed("t.test", not_typed_msg = "Are you using R's function for t-test?")
 test_student_typed("bmi~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
-test_student_typed("Your answer: I DO agree.", not_typed_msg = "Your interpretation of the t-test needs re-checking. Check whether the confidence interval contains zero or not.")
+test_student_typed("YES", not_typed_msg = "Your interpretation of the t-test needs re-checking. Check whether the confidence interval contains zero or not.")
 success_msg("Wow, you can already analyze the results of the t-test so well, congrats! Now let's move on to a next letter.")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ex2point4
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point4
 ## The Chi square test 1
  
-When dealing with discrete variables, especially binary ones, the test often chosen to check for independence between two of them, is the chi square test. The chi square test in R can be done simply with the function chisq.test(nameofyourtable)
+When dealing with discrete variables, especially binary ones (the ones with only two possible values), the test often chosen to check for independence between them, is the chi square test. The chi square test in R can be done simply with the function chisq.test(table(variable1,variable2))
 
 *** =instructions
  - Crosstabulate event and restwma from the cardiac-dataset.
@@ -234,7 +234,7 @@ test1
 test1$p.value
 
 # Do the variables depend on each other? Remove the wrong answer.
-# Event and restwma DO  DON't depend on each other.
+# Your answer: NO YES
 
 ```
  
@@ -254,23 +254,23 @@ test1 <- chisq.test(table1)
 test1$p.value
 
 # Do the variables depend on each other? Remove the wrong answer.
-# Event and restwma DO depend on each other.
+# Your answer: YES
 ```
  
 *** =sct
 ```{r}
 test_student_typed("event", not_typed_msg = "Make sure you entered the right variables in your command.")
 test_student_typed("restwma", not_typed_msg = "Make sure you entered the right variables in your command.")
-test_student_typed("Event and restwma DO depend on each other.", not_typed_msg = "Make sure your interpretation of the first chi square test result is correct.")
+test_student_typed("YES", not_typed_msg = "Make sure your interpretation of the first chi square test result is correct.")
 test_function("chisq.test", incorrect_msg = "Are you using the right test function?")
 test_output_contains("3.359", incorrect_msg = "Your chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
 success_msg("That's some badass crosstabulation you did there, go you!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ex2point5
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point5
 ## The Chi square test 2
  
-When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.  The chi square test in R can be done simply with the function chisq.test(nameofyourtable)
+When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.  The chi square test in R can be done simply with the function chisq.test(table(variable1,variable2))
 
 *** =instructions
  - Crosstabulate smoking and gender from the cardiac-dataset. 
@@ -300,7 +300,7 @@ test2
 test2$p.value
 
 # Do the variables depend on each other? Remove the wrong answer.
-# Smoking and gender DO  DON't depend on each other.
+# Your answer: NO YES
 
 ```
  
@@ -318,24 +318,23 @@ test2 <- chisq.test(table2)
 test2$p.value
 
 # Do the variables depend on each other? Remove the wrong answer.
-# Smoking and gender DO depend on each other.
+# Your answer: YES
 ```
  
 *** =sct
 ```{r}
 test_student_typed("smoking", not_typed_msg = "Make sure you entered the right variables in your command.")
 test_student_typed("gender", not_typed_msg = "Make sure you entered the right variables in your command.")
-test_student_typed("Smoking and gender DO depend on each other.", not_typed_msg = "Make sure your interpretation of the second chi square test result is correct.")
+test_student_typed("YES", not_typed_msg = "Make sure your interpretation of the second chi square test result is correct.")
 test_function("chisq.test", incorrect_msg = "Are you using the right test function?")
 test_output_contains("4.79", incorrect_msg = "Your chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
-test_student_typed("Smoking and gender DO depend on each other.", not_typed_msg = "Make sure your interpretation of the second chi square test result is correct.")
 success_msg("Way to go, you are getting more and more pro at this!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ex2point6
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point6
 ## The Chi square test 3
  
-When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test. The chi square test in R can be done simply with the function chisq.test(nameofyourtable)
+When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test. The chi square test in R can be done simply with the function chisq.test(table(variable1,variable2))
 
 *** =instructions
  - Crosstabulate categorized cholesterol (cholcat) and gender from the diabetes-dataset. 
@@ -365,7 +364,7 @@ test3
 test3$p.value
 
 # Do the variables depend on each other? Remove the wrong answer.
-# Categorized cholesterol and gender DO  DON't depend on each other.
+# Your answer: NO YES
  
 ```
  
@@ -383,7 +382,7 @@ test3 <- chisq.test(table3)
 test3$p.value
 
 # Do the variables depend on each other? Remove the wrong answer.
-# Categorized cholesterol and gender DON't depend on each other.
+# Your answer: NO 
  
 ```
  
@@ -391,13 +390,13 @@ test3$p.value
 ```{r}
 test_student_typed("gender", not_typed_msg = "Make sure you entered the right variables in your command.")
 test_student_typed("cholcat", not_typed_msg = "Make sure you entered the right variables in your command.")
-test_student_typed("Categorized cholesterol and gender DON't depend on each other.", not_typed_msg = "Make sure your interpretation of the third chi square test result is correct.")
+test_student_typed("NO", not_typed_msg = "Make sure your interpretation of the third chi square test result is correct.")
 test_function("chisq.test", incorrect_msg = "Are you using the right test function?")
 test_output_contains("0.85", incorrect_msg = "Your third chi square value seems to be incorrect. Look at your code carefully, maybe you used a wrong variable?")
 success_msg("Be there or be chi square(d)! You definately are there, well done with your chi square tests!")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point7
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point7
 ## Remembering what was the t-test all about
  
 What is Student's t-test used for?
@@ -432,7 +431,7 @@ msg3 <- "That's right, well done!"
 msg4 <- "Come on, you can do better!"
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
---- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point8
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point8
 ## True or not about the t-test?
  
 Which of the following is true?
@@ -467,7 +466,7 @@ msg3 <- "The t-test is often used to compare means, and means shouldn't be even 
 msg4 <- "Yes, that is correct! The t-test can be used to compare for example the BMI between two independent groups."
 test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
---- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point9
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point9
 ## Do you still remember the Chi square?
  
 What is the Chi square test usually used for?
@@ -503,7 +502,7 @@ msg4 <- "Usually the chi square test isn't used to find check for single observa
 test_mc(1, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 
---- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex2point10
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point10
 ## Interpret Chi square test results
  
 Type print(mydata) on the console and interpret whether there is independence between variables. (significance level 0.05) Hint: Perform a chi square test, either by hand or in console.
