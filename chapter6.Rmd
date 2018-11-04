@@ -3,7 +3,7 @@ title_meta  : Chapter 5
 title       :  Odds ratio (OR) and risk ratio (RR) and logistic regression
 description : "In this week's exercises you will learn how to predict risks, calculate odds and risk ratios and run a logistic regression."
  
---- type:NormalExercise lang:r xp:100 skills:1 key: ex4point1
+--- type:NormalExercise lang:r xp:0 skills:1 key: ex4point1
 ## WEEK 4 STARTS HERE: Crosstabulations, odds ratios and risk ratios 1
  
 You already probably know that a good way to start to discover the relationship between two discrete variables is to crosstabulate them. By looking at the crosstabulation between two dicotomous variables, you can see in one glimpse when these two are present together and separately. That's what makes it such a nice tool for looking at the relationship between a certain disease and a possible risk factor. 
@@ -71,11 +71,11 @@ test_student_typed("tab", not_typed_msg = "Make sure you are using a right comma
 test_student_typed("event", not_typed_msg = "Make sure you used the right variables.")
 test_student_typed("restwma", not_typed_msg = "Make sure you used the right variables.")
 test_student_typed("addmargins(", not_typed_msg = "Make sure you added the row and column sums.")
-test_output_contains("5.259325", incorrect_msg = "Make sure you used the right variables.")
-test_output_contains("4.212182", incorrect_msg = "Make sure you used the right variables.")
+test_output_contains("5.259", incorrect_msg = "Make sure you used the right variables.")
+test_output_contains("4.212", incorrect_msg = "Make sure you used the right variables.")
 success_msg("Your talent with the number is remarkable! Keep up the good work!")
 ```
---- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:ex4point2
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex4point2
 ## Interpret the odds ratio
  
 How would you interpret the odds ratio achieved in the previous exercise? (Just type table1 to the Console to see the crosstabulation and OR to see the odds ratio.)
@@ -247,9 +247,104 @@ success_msg("Congrats, that was some awesome calculation!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key: ex4point5
-## Performing a logistic regression and calculating probabilities
+## Peractising for logistic regression
  
 Last week you learned what is linear regression. It can be used when we are dealing with a continuous variable that we want to explain with other variables. Logistic regression is used when our variable of interest is discrete, binary logistic regression, that we are doing today, is used with binary variables. 
+ 
+ 
+*** =instructions
+ - Look at the code that is already provided to you to calculate a logistic regression.
+ - Run the logistic regression to explain death with age and gender in cardiac dataset.
+ - TIP: e^x (Napier's constant to x) in R is written exp(x). 
+ 
+*** =hint
+Follow the code provided in the example and use the course material (Viikko 4) if needed.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
+```
+ 
+*** =sample_code
+```{r}
+# cardiac-data is available
+# diabetes-data is available
+ 
+# Run the logistic regression analysis to explain cholcat with age and gender in diabetes dataset
+model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
+               
+# Look at the summary of the logistic regression analysis
+summary(model1) 
+
+# Look at the coefficients of your model
+model1$coefficients
+
+# Calculate OR for age and print it out
+OR_age_model1 <- exp(model1$coefficients[2])
+print(OR_age_model1) # Does age seem to increase or decrease the probability for high cholesterol?
+               
+# Run the logistic regression analysis to explain death with age and gender in cardiac dataset
+
+                              
+# Look at the summary of the logistic regression analysis
+
+
+# Look at the coefficients of your model
+
+
+# Calculate OR for age and print it out
+
+
+# Does age seem to increase or decrease the probability for death?
+
+
+```
+ 
+*** =solution
+```{r}
+# cardiac-data is available
+# diabetes-data is available
+ 
+# Run the logistic regression analysis to explain cholcat with age and gender in diabetes dataset
+model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
+               
+# Look at the summary of the logistic regression analysis
+summary(model1) 
+
+# Look at the coefficients of your model
+model1$coefficients
+
+# Calculate OR for age and print it out
+OR_age_model1 <- exp(model1$coefficients[2])
+print(OR_age_model1) # Does age seem to increase or decrease the probability for high cholesterol?
+               
+# Run the logistic regression analysis to explain death with age and gender in cardiac dataset
+model2 <- with(cardiac, glm(death ~ age + gender, family = "binomial"))
+                              
+# Look at the summary of the logistic regression analysis
+summary(model2)
+
+# Look at the coefficients of your model
+model2$coefficients
+
+# Calculate OR for age and print it out
+OR_age_model2 <- exp(model2$coefficients[2])
+print(OR_age_model2) # Does age seem to increase or decrease the probability for death?
+
+
+```
+ 
+*** =sct
+```{r}
+test_output_contains("1.0", incorrect_msg = "Make sure your formula doesn't have any typos.")
+success_msg("Now you can calculate the risks and probabilities for almost anything, that's just amazing!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key: ex4point6
+## Performing a logistic regression and calculating probabilities
+ 
+Lets continue with logistic regression. 
  
  
 *** =instructions
@@ -271,19 +366,32 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
- 
-# Run the logistic regression analysis using the code provided below. Replace variables with the ones told in the instructions.
-model1 <- (with(cardiac, glm("dependent variable" ~ "variable1" + "variable2" + "variable3" + "variable4", family = "binomial")))
 
+# Run the logistic regression analysis to explain cholcat with age and gender in diabetes dataset
+model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
+               
 # Look at the summary of the logistic regression analysis
 summary(model1) 
 
+# What is the probability of having high cholesterol when a person is a 65-year-old 
+# woman (gender=1) who had restwma and whose stress ECG (posSE) was positive. Print out the logit and probability when you have calculated them.
+logit1 <- -1.336758 + 0.037529*60 -0.159780
+logit1
+prob1 <- (exp(logit1)) / (1 + exp(logit1))
+prob1 
+ 
+# Run the logistic regression analysis using the code provided below. Replace variables with the ones told in the instructions.
+model2 <- with(cardiac, glm("dependent variable" ~ "variable1" + "variable2" + "variable3" + "variable4", family = "binomial"))
+
+# Look at the summary of the logistic regression analysis
+summary(model2) 
+
 # What is the probability of experiencing an event when a person is a 65-year-old 
 # woman (gender=1) who had restwma and whose stress ECG (posSE) was positive. Print out the logit and probability when you have calculated them.
-logit1 <- Intercept + Estimate*age + ...
-logit1
-prob1 <- () / ()
-prob1 
+logit2 <- Intercept + Estimate*age + ...
+logit2
+prob2 <- () / ()
+prob2 
 
 ```
  
@@ -291,30 +399,186 @@ prob1
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
- 
-# Run the logistic regression analysis using the code provided below
-model1 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
 
+# Run the logistic regression analysis to explain cholcat with age and gender in diabetes dataset
+model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
+               
 # Look at the summary of the logistic regression analysis
 summary(model1) 
 
+# What is the probability of having high cholesterol when a person is a 65-year-old 
+# woman (gender=1) who had restwma and whose stress ECG (posSE) was positive. Print out the logit and probability when you have calculated them.
+logit1 <- -1.336758 + 0.037529*60 -0.159780
+logit1
+prob1 <- (exp(logit1)) / (1 + exp(logit1))
+prob1 
+ 
+# Run the logistic regression analysis using the code provided below
+model2 <- with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial"))
+
+# Look at the summary of the logistic regression analysis
+summary(model2) 
+
 # What is the probability of experiencing an event when a person is a 65-year-old 
 # woman (gender=1) who had restwma and whose stress ECG  (posSE) was positive. Print out the logit and probability when you have calculated them.
-logit1 <- - 3.199416 + 0.006424 * 65 - 0.130453 * 1 + 1.215453 * 1 + 1.031930 * 1
-logit1
-prob1 <- (exp(logit1))/(1+(exp(logit1)))
-prob1 
+logit2 <- - 3.199416 + 0.006424 * 65 - 0.130453 * 1 + 1.215453 * 1 + 1.031930 * 1
+logit2
+prob2 <- (exp(logit2))/(1+(exp(logit2)))
+prob2 
 
 ```
  
 *** =sct
 ```{r}
-test_output_contains("-0.664926", incorrect_msg = "Make sure your formula doesn't have any typos.")
-test_output_contains("0.3396", incorrect_msg = "Did you use the right formula?")
+test_output_contains("-0.66", incorrect_msg = "Make sure your formula doesn't have any typos.")
+test_output_contains("0.3", incorrect_msg = "Did you use the right formula?")
 success_msg("Now you can calculate the risks and probabilities for almost anything, that's just amazing!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key: ex4point6
+--- type:NormalExercise lang:r xp:100 skills:1 key: ex4point7
+## The odds ratios 1
+ 
+Now we have learned to build a logistic regression model. One of the main interests in interpreting the results of the logistic regression are the odds ratios. So first we will learn to get odds ratios out of the model results in a simple way.
+ 
+ 
+*** =instructions
+ - Form a table of the odds ratios and their confidence intervals for model2. 
+
+ 
+*** =hint
+Just follow the example code carefully and replace values used with your own values.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
+model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
+model2 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
+```
+ 
+*** =sample_code
+```{r}
+# cardiac-data is available
+# diabetes-data is available
+# model1 is available (it was: with(diabetes, glm(cholcat ~ age + gender, family = "binomial")))
+# model2 is available (it was: with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial"))
+ 
+# Form a table of the odds ratios and their confidence intervals for model2
+
+sum.coef<-summary("logistic regression model")$coef 
+
+est<-exp(sum.coef[,1]) 
+upper.ci<-exp(sum.coef[,1]+1.96*sum.coef[,2]) 
+lower.ci<-exp(sum.coef[,1]-1.96*sum.coef[,2]) 
+
+table1 <-cbind(est,upper.ci,lower.ci) 
+table1
+
+# Form a table of the odds ratios and their confidence intervals for model2
+
+
+
+```
+ 
+*** =solution
+```{r}
+# Form a table of the odds ratios and their confidence intervals for model1
+
+sum.coef1<-summary(model1)$coef 
+
+est1<-exp(sum.coef1[,1]) 
+upper.ci1<-exp(sum.coef1[,1]+1.96*sum.coef1[,2]) 
+lower.ci1<-exp(sum.coef1[,1]-1.96*sum.coef1[,2]) 
+
+table1 <-cbind(est1,upper.ci1,lower.ci1) 
+table1
+
+# Form a table of the odds ratios and their confidence intervals for model2
+
+sum.coef2<-summary(model2)$coef 
+
+est2<-exp(sum.coef2[,1]) 
+upper.ci2<-exp(sum.coef2[,1]+1.96*sum.coef2[,2]) 
+lower.ci2<-exp(sum.coef2[,1]-1.96*sum.coef2[,2]) 
+
+table2 <-cbind(est2,upper.ci2,lower.ci2) 
+table2
+
+
+
+```
+ 
+*** =sct
+```{r}
+test_student_typed("coef", not_typed_msg = "Make sure you looked at the coefficients of the model")
+success_msg("Awesome, you now know a good way to form a table of odds ratios and their confidence intervals!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key: ex4point8
+## The odds ratios 2
+ 
+We just learned to get odds ratios out of the model results in one way. There is also another, even simpler way and that's ci.exp-function in the Epi package.
+ 
+ 
+*** =instructions
+ - Form a table of the odds ratios and their confidence intervals for model2 using the ci.exp-function.
+ - You will have to call the library Epi first.
+
+ 
+*** =hint
+Odds ratios and confidence intervals can be calculated by ci.exp()-command.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
+model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
+model2 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
+```
+ 
+*** =sample_code
+```{r}
+# cardiac-data is available
+# diabetes-data is available
+# model1 is available (it was: with(diabetes, glm(cholcat ~ age + gender, family = "binomial")))
+# model2 is available (it was: with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
+ 
+# Form a table of the odds ratios and their confidence intervals for model2
+library(Epi)
+ci.exp(model1)
+
+# Form a table of the odds ratios and their confidence intervals for model2
+ci.exp(model2)
+
+
+```
+ 
+*** =solution
+```{r}
+# cardiac-data is available
+# diabetes-data is available
+# model1 is available (it was: with(diabetes, glm(cholcat ~ age + gender, family = "binomial")))
+# model2 is available (it was: with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
+ 
+# Form a table of the odds ratios and their confidence intervals for model2
+library(Epi)
+ci.exp(model1)
+
+# Form a table of the odds ratios and their confidence intervals for model2
+ci.exp(model2) # Do the results match to the ones calculated in the previous exercise?
+
+
+```
+ 
+*** =sct
+```{r}
+test_student_typed("ci.exp", not_typed_msg = "Make sure you used ci.exp-function")
+success_msg("Awesome, you now know a good way to form a table of odds ratios and their confidence intervals!")
+```
+
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key: ex4point9
 ## Plotting the odds ratios
  
 Now we have learned to build a logistic regression model. One of the main interests in interpreting the results of the logistic regression are the odds ratios. So as our last exercise we will learn how to plot them, as well as their confidence intervals.
@@ -340,7 +604,7 @@ model1 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "b
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
-# model1 is available
+# model1 is available (it is: with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
  
 # Form a table of the odds ratios and their confidence intervals for model1
 
