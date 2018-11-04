@@ -563,9 +563,9 @@ model2 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "b
 # model1 is available (it was: with(diabetes, glm(cholcat ~ age + gender, family = "binomial")))
 # model2 is available (it was: with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial"))
  
-# Form a table of the odds ratios and their confidence intervals for model2
+# Form a table of the odds ratios and their confidence intervals for model1
 
-sum.coef<-summary("logistic regression model")$coef 
+sum.coef<-summary(model1)$coef 
 
 est<-exp(sum.coef[,1]) 
 upper.ci<-exp(sum.coef[,1]+1.96*sum.coef[,2]) 
@@ -730,6 +730,14 @@ Revise the material if the odds ratio is not clear to you yet.
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
+model1 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
+sum.coef<-summary(model1)$coef 
+
+est<-exp(sum.coef[,1]) 
+upper.ci<-exp(sum.coef[,1]+1.96*sum.coef[,2]) 
+lower.ci<-exp(sum.coef[,1]-1.96*sum.coef[,2]) 
+
+table1 <-cbind(est,upper.ci,lower.ci) 
 plot1 <- plot(table1[,1],ylim=c(0,7), xaxt="n",
      ylab="OR",xlab="Variables",main="Odds ratios in the \nlogistic regression model")
 axis(side=1,at=c(1,2,3,4,5),labels=c("Intercept","age","gender","restwma","posSE"))
