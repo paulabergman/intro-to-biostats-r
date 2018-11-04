@@ -4,7 +4,7 @@ title       :  Odds ratio (OR) and risk ratio (RR) and logistic regression
 description : "In this week's exercises you will learn how to predict risks, calculate odds and risk ratios and run a logistic regression."
  
 --- type:NormalExercise lang:r xp:0 skills:1 key: ex4point1
-## WEEK 4 STARTS HERE: Crosstabulations, odds ratios and risk ratios 1
+## Crosstabulations, odds ratios and risk ratios 1
  
 You already probably know that a good way to start to discover the relationship between two discrete variables is to crosstabulate them. By looking at the crosstabulation between two dicotomous variables, you can see in one glimpse when these two are present together and separately. That's what makes it such a nice tool for looking at the relationship between a certain disease and a possible risk factor. 
 
@@ -436,6 +436,106 @@ success_msg("Now you can calculate the risks and probabilities for almost anythi
 ```
 
 --- type:NormalExercise lang:r xp:0 skills:1 key: ex4point7
+## Increasing or decreasing probabilities?
+ 
+Lets continue with logistic regression. 
+ 
+ 
+*** =instructions
+ - Does the probability of event increase or decrease when age increases?
+ - Does the probability of event increase or decrease if a person is male instead of female?
+ 
+*** =hint
+Calculate the probability one step at a time. First the logit value and then the probability.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
+model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
+model2 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
+```
+ 
+*** =sample_code
+```{r}
+# cardiac-data is available
+# diabetes-data is available
+# model1 is available (it was: with(diabetes, glm(cholcat ~ age + gender, family = "binomial")))
+# model2 is available (it was: with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial"))
+               
+# Look at the summary of model1
+summary(model1) 
+
+# What is the probability of having high cholesterol when a person is a 60-year-old 
+# male (1) who had restwma and whose stress ECG (posSE) was positive. Print out the logit and probability when you have calculated them.
+logit1 <- -1.336758 + 0.037529*60 -0.159780*1
+prob1 <- (exp(logit1)) / (1 + exp(logit1))
+prob1 
+
+# What is the probability of having high cholesterol when a person is a 70-year-old 
+# female (0) who had restwma and whose stress ECG (posSE) was positive. Print out the logit and probability when you have calculated them.
+logit1 <- -1.336758 + 0.037529*70 -0.159780*0
+prob1 <- (exp(logit1)) / (1 + exp(logit1))
+prob1 # The probability seems to increase!
+
+ 
+# Look at the summary of the logistic regression analysis
+summary(model2) 
+
+# What is the probability of experiencing an event when a person is a 65-year-old 
+# woman (gender=1) who had restwma and whose stress ECG (posSE) was positive. Print out the logit and probability when you have calculated them.
+logit2 <- Intercept + Estimate*age + ...
+logit2
+prob2 <- () / ()
+prob2 
+
+# Try different ages and gender!
+
+```
+ 
+*** =solution
+```{r}
+# cardiac-data is available
+# diabetes-data is available
+
+# Run the logistic regression analysis to explain cholcat with age and gender in diabetes dataset
+model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
+               
+# Look at the summary of the logistic regression analysis
+summary(model1) 
+
+# What is the probability of having high cholesterol when a person is a 60-year-old 
+# male (1) who had restwma and whose stress ECG (posSE) was positive. Print out the logit and probability when you have calculated them.
+logit1 <- -1.336758 + 0.037529*60 -0.159780*1
+logit1
+prob1 <- (exp(logit1)) / (1 + exp(logit1))
+prob1 
+ 
+# Run the logistic regression analysis using the code provided below
+model2 <- with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial"))
+
+# Look at the summary of the logistic regression analysis
+summary(model2) 
+
+# What is the probability of experiencing an event when a person is a 65-year-old 
+# woman (gender=1) who had restwma and whose stress ECG  (posSE) was positive. Print out the logit and probability when you have calculated them.
+logit2 <- - 3.199416 + 0.006424 * 65 - 0.130453 * 1 + 1.215453 * 1 + 1.031930 * 1
+logit2
+prob2 <- (exp(logit2))/(1+(exp(logit2)))
+prob2 
+
+```
+ 
+*** =sct
+```{r}
+test_student_typed("exp", not_typed_msg = "Make sure you calculated the probability witht the right formula.")
+success_msg("Well done! See how you can use logistic regression to estimate the probabilities!")
+```
+
+
+
+
+--- type:NormalExercise lang:r xp:0 skills:1 key: ex4point8
 ## The odds ratios
  
 Now we have learned to build a logistic regression model. One of the main interests in interpreting the results of the logistic regression are the odds ratios. So first we will learn to get odds ratios out of the model results in a simple way.
@@ -515,7 +615,7 @@ success_msg("Awesome, you now know a good way to form a table of odds ratios and
 ```
 
 
---- type:NormalExercise lang:r xp:0 skills:1 key: ex4point8
+--- type:NormalExercise lang:r xp:0 skills:1 key: ex4point9
 ## Plotting the odds ratios
  
 Now we have learned to build a logistic regression model. One of the main interests in interpreting the results of the logistic regression are the odds ratios. So as our last exercise we will learn how to plot them, as well as their confidence intervals.
@@ -558,7 +658,7 @@ table1
 
 plot("write here the name of the odds ratio table"[,1],ylim=c(0,7), xaxt="n",
      ylab="OR",xlab="Variables",main="Odds ratios in the \nlogistic regression model")
-axis(side=1,at=c(1,2,3,4,5),labels=c("Intercept","age","gender","reswma","posSE"))
+axis(side=1,at=c(1,2,3,4,5),labels=c("Intercept","age","gender","restwma","posSE"))
 lines("write here the name of the odds ratio table"[,1])
 
 points("write here the name of the odds ratio table"[,2],col="color1")
@@ -590,7 +690,7 @@ table1
 
 plot(table1[,1],ylim=c(0,7), xaxt="n",
      ylab="OR",xlab="Variables",main="Odds ratios in the \nlogistic regression model")
-axis(side=1,at=c(1,2,3,4,5),labels=c("Intercept","age","gender","reswma","posSE"))
+axis(side=1,at=c(1,2,3,4,5),labels=c("Intercept","age","gender","restwma","posSE"))
 lines(table1[,1])
 
 points(table1[,2],col="pink")
@@ -608,5 +708,55 @@ legend("topleft",c("OR","95% CI"),lty=c(1,2),col=c("black","pink"))
 ```{r}
 test_student_typed("summary(model1)", not_typed_msg = "Make sure you entered the name of your model in the summary command.")
 test_student_typed("plot(table1[,1]", not_typed_msg = "Make sure you entered the name of the table (table1) in the plotting-command.")
-success_msg("Awesome, you have completed all the exercises! Well done!")
+success_msg("Awesome, you have done a great plot! Well done!")
 ```
+
+
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex4point10
+## Interpret the risk ratio
+ 
+How would you interpret the odds ratios in the previous exercise? Which one of the following is true?
+ 
+*** =instructions
+- All the explanatory variables are statistically significant.
+- Restwma decreases the probability of event.
+- Gender was the most significant explanatory variable.
+- Increase in posSE increases the probability of event.
+
+*** =hint
+Revise the material if the risk ratio is not clear to you yet.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
+plot1 <- plot(table1[,1],ylim=c(0,7), xaxt="n",
+     ylab="OR",xlab="Variables",main="Odds ratios in the \nlogistic regression model")
+axis(side=1,at=c(1,2,3,4,5),labels=c("Intercept","age","gender","restwma","posSE"))
+lines(table1[,1])
+
+points(table1[,2],col="pink")
+lines(table1[,2],col="pink",lty=2)
+
+points(table1[,3],col="pink")
+lines(table1[,3],col="pink",lty=2)
+
+legend("topleft",c("OR","95% CI"),lty=c(1,2),col=c("black","pink"))
+
+
+ 
+*** =sample_code
+```{r}
+plot1
+```
+ 
+*** =solution
+Increase in posSE increases the probability of event.
+
+ 
+*** =sct
+msg1 <- "No they are not, look at the confidence interval of gender."
+msg2 <- "Nope - OR is over 1, right?"
+msg3 <- "Not quite, look at the confidence interval."
+msg4 <- "Good job, that's correct!"
+test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
