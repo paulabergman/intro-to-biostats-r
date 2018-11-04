@@ -151,55 +151,7 @@ test_student_typed("NO", not_typed_msg = "Your interpretation of the t-test need
 success_msg("t-test appears to be your cup of tea!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point3
-## Visualizing the results of the t-test
- 
-When you are doing statistical testing, it can be useful to visualize the results. In previous chapter you have learned many ways of plotting in R. To visualize the difference (or no difference) in means between two groups, boxplot is often a good choice. Now lets try to revise how it's done!
- 
-*** =instructions
- - Draw a boxplot to describe systolic blood pressure in males and females in cardiac-dataset. What can you see?
 
-*** =hint
-Use the R function boxplot and just enter the variables.
- 
-*** =pre_exercise_code
-```{r}
-cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
-diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
-```
- 
-*** =sample_code
-```{r}
-# The dataset diabetes is available
-# The dataset cardiac is available
- 
-# Visualize BMI in males and females in diabetes-dataset
-with(diabetes, boxplot(bmi~gender, col="turquoise", main="BMI in males and females"))
- 
-# Visualize the systolic blood pressures in males and females in cardiac-dataset
-
-axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1. If you use this, then include command xaxt="n" in your boxplot command!
- 
-```
- 
-*** =solution
-```{r}
-# The dataset diabetes is available
-# The dataset cardiac is available
- 
-# Visualize BMI in males and females in diabetes-dataset
-with(diabetes, boxplot(bmi~gender, col="turquoise", main="BMI in males and females"))
- 
-# Visualize the systolic blood pressures in males and females in cardiac-dataset
-with(cardiac, boxplot(sbp~gender, col="yellow", main="Systolic blood pressure in males and females", xaxt="n"))
-axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1. If you use this, then include command xaxt="n" in your boxplot command!
-```
- 
-*** =sct
-```{r}
-test_student_typed("boxplot", not_typed_msg = "Are you using R's function for boxplot?")
-success_msg("That's some nice looking boxplot! See how it highlights that there is no difference between the groups?")
-```
 
 --- type:NormalExercise lang:r xp:0 skills:1 key:ex2point4
 ## Getting more familiar with the t-test 2
