@@ -178,7 +178,7 @@ with(diabetes, boxplot(bmi~gender, col="turquoise", main="BMI in males and femal
  
 # Visualize the systolic blood pressures in males and females in cardiac-dataset
 
-axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1. If you use this, then include command x="xaxt" in your boxplot command!
+axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1. If you use this, then include command xaxt="n" in your boxplot command!
  
 ```
  
@@ -191,8 +191,8 @@ axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instea
 with(diabetes, boxplot(bmi~gender, col="turquoise", main="BMI in males and females"))
  
 # Visualize the systolic blood pressures in males and females in cardiac-dataset
-with(cardiac, boxplot(sbp~gender, col="yellow", main="Systolic blood pressure in males and females", x="xaxt"))
-axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1. If you use this, then include command x="xaxt" in your boxplot command!
+with(cardiac, boxplot(sbp~gender, col="yellow", main="Systolic blood pressure in males and females", xaxt="n"))
+axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1. If you use this, then include command xaxt="n" in your boxplot command!
 ```
  
 *** =sct
