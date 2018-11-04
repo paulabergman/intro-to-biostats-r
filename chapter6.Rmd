@@ -713,7 +713,7 @@ success_msg("Awesome, you have done a great plot! Well done!")
 
 
 --- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex4point10
-## Interpret the risk ratio
+## Interpret the odds ratios by looking at the plot.
  
 How would you interpret the odds ratios in the previous exercise? Which one of the following is true?
  
@@ -724,7 +724,7 @@ How would you interpret the odds ratios in the previous exercise? Which one of t
 - Increase in posSE increases the probability of event.
 
 *** =hint
-Revise the material if the risk ratio is not clear to you yet.
+Revise the material if the odds ratio is not clear to you yet.
  
 *** =pre_exercise_code
 ```{r}
