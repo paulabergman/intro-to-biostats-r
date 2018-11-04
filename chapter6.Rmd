@@ -337,7 +337,7 @@ print(OR_age_model2) # Does age seem to increase or decrease the probability for
  
 *** =sct
 ```{r}
-test_output_contains("1.0", incorrect_msg = "Make sure your formula doesn't have any typos.")
+test_output_contains("1.0", incorrect_msg = "Make sure that your formula is correct.")
 success_msg("Now you can calculate the risks and probabilities for almost anything, that's just amazing!")
 ```
 
