@@ -125,8 +125,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 # Compare the systolic blood pressures by using t-test
 
-# Is there a statistically significant difference? (answer YES or NO, use capital letters)
-# Your answer: 
+# Is there a statistically significant difference? Remove the wrong answer
+# Your answer: NO YES
  
 
 ```
@@ -138,7 +138,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Compare the systolic blood pressures by using t-test
 with(cardiac,t.test(sbp~gender))
 
-# Is there a statistically significant difference?  (answer YES or NO, use capital letters)
+# Is there a statistically significant difference? Remove the wrong answer
 # Your answer: NO
 
 ```
@@ -152,6 +152,56 @@ success_msg("t-test appears to be your cup of tea!")
 ```
 
 --- type:NormalExercise lang:r xp:0 skills:1 key:ex2point3
+## Visualizing the results of the t-test
+ 
+When you are doing statistical testing, it can be useful to visualize the results. In previous chapter you have learned many ways of plotting in R. To visualize the difference (or no difference) in means between two groups, boxplot is often a good choice. Now lets try to revise how it's done!
+ 
+*** =instructions
+ - Draw a boxplot to describe systolic blood pressure in males and females in cardiac-dataset. What can you see?
+
+*** =hint
+Use the R function boxplot and just enter the variables.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# The dataset diabetes is available
+# The dataset cardiac is available
+ 
+# Visualize BMI in males and females in diabetes-dataset
+with(diabetes, boxplot(bmi~gender, col="turquoise", main="BMI in males and females"))
+ 
+# Visualize the systolic blood pressures in males and females in cardiac-dataset
+
+axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1
+ 
+```
+ 
+*** =solution
+```{r}
+# The dataset diabetes is available
+# The dataset cardiac is available
+ 
+# Visualize BMI in males and females in diabetes-dataset
+with(diabetes, boxplot(bmi~gender, col="turquoise", main="BMI in males and females"))
+ 
+# Visualize the systolic blood pressures in males and females in cardiac-dataset
+with(cardiac, boxplot(sbp~gender, col="yellow", main="Systolic blood pressure in males and females"))
+axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1
+```
+ 
+*** =sct
+```{r}
+test_student_typed("boxplot", not_typed_msg = "Are you using R's function for boxplot?")
+success_msg("That's some nice looking boxplot! See how it highlights that there is no difference between the groups?")
+```
+
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point4
 ## Getting more familiar with the t-test 2
  
 The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other binary (two classes) groups.  T-test can be easily done in R by using the function t.test(variable1~variable2)
@@ -199,7 +249,7 @@ test_student_typed("YES", not_typed_msg = "Your interpretation of the t-test nee
 success_msg("Wow, you can already analyze the results of the t-test so well, congrats! Now let's move on to a next letter.")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point4
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point5
 ## The Chi square test 1
  
 When dealing with discrete variables, especially binary ones (the ones with only two possible values), the test often chosen to check for independence between them, is the chi square test. The chi square test in R can be done simply with the function chisq.test(table(variable1,variable2))
@@ -220,7 +270,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 *** =sample_code
 ```{r}
 # The dataset cardiac is available
-# HINT! In order to see the variable names in table output, you can use command with(nameofyourdata, table(variable1,variable2))
+# HINT! In order to see the variable names in table output, you can use command with(nameofyourdata, table(variable1,variable2)) as instructed in previous chapters
 # HINT! You can use the with-function in all other codes too, such as with(nameofyourdata, plot(variable1,variable2)
 
 # Crosstabulate event and restwma
@@ -267,7 +317,95 @@ test_output_contains("3.359", incorrect_msg = "Your chi square value seems to be
 success_msg("That's some badass crosstabulation you did there, go you!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point5
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point6
+## Visualizing the results of the Chi square
+ 
+As we discussed earlier, when you are doing statistical testing, it can be useful to visualize the results. In previous chapter you have learned many ways of plotting in R. To visualize the dependence between two discrete variables it could be useful to make a stacked barplot, where you have bars representing groups in the other variables and the bar heights representing the percentage of the gorups in the other variable. Take a look at the example code -->
+ 
+*** =instructions
+ - Draw a stacked barplot (scaled to 100 %) of variables event and restwma in cardiac-dataset. What can you see?
+  - First transform your table into % as in the example code. 
+  - Then draw a barplot.
+  - Add legend to your plot.
+   - If you want to change your legend somehow, take a look at the help by typing ?legend to see the options.
+
+*** =hint
+Take a look at the example code and just enter your variables.
+ 
+*** =pre_exercise_code
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+ 
+*** =sample_code
+```{r}
+# The dataset diabetes is available
+# The dataset cardiac is available
+
+# Draw a stacked barplot (scaled to 100 %) of variables smoking status and death in cardiac-dataset
+
+# Transform this data in %
+data_percentage=apply(table(cardiac$death,cardiac$smoking), 
+                      2, function(x){x*100/sum(x,na.rm=T)})
+
+# Make a stacked barplot--> notice it will be in %!
+barplot(data_percentage, col=c("turquoise","cornflowerblue") , 
+        xlab="smoking status\n (0 = non-smoker, 1 = smoker)", ylab="%", main="Percentages of deaths in smoking groups\n\n")
+legend("bottomright", c("no death", "death"), 
+       fill=c("turquoise","cornflowerblue"),
+       inset=c(0,1), xpd=TRUE,  horiz=TRUE, bty="n")
+
+# Draw a stacked barplot (scaled to 100 %) of variables event and restwma in cardiac-dataset
+
+# Transform this data in %
+
+
+# Make a stacked barplot--> notice it will be in %!
+
+ 
+```
+ 
+*** =solution
+```{r}
+# Draw a stacked barplot (scaled to 100 %) of variables death and anyevent in cardiac-dataset
+
+# Draw a stacked barplot (scaled to 100 %) of variables smoking status and death in cardiac-dataset
+
+# Transform this data in %
+data_percentage=apply(table(cardiac$death,cardiac$smoking), 
+                      2, function(x){x*100/sum(x,na.rm=T)})
+
+# Make a stacked barplot--> it will be in %!
+barplot(data_percentage, col=c("turquoise","cornflowerblue") , 
+        xlab="smoking status\n (0 = non-smoker, 1 = smoker)", ylab="%", main="Percentages of deaths in smoking groups\n\n")
+legend("bottomright", c("no death", "death"), 
+       fill=c("turquoise","cornflowerblue"),
+       inset=c(0,1), xpd=TRUE,  horiz=TRUE, bty="n")
+
+# Draw a stacked barplot (scaled to 100 %) of variables event and restwma in cardiac-dataset
+
+# Transform this data in %
+data_percentage=apply(table(cardiac$event,cardiac$restwma), 
+                      2, function(x){x*100/sum(x,na.rm=T)})
+
+# Make a stacked barplot--> it will be in %!
+barplot(data_percentage, col=c("turquoise","cornflowerblue") , 
+        xlab="restwma\n (0 = no anomalies, 1 = anomalies)", ylab="%", main="Percentages of events in restwma-groups\n\n")
+legend("bottomright", c("no event", "event"), 
+       fill=c("turquoise","cornflowerblue"),
+       inset=c(0,1), xpd=TRUE,  horiz=TRUE, bty="n")
+```
+ 
+*** =sct
+```{r}
+test_student_typed("barplot(", not_typed_msg = "Are you using R's function for barplot?")
+test_student_typed("legend", not_typed_msg = "Did you remember to insert the legend?")
+success_msg("Nice colors! Does there seem to be difference between the groups? Does that match the result of your chi square test")
+```
+
+
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point7
 ## The Chi square test 2
  
 When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.  The chi square test in R can be done simply with the function chisq.test(table(variable1,variable2))
@@ -331,7 +469,7 @@ test_output_contains("4.79", incorrect_msg = "Your chi square value seems to be 
 success_msg("Way to go, you are getting more and more pro at this!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point6
+--- type:NormalExercise lang:r xp:0 skills:1 key:ex2point8
 ## The Chi square test 3
  
 When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test. The chi square test in R can be done simply with the function chisq.test(table(variable1,variable2))
@@ -396,7 +534,7 @@ test_output_contains("0.85", incorrect_msg = "Your third chi square value seems 
 success_msg("Be there or be chi square(d)! You definately are there, well done with your chi square tests!")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point7
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point9
 ## Remembering what was the t-test all about
  
 What is Student's t-test used for?
@@ -431,7 +569,7 @@ msg3 <- "That's right, well done!"
 msg4 <- "Come on, you can do better!"
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point8
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point10
 ## True or not about the t-test?
  
 Which of the following is true?
@@ -466,7 +604,7 @@ msg3 <- "The t-test is often used to compare means, and means shouldn't be even 
 msg4 <- "Yes, that is correct! The t-test can be used to compare for example the BMI between two independent groups."
 test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point9
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point11
 ## Do you still remember the Chi square?
  
 What is the Chi square test usually used for?
@@ -502,7 +640,7 @@ msg4 <- "Usually the chi square test isn't used to find check for single observa
 test_mc(1, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point10
+--- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point12
 ## Interpret Chi square test results
  
 Type print(mydata) on the console and interpret whether there is independence between variables. (significance level 0.05) Hint: Perform a chi square test, either by hand or in console.
