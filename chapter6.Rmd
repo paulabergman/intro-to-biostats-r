@@ -247,7 +247,7 @@ success_msg("Congrats, that was some awesome calculation!")
 ```
 
 --- type:NormalExercise lang:r xp:0 skills:1 key: ex4point5
-## Peractising for logistic regression
+## Practising for logistic regression
  
 Last week you learned what is linear regression. It can be used when we are dealing with a continuous variable that we want to explain with other variables. Logistic regression is used when our variable of interest is discrete, binary logistic regression, that we are doing today, is used with binary variables. 
  
