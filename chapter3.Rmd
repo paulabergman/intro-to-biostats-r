@@ -1,79 +1,87 @@
---- 
-title_meta  : Chapter 2
-title       : Plotting
-description : "In this chapter, you will learn to plot in R."
- 
+---
+title_meta: 'Chapter 2'
+title: Plotting
+description: 'In this chapter, you will learn to plot in R.'
+---
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise2_1
 ## Basic plotting
-One of R's best features is its plots. In R it is easy and fun to adjust your plots just the way you like it. But now, let's start from the basics. Propably one of the first things you want to do with your data set is to check your gender distibution. The best way to do that is to draw a barplot from your variable 'gender'. To draw a barplot, use barplot(table(data$variable)).  Why table you may ask? What barplot wants inside of it is the heights of the bars, so if you would type in barplot(data$variable), it would produce as many bars as you have individuals. 
 
-*** =instructions
+```yaml
+type: NormalExercise
+key: exercise2_1
+lang: r
+xp: 100
+skills: 1
+```
 
+One of R's best features is its plots. In R it is easy and fun to adjust your plots just the way you like it. But now, let's start from the basics. Propably one of the first things you want to do with your data set is to check your gender distibution. The best way to do that is to draw a barplot from your variable 'gender'. To draw a barplot, use barplot(table(data$variable)).  Why table you may ask? What barplot wants inside of it is the heights of the bars, so if you would type in barplot(data$variable), it would produce as many bars as you have individuals.
+
+`@instructions`
 - Draw a barplot of the variable 'gender' in diabetes-dataset.
 
 - Draw a barplot of the variable 'gender' in cardiac-dataset.
 
-*** =hint
+`@hint`
 Remember to put your variable inside table, and refer to your variable as data$variable.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # Draw a barplot of the variable 'gender' in diabetes-dataset.
 
 # Draw a barplot of the variable 'gender' in cardiac-dataset. 
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # Draw a barplot of the variable 'gender' in diabetes-dataset.
 barplot(table(diabetes$gender))
 # Draw a barplot of the variable 'gender' in cardiac-dataset. 
 barplot(table(cardiac$gender))
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("barplot(table(diabetes$gender))", not_typed_msg = "Remember to put your variable inside table, and refer to your variable as data$variable. Also make sure you referred to right data set.")
 test_student_typed("barplot(table(cardiac$gender))", not_typed_msg = "Remember to put your variable inside table, and refer to your variable as data$variable. Also make sure you referred to right data set.")
 success_msg("Hey, got some fancy looking plots over there! Now Let's make them even fancier.")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise2_2
+---
+
 ## More plotting
+
+```yaml
+type: NormalExercise
+key: exercise2_2
+lang: r
+xp: 100
+skills: 1
+```
+
 In previous exercise you learned to do a barplot from discrete variable. There is however many more other possibilites, such as histograms, pie charts, scatter plots etc. Now you will learn to do couple of them. For example, to draw a histogram, the command is hist(). Inside that command you just put your variable. To do a scatter plot for two continous variable, just type plot(data$variable1, data$variable2)
 
-*** =instructions
+`@instructions`
 - Draw histogram from the variable 'age' in diabetes data set.
 
 - Draw scatter plot of variables 'sbp' (systolic blood pressure) and 'maxhr' (maximum heart rate) in cardiac data set.
 
-*** =hint
+`@hint`
 Use commands hist(), and plot().
 
-*** =pre_exercise_code
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
 
-*** =sample_code
-```{r}
-# Draw histogram from the variable 'age' in diabetes data set
-
-# Draw scatter plot of variables 'sbp' and 'maxhr' in cardiac data set. 
-
-```
-
- *** =solution
-*** =sample_code
+`@sample_code`
 ```{r}
 # Draw histogram from the variable 'age' in diabetes data set
 hist(diabetes$age)
@@ -82,7 +90,12 @@ hist(diabetes$age)
 plot(cardiac$sbp, cardiac$maxhr)
 ```
 
-*** =sct
+`@solution`
+```{undefined}
+
+```
+
+`@sct`
 ```{r}
 test_student_typed("hist(diabetes$age)", not_typed_msg = "Make sure you used hist()- command. Also make sure you referred to right data set and variable.")
 test_student_typed("plot(cardiac$sbp, cardiac$maxhr)", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")

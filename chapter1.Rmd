@@ -1,12 +1,19 @@
---- 
-title_meta  : Chapter 0
-title       : Sandbox
-description : "In this chapter, you will learn the basics of how to work on DataCamp and how to handle with exercises. 
-Since many of you are working with iPads, there will also be some advice regarding special characters such as `^` or `'`. Let's get started!"
- 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_1
+---
+title_meta: 'Chapter 0'
+title: Sandbox
+description: 'In this chapter, you will learn the basics of how to work on DataCamp and how to handle with exercises.  Since many of you are working with iPads, there will also be some advice regarding special characters such as `^` or `''`. Let''s get started!'
+---
+
 ## THE WARM UP STARTS HERE: How does DataCamp work
- 
+
+```yaml
+type: NormalExercise
+key: exercise0_1
+lang: r
+xp: 100
+skills: 1
+```
+
 In the box below you can see the instructions for the exercise. 
 
 In the editor on the right you should type R code to solve the exercises. When you hit the 'Submit Answer' button, every line of code is interpreted and executed by R and you get a message whether or not your code was correct. The output of your R code is shown in the console in the lower right corner. You can also execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac)
@@ -23,27 +30,26 @@ If you do this when you are not yet
 finished and some sort of error message appears, you can try to comment out the parts that you have not completed yet. 
 That can be done by inserting a hashtag `#` at the beginning of the not completed lines.
 
-*** =instructions
-
+`@instructions`
 - In the editor on the right there is already some sample code. Can you see which lines are actual R code and which are comments?
 - Add a line of code that calculates the sum of 4 and 18, and hit the 'Submit Answer' button.
 
-*** =hint
+`@hint`
 Just add a line of R code that calculates the sum of 4 and 18, just like the example in the sample code!
 
-*** =pre_exercise_code
+`@pre_exercise_code`
 ```{r}
  # no pec
 ```
 
-*** =sample_code
+`@sample_code`
 ```{r}
 # Calculate 3 + 4
 3 + 4
 # Calculate 4 + 18
 ```
 
-*** =solution
+`@solution`
 ```{r}
 # Calculate 3 + 4
 3 + 4
@@ -51,14 +57,23 @@ Just add a line of R code that calculates the sum of 4 and 18, just like the exa
 4 + 18
 ```
 
-*** =sct
+`@sct`
 ```{r}
 test_output_contains("22", incorrect_msg = "Make sure to add `4 + 18` on a new line. Do not start the line with a `#`, otherwise your R code is not executed!")
 success_msg("Awesome! See how the console shows the result of the R code you submitted? Now that you're familiar with the interface, let's get down to R business!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_2
+---
+
 ## Arithmetic with R
+
+```yaml
+type: NormalExercise
+key: exercise0_2
+lang: r
+xp: 100
+skills: 1
+```
 
 In its most basic form, R can be used as a simple calculator. Consider the following arithmetic operators:
 
@@ -73,20 +88,20 @@ The last one might need some explaining:
 
 With this knowledge, follow the instructions below to complete the exercise.
 
-*** =instructions
+`@instructions`
 - Type `2^5` in the editor after the "Exponentiation" part to calculate 2 to the power 5.
 - Click 'Submit Answer' and have a look at the R output in the console.
 - Note how the `#` symbol is used to add comments on the R code.
 
-*** =hint
+`@hint`
 Make sure you have used either `^` or `**` signs.
 
-*** =pre_exercise_code
+`@pre_exercise_code`
 ```{r}
  # no pec
 ```
 
-*** =sample_code
+`@sample_code`
 ```{r}
 # An addition
 5 + 5 
@@ -100,7 +115,7 @@ Make sure you have used either `^` or `**` signs.
 
 ```
 
-*** =solution
+`@solution`
 ```{r}
 # An addition
 5 + 5 
@@ -114,15 +129,24 @@ Make sure you have used either `^` or `**` signs.
 5^2
 ```
 
-*** =sct
+`@sct`
 ```{r}
 msg = "Do not remove the other arithmetic examples!"
 test_output_contains("25", incorrect_msg = "The exponentiation example is not correct. Write `5 ^ 2` or `5**2` on a new line.")
 success_msg("Great! Head over to the next exercise.")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_3
-## Variable assignment 
+---
+
+## Variable assignment
+
+```yaml
+type: NormalExercise
+key: exercise0_3
+lang: r
+xp: 100
+skills: 1
+```
 
 A basic concept in (statistical) programming is called a **variable**. 
 
@@ -134,18 +158,18 @@ You can assign a value 3 to a variable `my_var` with the command
 my_var <- 3
 ```
 
-*** =instructions
+`@instructions`
 Over to you: complete the code in the editor such that it assigns the value 42 to the variable `x` in the editor. Click 'Submit Answer'. Notice that when you ask R to print `x`, the value 42 appears.
 
-*** =hint
+`@hint`
 Look at how the value 3 was assigned to `my_var` in the exercise's assignment. Do the exact same thing in the editor, but now assign 42 to the variable `x`.
 
-*** =pre_exercise_code
+`@pre_exercise_code`
 ```{r}
  # no pec
 ```
 
-*** =sample_code
+`@sample_code`
 ```{r}
 # Assign the value 42 to x
 x <- 
@@ -153,7 +177,7 @@ x <-
 x
 ```
 
-*** =solution
+`@solution`
 ```{r}
 # Assign the value 42 to x
 x <- 42
@@ -161,36 +185,48 @@ x <- 42
 x
 ```
 
-*** =sct
+`@sct`
+```{undefined}
 test_object("x", undefined_msg = "Make sure to define a variable `x`.",
             incorrect_msg = "Make sure that you assign the correct value to `x`.") 
 success_msg("Good job! Have you noticed that R does not print the value of a variable to the console when you did the assignment? `x <- 42` did not generate any output, because R assumes that you will be needing this variable in the future. Otherwise you wouldn't have stored the value in a variable in the first place, right? Proceed to the next exercise!")
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_4
+```
+
+---
+
 ## Variable assignment (2)
 
-Suppose you have a fruit basket with seven oranges. As a data analyst in training, you want to store the number of oranges in a variable with the name `my_oranges`. 
+```yaml
+type: NormalExercise
+key: exercise0_4
+lang: r
+xp: 100
+skills: 1
+```
 
-*** =instructions
+Suppose you have a fruit basket with seven oranges. As a data analyst in training, you want to store the number of oranges in a variable with the name `my_oranges`.
+
+`@instructions`
 - Type the following code in the editor: `my_oranges <- 7`. This will assign the value 7 to `my_oranges`.
 - Type: `my_oranges` below the second comment. This will print out the value of `my_oranges`.
 - Click 'Submit Answer', and look at the console: you see that the number 7 is printed. So R now links the variable `my_oranges` to the value 7.
 
-*** =hint
+`@hint`
 Remember that if you want to assign a number or an object to a variable in R, you can make use of the assignment operator `<-`. Alternatively, you can use `=`, but `<-` is widely preferred in the R community.
 
-*** =pre_exercise_code
+`@pre_exercise_code`
 ```{r}
  # no pec
 ```
 
-*** =sample_code
+`@sample_code`
 ```{r}
 # Assign the value 7 to the variable my_oranges
 # Print out the value of the variable my_oranges
 ```
 
-*** =solution
+`@solution`
 ```{r}
 # Assign the value 7 to the variable my_oranges
 my_oranges <- 7
@@ -198,7 +234,7 @@ my_oranges <- 7
 my_oranges
 ```
 
-*** =sct
+`@sct`
 ```{r}
 test_object("my_oranges", 
             undefined_msg = "Please make sure to define a variable `my_oranges`.",
@@ -207,8 +243,17 @@ test_output_contains("my_oranges", incorrect_msg = "Have you explicitly told R t
 success_msg("Great! Continue to the next exercise!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_5
+---
+
 ## Variable assignment (3)
+
+```yaml
+type: NormalExercise
+key: exercise0_5
+lang: r
+xp: 100
+skills: 1
+```
 
 Every tasty fruit basket needs also apples, so you decide to add five apples to your oranges. As a data analyst, your reflex is to immediately create the variable `my_apples` and assign the value 5 to it. Next, you want to calculate how many pieces of fruit you have in total. Since you have given meaningful names to these values, you can now code this in a clear way: 
 
@@ -216,21 +261,20 @@ Every tasty fruit basket needs also apples, so you decide to add five apples to 
 my_apples + my_oranges
 ```
 
-*** =instructions
+`@instructions`
 - Assign to `my_apples` the value 5.
 - Add the variables `my_apples` and `my_oranges` and have R simply print the result.
 - Assign the result of adding `my_apples` and `my_oranges` to a new variable `my_fruit`.
 
-*** =hint
+`@hint`
 `my_fruit` is just the sum of `my_apples` and `my_oranges`. You can use the `+` operator to sum the two and `<-` to assign that value to the variable `my_fruit`.
 
-*** =pre_exercise_code
 `@pre_exercise_code`
-```{r}
+```{undefined}
 # no pec
 ```
 
-*** =sample_code
+`@sample_code`
 ```{r}
 # Assign a value to the variables my_apples and my_oranges
 my_oranges <- 7
@@ -238,7 +282,8 @@ my_oranges <- 7
 # Add these two variables together
 # Create the variable my_fruit
 ```
-*** =solution
+
+`@solution`
 ```{r}
 # Assign a value to the variables my_apples and my_oranges
 my_oranges <- 7
@@ -249,7 +294,7 @@ my_apples + my_oranges
 my_fruit <- my_apples + my_oranges
 ```
 
-*** =sct
+`@sct`
 ```{r}
 test_object("my_apples", incorrect_msg = "Keep the line that assigns 5 to `my_apples`.")
 test_object("my_oranges", incorrect_msg = "Keep the line that assigns 7 to `my_oranges`.")
@@ -259,8 +304,19 @@ msg <- "Have you used `my_fruit <- my_apples + my_oranges` to create the `my_fru
 test_object("my_fruit", undefined_msg = msg, incorrect_msg = msg)
 success_msg("Nice one! The great advantage of doing calculations with variables is reusability. If you just change `my_apples` to equal 12 instead of 5 and rerun the script, `my_fruit` will automatically update as well. Continue to the next exercise.")
 ```
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_6
+
+---
+
 ## Apples and oranges
+
+```yaml
+type: NormalExercise
+key: exercise0_6
+lang: r
+xp: 100
+skills: 1
+```
+
 Common knowledge tells you not to add apples and oranges. But hey, that is what you just did, no :-)? The `my_apples` and `my_oranges` variables both contained a number in the previous exercise. The `+` operator works with numeric variables in R. If you really tried to add "apples" and "oranges", and assigned a text value to the variable `my_oranges` (see the editor), you would be trying to assign the addition of a numeric and a character variable to the variable `my_fruit`. This is not possible.
 
 `@instructions`
@@ -307,8 +363,17 @@ test_output_contains("my_fruit", incorrect_msg = "Don't remove the line that pri
 success_msg("Awesome, keep up the good work! Continue to the next exercise.")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise0_7
+---
+
 ## Basic data types in R
+
+```yaml
+type: NormalExercise
+key: exercise0_7
+lang: r
+xp: 100
+skills: 1
+```
 
 R works with numerous data types. Some of the most basic types to get started are:
 
@@ -319,7 +384,7 @@ R works with numerous data types. Some of the most basic types to get started ar
 
 Note how the quotation marks on the right indicate that "some text" is a character.
 
-*** =instructions
+`@instructions`
 Change the value of the:
 
 - `my_numeric` variable to `42`.
@@ -328,15 +393,16 @@ Change the value of the:
 
 Note that R is case sensitive!
 
-*** =hint
+`@hint`
 Replace the values in the editor with the values that are provided in the exercise. For example: 
-`my_numeric <- 42` assigns the value 42 to the variable `my_numeric`. 
+`my_numeric <- 42` assigns the value 42 to the variable `my_numeric`.
 
-*** =pre_exercise_code
+`@pre_exercise_code`
 ```{r}
 # no pec
 ```
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # Change my_numeric to be 42
 my_numeric <- 42.5
@@ -346,7 +412,7 @@ my_character <- "some text"
 my_logical <- TRUE
 ```
 
-*** =solution
+`@solution`
 ```{r}
 # Change my_numeric to be 42
 my_numeric <- 42
@@ -356,11 +422,10 @@ my_character <- "universe"
 my_logical <- FALSE
 ```
 
-*** =sct
+`@sct`
 ```{r}
 test_object("my_numeric", incorrect_msg = "Have you correctly changed the declaration of `my_numeric` so it contains the value 42?")
 test_object("my_character", incorrect_msg = "Have you correctly changed `my_character` to `\"universe\"`? Don't forget the quotes!")
 test_object("my_logical", incorrect_msg = "Have you correctly changed `my_logical` to `FALSE`? All letters of `FALSE` should be capitalized!")
 success_msg("Great work! Continue to the next exercise.")
 ```
-

@@ -1,31 +1,39 @@
---- 
-title_meta  : Chapter 4
-title       : Correlation and linear regression
-description : "This weeks exercises will focus on linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models."
- 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise3_1
+---
+title_meta: 'Chapter 4'
+title: 'Correlation and linear regression'
+description: 'This weeks exercises will focus on linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models.'
+---
+
 ## WEEK 3 STARTS HERE: Linear regression with one explanatory variable
- 
-In this exercise you will form a linear regression model, see the results and make some interpretations based on those. In R linear regression can be done using lm()- function, for example: lm(cardiac$dobEF~cardiac$baseEF). Before the ~ sign you can put only one variable, the outcome variable. After it you can put one or multiple explanatory variables devided by the + sign. 
- 
-*** =instructions
- - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age as an explanatory variable. Use the Cardiac-data. (Don't use the with-function this time.)
+
+```yaml
+type: NormalExercise
+key: exercise3_1
+lang: r
+xp: 100
+skills: 1
+```
+
+In this exercise you will form a linear regression model, see the results and make some interpretations based on those. In R linear regression can be done using lm()- function, for example: lm(cardiac$dobEF~cardiac$baseEF). Before the ~ sign you can put only one variable, the outcome variable. After it you can put one or multiple explanatory variables devided by the + sign.
+
+`@instructions`
+- Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age as an explanatory variable. Use the Cardiac-data. (Don't use the with-function this time.)
 
  - Interpret the results: 
    + What is the regression coefficient?
    + What is the intercept?
    + What is the variance explained (selitysaste)?
- 
-*** =hint
-Use formula lm(data$outcome~data$explanatory). To show the results, use summary-fucntion. 
- 
-*** =pre_exercise_code
+
+`@hint`
+Use formula lm(data$outcome~data$explanatory). To show the results, use summary-fucntion.
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # Form the model:
 
@@ -37,8 +45,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Variance explained is:
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # Form the model:
 reg1<-lm(cardiac$sbp~cardiac$age)
@@ -49,8 +57,8 @@ summary(reg1)
 # Intercept is: 161.7502
 # Variance explained is: 0.00349
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("lm(cardiac$sbp~cardiac$age)", not_typed_msg = "Make sure you have put the variables in the right order, and they are divided by the ~ sign.")
 test_student_typed("summary(", not_typed_msg = "Make sure you have used the summary-function to see the results.")
@@ -60,30 +68,39 @@ test_student_typed("Variance explained is: 0.00349", not_typed_msg = "Make sure 
 success_msg("Super! This, however, is just a beginning...")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise3_2
+---
+
 ## Linear regression with multiple explanatory variables
- 
-In the previous exercise you made a linear regression using one explanatory variables. In this exercise you will add explanatory variables. 
- 
-*** =instructions
- - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age, gender and ejection fraction (baseEF) as an explanatory variable. Use the Cardiac-data. (Don't use the with-function this time.)
+
+```yaml
+type: NormalExercise
+key: exercise3_2
+lang: r
+xp: 100
+skills: 1
+```
+
+In the previous exercise you made a linear regression using one explanatory variables. In this exercise you will add explanatory variables.
+
+`@instructions`
+- Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age, gender and ejection fraction (baseEF) as an explanatory variable. Use the Cardiac-data. (Don't use the with-function this time.)
  Interpret the results: 
    - What is the regression coefficient for age?
    - What is the regression coefficient for gender?
    - What is the regression coefficient for ejection fraction?
    - What is the intercept?
    - What is the variance explained?
- 
-*** =hint
-Use formula lm(data$outcome~data$explanatory1+data$explanatory2+ etc).  
- 
-*** =pre_exercise_code
+
+`@hint`
+Use formula lm(data$outcome~data$explanatory1+data$explanatory2+ etc).
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # Form the model
 
@@ -97,8 +114,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Variance explained is: 
  
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # Form the model
 reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
@@ -112,8 +129,8 @@ summary(reg2)
 # Variance explained is: 0.01469
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)", not_typed_msg = "Make sure you have put the variables in the right order, and they are divided by the + sign.")
 test_student_typed("summary(", not_typed_msg = "Make sure you have used the summary-function to see the results.")
@@ -125,12 +142,21 @@ test_student_typed("Variance explained is: 0.01", not_typed_msg = "Make sure you
 success_msg("Great! This is a great startfor this week")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise3_3
+---
+
 ## Checking the assumptions for your model graphically
- 
+
+```yaml
+type: NormalExercise
+key: exercise3_3
+lang: r
+xp: 100
+skills: 1
+```
+
 Now you know how to form linear regression models and check their results. In this exercise you will learn how to check how your model fits the assumptions (normality). You can do this for example creating a Q-Q plot from your model using qqnorm(studres(model))- command, or plotting a histogram from the residuals of your model typing hist(studres(model)).
- 
-*** =instructions
+
+`@instructions`
 The models you created in the previous exercises are named reg1 and reg2, accordingly with the following commands:
  - reg1<-lm(cardiac$sbp~cardiac$age)
  - reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
@@ -140,10 +166,11 @@ You don't need to run these by yourself anymore, you can just refer to these mod
  - Create Q-Q plot from your 'multiple explanatory variables' model, reg2, and add the unity line. How does it look?
  - Plot the histogram from the residuals of that same model.
  - Plot histogram from your outcome variable, sbp.
-*** =hint
-  
- 
-*** =pre_exercise_code
+
+`@hint`
+
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
@@ -151,8 +178,8 @@ reg1<-lm(cardiac$sbp~cardiac$age)
 reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
 library(MASS)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 ## Create Q-Q plot from your 'one explanatory variable' model, reg1:
 
@@ -165,8 +192,8 @@ library(MASS)
 ## Now plot histogram from your outcome- variable, cardiac$sbp, and compare it with the histograms of residuals. What can you see when compered to the histograms of the residuals from reg1 and reg2?
  
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 ## Create Q-Q plot from your 'one explanatory variable' model, reg1:
 qqnorm(studres(reg1))
@@ -182,8 +209,8 @@ hist(studres(reg2))
 hist(cardiac$sbp)
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("qqnorm(studres(reg1))", not_typed_msg = "Make sure you used the qqnorm(studres) for your models to create the Q-Q plot")
 test_student_typed("qqnorm(studres(reg2))", not_typed_msg = "Make sure you used the qqnorm(studres) for your models to create the Q-Q plot")
@@ -194,20 +221,29 @@ success_msg("Awesome! You old Q-Q plotting wizard!")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:exercise3_4
+---
+
 ## Comparing the variance explained
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: exercise3_4
+lang: r
+xp: 50
+skills: 1
+```
+
 You've learned a lot about linear regression today! There is still lot to be learned. Next we will compare the varinces explained by our one variable model and our multiple variables model. Once again, you can refer to your models with reg1 and reg2. Check the variance explained (adjusted R squared) from both of these models by typing  summary(reg1) and summary(reg2) to the console. 
 Which one of these models explains the blood pressure better?
-*** =instructions
-*** =instructions
+
+`@possible_answers`
 - reg1
 - reg2
- 
-*** =hint
-  - Which model has greater adjusted R squared (=selitysaste)? 
- 
-*** =pre_exercise_code
+
+`@hint`
+- Which model has greater adjusted R squared (=selitysaste)?
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
@@ -215,81 +251,87 @@ reg1<-lm(cardiac$sbp~cardiac$age)
 reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
 library(MASS)
 ```
- 
-*** =sample_code
-```{r}
-## Check the variance explained (adjusted R squared) from both of these models using summary function:
 
-```
- 
-*** =solution
-Reg2
- 
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "Not good, try again!"
 msg2 <- "Perfect! This should have been easy one..."
 
 test_mc(2, feedback_msgs = c(msg1, msg2))
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:exercise3_5
+```
+
+---
+
 ## To keep or not to keep?
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: exercise3_5
+lang: r
+xp: 50
+skills: 1
+```
+
 Next we will ahve a look to our multiple variable model: reg2. Check out that model's summary once again. Based on every explanatory variables effects p-value, 
 which variable(s) you would keep in the model?
-*** =instructions
+
+`@possible_answers`
 - Age
 - Gender
 - BaseEF
 
-*** =hint
-  - You should choice only those variables, which p-value is <0.05. This p-value tells you whether that variables effect is significantly different than 0.
- 
-*** =pre_exercise_code
+`@hint`
+- You should choice only those variables, which p-value is <0.05. This p-value tells you whether that variables effect is significantly different than 0.
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 reg2<-lm(cardiac$sbp~cardiac$age+cardiac$gender+cardiac$baseEF)
 
 ```
- 
-*** =sample_code
-```{r}
-## Check out the results from reg2
 
-```
- 
-*** =solution
-baseEF
-
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "C'moon, you can do better than this!"
 msg2 <- "Not good, try again!"
 msg3 <- "Correct! BaseEF is the only significant explanatory variable for systolic blood pressure. Age and gender still should not in practice never be left from the model!"
 
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3))
 
---- type:NormalExercise lang:r xp:0 skills:1 key:exercise3_6
+```
+
+---
 
 ## Still one model left to do
- 
-Now you have gone through the basics of linear model. Let's apply all these information with one more model! 
- 
-*** =instructions
- - Form a linear model, in which you explain the ratio of total cholesterol and HDL cholesterol ('ratio') by age, gender, bmi and waist 	circumference (waist). Use the diebetes- dataset. 
+
+```yaml
+type: NormalExercise
+key: exercise3_6
+lang: r
+xp: 100
+skills: 1
+```
+
+Now you have gone through the basics of linear model. Let's apply all these information with one more model!
+
+`@instructions`
+- Form a linear model, in which you explain the ratio of total cholesterol and HDL cholesterol ('ratio') by age, gender, bmi and waist 	circumference (waist). Use the diebetes- dataset. 
  - Check the results: intercept, regression coefficients and variance explained. 
  - Create a Q-Q plot from that model, and check if it looks ok.
 
-*** =hint
+`@hint`
 Form the linear model, and check it's summary using summary function. To create a Q-Q plot, use qqnorm(studres()).
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 library(MASS)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 ## Form a linear model
 
@@ -305,8 +347,8 @@ library(MASS)
 ##Create a Q-Q plot
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 ## Form a linear model
 lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)
@@ -323,8 +365,8 @@ summary(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$wai
 ##Create a Q-Q plot
 qqnorm(studres(lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)))
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)", not_typed_msg = "Make sure you used used lm() and put the right variables inside it in a right order.")
 test_student_typed("Intercept is: 0.541", not_typed_msg = "Make sure you have the right intercept.")
@@ -338,77 +380,84 @@ success_msg("Great! You're such a master in modelling now!")
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:exercise3_7
+---
+
 ## To keep or not to keep? part 2
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: exercise3_7
+lang: r
+xp: 50
+skills: 1
+```
+
 You can refer to the model you did in the previous exercise by reg3. Check out that model's summary once again. Based on every explanatory variables effects p-value, which variable(s) you would NOT keep in the model ?
-*** =instructions
+
+`@possible_answers`
 - Age
 - Gender
 - BMI
 - Waist
 
-*** =hint
-  - You should chooce only those variables, which p-value is <0.05
- 
-*** =pre_exercise_code
+`@hint`
+- You should chooce only those variables, which p-value is <0.05
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 reg3<-lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)
 
 ```
- 
-*** =sample_code
-```{r}
-## Check out the results from reg3
 
-```
- 
-*** =solution
-BMI
-
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "Try again!"
 msg2 <- "C'moon, you can do better than this! "
 msg3 <- "This is correct! BMI was the only variable that was not significant explanatory variable for the ratio of total and HDL cholesterol"
 msg4 <- "This is not correct!"
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:exercise3_8
+```
+
+---
+
 ## Make sure you have understood these thing
- 
- Forming a linear model and checking the results in R should be now piece of cake to you. Now, we want to make surey ou have understood what you have been doing. Type summary(reg3) on the console. Which of the following is correct?
- 
-*** =instructions
+
+```yaml
+type: MultipleChoiceExercise
+key: exercise3_8
+lang: r
+xp: 50
+skills: 1
+```
+
+Forming a linear model and checking the results in R should be now piece of cake to you. Now, we want to make surey ou have understood what you have been doing. Type summary(reg3) on the console. Which of the following is correct?
+
+`@possible_answers`
 - The ratio of total and HDL cholesterol is major risk factor for BMI
 - Age increases the ratio of total and HDL cholesterol significantly
 - Gender and waist circumference does not have an effect on the ratio of total and HDL cholesterol
 - These variables explain about 20 per cent of the variation of the ratio of total and HDL cholesterol
 
-*** =hint
-  - If this is difficult to you, maybe you shoud read the materialfor this week more thoroughly...
- 
-*** =pre_exercise_code
+`@hint`
+- If this is difficult to you, maybe you shoud read the materialfor this week more thoroughly...
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 reg3<-lm(diabetes$ratio~diabetes$age+diabetes$gender+diabetes$bmi+diabetes$waist)
 
 ```
- 
-*** =sample_code
-```{r}
-## Check out the results from reg3
 
-```
- 
-*** =solution
-Age increases the ratio of total and HDL cholesterol significantly
-
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "Try again!"
 msg2 <- "This is correct! When age increases, the also the ratio of total and HDL cholesterol increases. "
 msg3 <- "Not quite correct..."
 msg4 <- "This is not correct!"
 test_mc(2, feedback_msgs = c(msg1, msg2, msg3, msg4))
+
+```

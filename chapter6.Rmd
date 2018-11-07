@@ -1,31 +1,38 @@
---- 
-title_meta  : Chapter 5
-title       :  Odds ratio (OR) and risk ratio (RR) and logistic regression
-description : "In this week's exercises you will learn how to predict risks, calculate odds and risk ratios and run a logistic regression."
- 
---- type:NormalExercise lang:r xp:0 skills:1 key: ex4point1
+---
+title_meta: 'Chapter 5'
+title: 'Odds ratio (OR) and risk ratio (RR) and logistic regression'
+description: 'In this week''s exercises you will learn how to predict risks, calculate odds and risk ratios and run a logistic regression.'
+---
+
 ## Crosstabulations, odds ratios and risk ratios 1
- 
+
+```yaml
+type: NormalExercise
+key: ex4point1
+lang: r
+xp: 100
+skills: 1
+```
+
 You already probably know that a good way to start to discover the relationship between two discrete variables is to crosstabulate them. By looking at the crosstabulation between two dicotomous variables, you can see in one glimpse when these two are present together and separately. That's what makes it such a nice tool for looking at the relationship between a certain disease and a possible risk factor. 
 
 Once the crosstabulation is done, it's good to calculate some numbers too. Odds ratio tells you how powerfully a phenomenon presents with another phenomenon whereas risk ratio tells you how probable it is that when a phenomenon is present, also the other phenomenon is present.
- 
- 
-*** =instructions
- - Use cardiac dataset. Crosstabulate event and restwma. Make sure that you have included row and column sums. 
+
+`@instructions`
+- Use cardiac dataset. Crosstabulate event and restwma. Make sure that you have included row and column sums. 
  - Calculate the odds ratio. 
- - Calculate the risk ratio. 
- 
-*** =hint
+ - Calculate the risk ratio.
+
+`@hint`
 Try to form the table command one step at a time: First create a table, then add the sums and then look at the resulting table.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -44,8 +51,8 @@ table1<-addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
  
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # Crosstabulation
 
@@ -64,8 +71,8 @@ table1
 (74/301)/(15/257)
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("tab", not_typed_msg = "Make sure you are using a right command for crosstabulation.")
 test_student_typed("event", not_typed_msg = "Make sure you used the right variables.")
@@ -75,19 +82,29 @@ test_output_contains("5.259", incorrect_msg = "Make sure you used the right vari
 test_output_contains("4.212", incorrect_msg = "Make sure you used the right variables.")
 success_msg("Your talent with the number is remarkable! Keep up the good work!")
 ```
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex4point2
+
+---
+
 ## Interpret the odds ratio
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: ex4point2
+lang: r
+xp: 50
+skills: 1
+```
+
 How would you interpret the odds ratio achieved in the previous exercise? (Just type table1 to the Console to see the crosstabulation and OR to see the odds ratio.)
- 
-*** =instructions
+
+`@possible_answers`
 - If a person has had restwma it increases their risk to have a cardiac event.
 - If a person has had restwma it lowers their risk to have a cardiac event.
 
-*** =hint
+`@hint`
 Revise the material if the odds ratio is not clear to you yet.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
@@ -108,34 +125,37 @@ OR<-(74/15)/(227/242)
 RR<-(74/301)/(15/257)
 
 ```
- 
-*** =sample_code
-```{r}
 
-```
- 
-*** =solution
-If a person has had restwma it increases their risk to have a cardiac event.
-
- 
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "Good job, that's exactly how it is!"
 msg2 <- "Not quite."
 test_mc(1, feedback_msgs = c(msg1, msg2))
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex4point3
+```
+
+---
+
 ## Interpret the risk ratio
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: ex4point3
+lang: r
+xp: 50
+skills: 1
+```
+
 How would you interpret the risk ratio achieved in the previous exercise? (Just type table1 to the Console to see the crosstabulation and RR to see the risk ratio.)
- 
-*** =instructions
+
+`@possible_answers`
 - If a person has had restwma they are over 4 times more likely to have a cardiac event than those who haven't had restwma.
 - If a person has had restwma they are over 4 times less likely to have a cardiac event than those who haven't had restwma.
 
-*** =hint
+`@hint`
 Revise the material if the risk ratio is not clear to you yet.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
@@ -156,46 +176,48 @@ OR<-(74/15)/(227/242)
 RR<-(74/301)/(15/257)
 
 ```
- 
-*** =sample_code
-```{r}
 
-```
- 
-*** =solution
-If a person has had restwma they are over 4 times more likely to have a cardiac event than those who haven't had restwma.
-
- 
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "Good job, that's correct!"
 msg2 <- "Think again."
 test_mc(1, feedback_msgs = c(msg1, msg2))
 
 
 
---- type:NormalExercise lang:r xp:0 skills:1 key: ex4point4
+```
+
+---
+
 ## Crosstabulations, odds ratios and risk ratios 2
- 
+
+```yaml
+type: NormalExercise
+key: ex4point4
+lang: r
+xp: 100
+skills: 1
+```
+
 You already probably know that a good way to start to discover the relationship between two discrete variables is to crosstabulate them. By looking at the crosstabulation between two dicotomous variables, you can see in one glimpse when these two are present together and separately. That's what makes it such a nice tool for looking at the relationship between a certain disease and a possible risk factor. 
 
 Once the crosstabulation is done, it's good to calculate some numbers too. Odds ratio tells you how powerfully a phenomenon presents with another phenomenon whereas risk ratio tells you how probable it is that when a phenomenon is present, also the other phenomenon is present.
- 
- 
-*** =instructions
- - Use cardiac dataset. Crosstabulate hxofHT and event. Make sure that you have included row and column sums. 
+
+`@instructions`
+- Use cardiac dataset. Crosstabulate hxofHT and event. Make sure that you have included row and column sums. 
  - Calculate the odds ratio. 
- - Calculate the risk ratio. 
- 
-*** =hint
+ - Calculate the risk ratio.
+
+`@hint`
 Try to form the table command one step at a time: First create a table, then add the sums and then look at the resulting table.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -214,8 +236,8 @@ table1<-addmargins(table1,FUN=list(Total=sum),quiet=TRUE)
  
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # Crosstabulation
 
@@ -234,8 +256,8 @@ table1
 (73/393)/(16/165)
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("tab", not_typed_msg = "Make sure you are using a right command for crosstabulation.")
 test_student_typed("hxofHT", not_typed_msg = "Make sure you used the right variables.")
@@ -246,27 +268,35 @@ test_output_contains("1.9", incorrect_msg = "Make sure you used the right variab
 success_msg("Congrats, that was some awesome calculation!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key: ex4point5
+---
+
 ## Practising for logistic regression
- 
-Last week you learned what is linear regression. It can be used when we are dealing with a continuous variable that we want to explain with other variables. Logistic regression is used when our variable of interest is discrete, binary logistic regression, that we are doing today, is used with binary variables. 
- 
- 
-*** =instructions
- - Look at the code that is already provided to you to calculate a logistic regression.
+
+```yaml
+type: NormalExercise
+key: ex4point5
+lang: r
+xp: 100
+skills: 1
+```
+
+Last week you learned what is linear regression. It can be used when we are dealing with a continuous variable that we want to explain with other variables. Logistic regression is used when our variable of interest is discrete, binary logistic regression, that we are doing today, is used with binary variables.
+
+`@instructions`
+- Look at the code that is already provided to you to calculate a logistic regression.
  - Run the logistic regression to explain death with age and gender in cardiac dataset.
- - TIP: e^x (Napier's constant to x) in R is written exp(x). 
- 
-*** =hint
+ - TIP: e^x (Napier's constant to x) in R is written exp(x).
+
+`@hint`
 Follow the code provided in the example and use the course material (Viikko 4) if needed.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -300,8 +330,8 @@ print(OR_age_model1) # Does age seem to increase or decrease the probability for
 
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -334,35 +364,43 @@ print(OR_age_model2) # Does age seem to increase or decrease the probability for
 
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_output_contains("1.0", incorrect_msg = "Make sure that your formula is correct.")
 success_msg("Now you can calculate the risks and probabilities for almost anything, that's just amazing!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key: ex4point6
+---
+
 ## Performing a logistic regression and calculating probabilities
- 
-Lets continue with logistic regression. 
- 
- 
-*** =instructions
- - Look at the code that is already provided to you to calculate a logistic regression.
+
+```yaml
+type: NormalExercise
+key: ex4point6
+lang: r
+xp: 100
+skills: 1
+```
+
+Lets continue with logistic regression.
+
+`@instructions`
+- Look at the code that is already provided to you to calculate a logistic regression.
  - Run the logistic regression to explain event with age, gender, restwma and positive stress ECG (posSE) in cardiac dataset.
  - Calculate the probability of experiencing an event when a person is a 65-year-old woman (gender=1) who had restwma and whose stress ECG was positive.
- - TIP: e^x (Napier's constant to x) in R is written exp(x). 
- 
-*** =hint
+ - TIP: e^x (Napier's constant to x) in R is written exp(x).
+
+`@hint`
 Calculate the probability one step at a time. First the logit value and then the probability.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -394,8 +432,8 @@ prob2 <- () / ()
 prob2 
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -427,36 +465,44 @@ prob2 <- (exp(logit2))/(1+(exp(logit2)))
 prob2 
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_output_contains("-0.66", incorrect_msg = "Make sure your formula doesn't have any typos.")
 test_output_contains("0.3", incorrect_msg = "Did you use the right formula?")
 success_msg("Now you can calculate the risks and probabilities for almost anything, that's just amazing!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key: ex4point7
+---
+
 ## Increasing or decreasing probabilities?
- 
-Lets continue with logistic regression. 
- 
- 
-*** =instructions
- - Does the probability of event increase or decrease when age increases?
+
+```yaml
+type: NormalExercise
+key: ex4point7
+lang: r
+xp: 100
+skills: 1
+```
+
+Lets continue with logistic regression.
+
+`@instructions`
+- Does the probability of event increase or decrease when age increases?
  - Does the probability of event increase or decrease if a person is male instead of female?
- 
-*** =hint
+
+`@hint`
 Calculate the probability one step at a time. First the logit value and then the probability.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
 model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
 model2 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -492,8 +538,8 @@ prob2
 # Try different ages and gender!
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -525,38 +571,42 @@ prob2 <- (exp(logit2))/(1+(exp(logit2)))
 prob2 
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("exp", not_typed_msg = "Make sure you calculated the probability witht the right formula.")
 success_msg("Well done! See how you can use logistic regression to estimate the probabilities!")
 ```
 
+---
 
-
-
---- type:NormalExercise lang:r xp:0 skills:1 key: ex4point8
 ## The odds ratios
- 
-Now we have learned to build a logistic regression model. One of the main interests in interpreting the results of the logistic regression are the odds ratios. So first we will learn to get odds ratios out of the model results in a simple way.
- 
- 
-*** =instructions
- - Form a table of the odds ratios and their confidence intervals for model2. 
 
- 
-*** =hint
+```yaml
+type: NormalExercise
+key: ex4point8
+lang: r
+xp: 100
+skills: 1
+```
+
+Now we have learned to build a logistic regression model. One of the main interests in interpreting the results of the logistic regression are the odds ratios. So first we will learn to get odds ratios out of the model results in a simple way.
+
+`@instructions`
+- Form a table of the odds ratios and their confidence intervals for model2.
+
+`@hint`
 Just follow the example code carefully and replace values used with your own values.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
 model1 <- with(diabetes, glm(cholcat ~ age + gender, family = "binomial"))
 model2 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -579,8 +629,8 @@ table1
 
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # Form a table of the odds ratios and their confidence intervals for model1
 
@@ -607,37 +657,44 @@ table2
 
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("coef", not_typed_msg = "Make sure you looked at the coefficients of the model")
 success_msg("Awesome, you now know a good way to form a table of odds ratios and their confidence intervals!")
 ```
 
+---
 
---- type:NormalExercise lang:r xp:0 skills:1 key: ex4point9
 ## Plotting the odds ratios
- 
+
+```yaml
+type: NormalExercise
+key: ex4point9
+lang: r
+xp: 100
+skills: 1
+```
+
 Now we have learned to build a logistic regression model. One of the main interests in interpreting the results of the logistic regression are the odds ratios. So as our last exercise we will learn how to plot them, as well as their confidence intervals.
- 
- 
-*** =instructions
- - Form a table of the odds ratios and their confidence intervals for model1. 
+
+`@instructions`
+- Form a table of the odds ratios and their confidence intervals for model1. 
  - Draw a plot of odds ratios based on the table just formed.
  - Add the confidence intervals.
  - Add a legend to the plot.
- 
-*** =hint
+
+`@hint`
 Odds ratios and confidence intervals can be calculated by ci.exp()-command.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
 model1 <- (with(cardiac, glm(event ~ age + gender + restwma + posSE, family = "binomial")))
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # cardiac-data is available
 # diabetes-data is available
@@ -672,8 +729,8 @@ legend("define here the position of the legend",c("OR","95% CI"),lty=c(1,2),col=
 
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # Form a table of the odds ratios and their confidence intervals for model1 as in the previous exercise
 
@@ -703,30 +760,38 @@ legend("topleft",c("OR","95% CI"),lty=c(1,2),col=c("black","pink"))
 
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("summary(model1)", not_typed_msg = "Make sure you entered the name of your model in the summary command.")
 test_student_typed("plot(table1[,1]", not_typed_msg = "Make sure you entered the name of the table (table1) in the plotting-command.")
 success_msg("Awesome, you have done a great plot! Well done!")
 ```
 
+---
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex4point10
 ## Interpret the odds ratios by looking at the plot.
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: ex4point10
+lang: r
+xp: 50
+skills: 1
+```
+
 How would you interpret the odds ratios in the previous exercise? Which one of the following is true?
- 
-*** =instructions
+
+`@possible_answers`
 - All the explanatory variables are statistically significant.
 - Restwma decreases the probability of event.
 - Gender was the most significant explanatory variable.
 - Increase in posSE increases the probability of event.
 
-*** =hint
+`@hint`
 Revise the material if the odds ratio is not clear to you yet.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Cardiac.txt",header=T,sep="")
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostats-r/master/Diabetes.txt",header=T,sep="")
@@ -753,18 +818,14 @@ legend("topleft",c("OR","95% CI"),lty=c(1,2),col=c("black","pink"))
 
 
  
-*** =sample_code
-```{r}
-plot1
 ```
- 
-*** =solution
-Increase in posSE increases the probability of event.
 
- 
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "No they are not, look at the confidence interval of gender."
 msg2 <- "Nope - OR is over 1, right?"
 msg3 <- "Not quite, look at the confidence interval."
 msg4 <- "Good job, that's correct!"
 test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
+
+```

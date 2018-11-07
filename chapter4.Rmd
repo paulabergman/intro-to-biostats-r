@@ -1,31 +1,39 @@
---- 
-title_meta  : Chapter 3
-title       : Statistical testing
-description : "In this chapter, you will learn what does statistical significance mean and revise crosstabulation and learn to run some useful statistical tests, such as chi square and t-test."
- 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point1
+---
+title_meta: 'Chapter 3'
+title: 'Statistical testing'
+description: 'In this chapter, you will learn what does statistical significance mean and revise crosstabulation and learn to run some useful statistical tests, such as chi square and t-test.'
+---
+
 ## Hands on to t-test
- 
+
+```yaml
+type: NormalExercise
+key: ex2point1
+lang: r
+xp: 100
+skills: 1
+```
+
 Although in these days we have many tools for calculation and programming, it is good to understand the theory that lies behind R functions for example. t-test is quite a simple procedure and now we are going to learn how to run it without using the function that R offers. You just have to calculate the difference between two means and then divide it with the square root of (variance1 / n1) + (variance2 / n2)
- 
-*** =instructions
- - Find out whether there is a difference between men and women in basal heart rate by using t-test
+
+`@instructions`
+- Find out whether there is a difference between men and women in basal heart rate by using t-test
     - Imagine we have a sample of 10 (n=10) people, 4 of which are women and 6 men  
     - Mean of women's basal heart rate is 78.5 and standard deviation is 6.65
     - Mean of men's basal heart rate is 75.67 and standard deviation is 20.93
     - The chosen significance level is 0.05
  - You can find the t-distribution table from the internet, just type 't distribution table' on google.
- - You will need to check the degrees of freedom (df) in order to use the distribution table (n1 + n2 - 2) 
- 
-*** =hint
+ - You will need to check the degrees of freedom (df) in order to use the distribution table (n1 + n2 - 2)
+
+`@hint`
 Remember to use all necessary brackets. Square root in R is sqrt()
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
  # no pec
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # Assign the number of women to n1 and number of men to n2
 n1 <-
@@ -55,8 +63,8 @@ df
 # Does this support the alternative hypothesis (on significance level 0.05)? Remove the wrong answer.
 # Your answer: YES / NO
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # Assign the number of women to n1 and number of men to n2
 n1 <- 4
@@ -87,8 +95,8 @@ df
 # Does this support the alternative hypothesis (on significance level 0.05)? Remove the wrong answer.
 # Your answer: NO
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("n1 <- 4", not_typed_msg = "Make sure you entered the right values given in the exercise.")
 test_student_typed("mean1 <- 78.5", not_typed_msg = "Make sure you entered the right values given in the exercise.")
@@ -102,24 +110,33 @@ test_student_typed("NO", not_typed_msg = "Perhaps you need to check again how to
 success_msg("t-test seems to be your cup of tea! You know the name of the test actually originates from the lady who was convinced she can taste whether the milk or the tea was poured first on her teacup?")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point2
-## Getting more familiar with the t-test 1
- 
-The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other dicotomous groups. T-test can be easily done in R by using the function t.test(variable1~variable2)
- 
-*** =instructions
- - Run a t-test to compare systolic blood pressure between genders in cardiac-dataset. Is there any difference between men and women?
+---
 
-*** =hint
+## Getting more familiar with the t-test 1
+
+```yaml
+type: NormalExercise
+key: ex2point2
+lang: r
+xp: 100
+skills: 1
+```
+
+The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other dicotomous groups. T-test can be easily done in R by using the function t.test(variable1~variable2)
+
+`@instructions`
+- Run a t-test to compare systolic blood pressure between genders in cardiac-dataset. Is there any difference between men and women?
+
+`@hint`
 Use the R function t.test and just enter the variables.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # The dataset cardiac is available
  
@@ -130,8 +147,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
  
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # The dataset cardiac is available
  
@@ -142,32 +159,42 @@ with(cardiac,t.test(sbp~gender))
 # Your answer: NO
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("t.test", not_typed_msg = "Are you using R's function for t-test?")
 test_student_typed("sbp~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
 test_student_typed("NO", not_typed_msg = "Your interpretation of the t-test needs re-checking. Check whether the confidence interval contains zero or not.")
 success_msg("t-test appears to be your cup of tea!")
 ```
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point3
-## Visualizing the results of the t-test
- 
-When you are doing statistical testing, it can be useful to visualize the results. In previous chapter you have learned many ways of plotting in R. To visualize the difference (or no difference) in means between two groups, boxplot is often a good choice. Now lets try to revise how it's done!
- 
-*** =instructions
- - Draw a boxplot to describe systolic blood pressure in males and females in cardiac-dataset. What can you see?
 
-*** =hint
+---
+
+## Visualizing the results of the t-test
+
+```yaml
+type: NormalExercise
+key: ex2point3
+lang: r
+xp: 100
+skills: 1
+```
+
+When you are doing statistical testing, it can be useful to visualize the results. In previous chapter you have learned many ways of plotting in R. To visualize the difference (or no difference) in means between two groups, boxplot is often a good choice. Now lets try to revise how it's done!
+
+`@instructions`
+- Draw a boxplot to describe systolic blood pressure in males and females in cardiac-dataset. What can you see?
+
+`@hint`
 Use the R function boxplot and just enter the variables.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # The dataset diabetes is available
 # The dataset cardiac is available
@@ -180,8 +207,8 @@ with(diabetes, boxplot(bmi~gender, col="turquoise", main="BMI in males and femal
 axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1. If you use this, then include command xaxt="n" in your boxplot command!
  
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # The dataset diabetes is available
 # The dataset cardiac is available
@@ -193,32 +220,40 @@ with(diabetes, boxplot(bmi~gender, col="turquoise", main="BMI in males and femal
 with(cardiac, boxplot(sbp~gender, col="yellow", main="Systolic blood pressure in males and females", xaxt="n"))
 axis(side = 1, at=1:2, labels=c("male","female")) # this adds text labels instead of 0 and 1. If you use this, then include command xaxt="n" in your boxplot command!
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("boxplot", not_typed_msg = "Are you using R's function for boxplot?")
 success_msg("That's some nice looking boxplot! See how it highlights that there is no difference between the groups?")
 ```
 
+---
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point4
 ## Getting more familiar with the t-test 2
- 
-The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other binary (two classes) groups.  T-test can be easily done in R by using the function t.test(variable1~variable2)
- 
-*** =instructions
- - Run a t-test to compare BMI between genders in diabetes-dataset. Is there any difference between men and women?
 
-*** =hint
+```yaml
+type: NormalExercise
+key: ex2point4
+lang: r
+xp: 100
+skills: 1
+```
+
+The t-test is often used to check whether there is differences between two independent groups, quite often men and women, sick and healthy or some other binary (two classes) groups.  T-test can be easily done in R by using the function t.test(variable1~variable2)
+
+`@instructions`
+- Run a t-test to compare BMI between genders in diabetes-dataset. Is there any difference between men and women?
+
+`@hint`
 Use the R function t.test and just enter the variables.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # The dataset diabetes is available
  
@@ -228,8 +263,8 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 # Your answer: NO YES
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # The dataset diabetes is available
  
@@ -240,8 +275,8 @@ with(diabetes,t.test(bmi~gender))
 # Your answer: YES
 
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("t.test", not_typed_msg = "Are you using R's function for t-test?")
 test_student_typed("bmi~", not_typed_msg = "Make sure you have the variables inside the t.test-function in the right order.")
@@ -249,25 +284,34 @@ test_student_typed("YES", not_typed_msg = "Your interpretation of the t-test nee
 success_msg("Wow, you can already analyze the results of the t-test so well, congrats! Now let's move on to a next letter.")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point5
+---
+
 ## The Chi square test 1
- 
+
+```yaml
+type: NormalExercise
+key: ex2point5
+lang: r
+xp: 100
+skills: 1
+```
+
 When dealing with discrete variables, especially binary ones (the ones with only two possible values), the test often chosen to check for independence between them, is the chi square test. The chi square test in R can be done simply with the function chisq.test(table(variable1,variable2))
 
-*** =instructions
- - Crosstabulate event and restwma from the cardiac-dataset.
+`@instructions`
+- Crosstabulate event and restwma from the cardiac-dataset.
    - Run the chi square test to check whether those two variables depend on each other.
-   
-*** =hint
+
+`@hint`
 First make a table and then put the table inside the chi square function. The chi square test in R is chisq.test()
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # The dataset cardiac is available
 # HINT! In order to see the variable names in table output, you can use command with(nameofyourdata, table(variable1,variable2)) as instructed in previous chapters
@@ -287,8 +331,8 @@ test1$p.value
 # Your answer: NO YES
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # The datasets cardiac and diabetes are available
 # HINT! In order to see the variable names in table output, you can use command with(nameofyourdata, table(variable1,variable2))
@@ -306,8 +350,8 @@ test1$p.value
 # Do the variables depend on each other? Remove the wrong answer.
 # Your answer: YES
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("event", not_typed_msg = "Make sure you entered the right variables in your command.")
 test_student_typed("restwma", not_typed_msg = "Make sure you entered the right variables in your command.")
@@ -317,28 +361,37 @@ test_output_contains("3.359", incorrect_msg = "Your chi square value seems to be
 success_msg("That's some badass crosstabulation you did there, go you!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point6
+---
+
 ## Visualizing the results of the Chi square
- 
+
+```yaml
+type: NormalExercise
+key: ex2point6
+lang: r
+xp: 100
+skills: 1
+```
+
 As we discussed earlier, when you are doing statistical testing, it can be useful to visualize the results. In previous chapter you have learned many ways of plotting in R. To visualize the dependence between two discrete variables it could be useful to make a stacked barplot, where you have bars representing groups in the other variables and the bar heights representing the percentage of the gorups in the other variable. Take a look at the example code -->
- 
-*** =instructions
- - Draw a stacked barplot (scaled to 100 %) of variables event and restwma in cardiac-dataset. What can you see?
+
+`@instructions`
+- Draw a stacked barplot (scaled to 100 %) of variables event and restwma in cardiac-dataset. What can you see?
   - First transform your table into % as in the example code. 
   - Then draw a barplot.
   - Add legend to your plot.
    - If you want to change your legend somehow, take a look at the help by typing ?legend to see the options.
 
-*** =hint
+`@hint`
 Take a look at the example code and just enter your variables.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # The dataset diabetes is available
 # The dataset cardiac is available
@@ -365,8 +418,8 @@ legend("bottomright", c("no death", "death"),
 
  
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # Draw a stacked barplot (scaled to 100 %) of variables death and anyevent in cardiac-dataset
 
@@ -396,34 +449,42 @@ legend("bottomright", c("no event", "event"),
        fill=c("turquoise","cornflowerblue"),
        inset=c(0,1), xpd=TRUE,  horiz=TRUE, bty="n")
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("barplot(", not_typed_msg = "Are you using R's function for barplot?")
 test_student_typed("legend", not_typed_msg = "Did you remember to insert the legend?")
 success_msg("Nice colors! Does there seem to be difference between the groups? Does that match the result of your chi square test")
 ```
 
+---
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point7
 ## The Chi square test 2
- 
+
+```yaml
+type: NormalExercise
+key: ex2point7
+lang: r
+xp: 100
+skills: 1
+```
+
 When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test.  The chi square test in R can be done simply with the function chisq.test(table(variable1,variable2))
 
-*** =instructions
- - Crosstabulate smoking and gender from the cardiac-dataset. 
+`@instructions`
+- Crosstabulate smoking and gender from the cardiac-dataset. 
    - Run the chi square test to check whether those two variables depend on each other.
-  
-*** =hint
+
+`@hint`
 First make a table and then put the table inside the chi square function. The chi square test in R is chisq.test()
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # The dataset cardiac is available.
 
@@ -441,8 +502,8 @@ test2$p.value
 # Your answer: NO YES
 
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # The dataset cardiac is available.
 
@@ -458,8 +519,8 @@ test2$p.value
 # Do the variables depend on each other? Remove the wrong answer.
 # Your answer: YES
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("smoking", not_typed_msg = "Make sure you entered the right variables in your command.")
 test_student_typed("gender", not_typed_msg = "Make sure you entered the right variables in your command.")
@@ -469,25 +530,34 @@ test_output_contains("4.79", incorrect_msg = "Your chi square value seems to be 
 success_msg("Way to go, you are getting more and more pro at this!")
 ```
 
---- type:NormalExercise lang:r xp:0 skills:1 key:ex2point8
+---
+
 ## The Chi square test 3
- 
+
+```yaml
+type: NormalExercise
+key: ex2point8
+lang: r
+xp: 100
+skills: 1
+```
+
 When dealing with discrete variables, especially dicotomous ones, the test often chosen to check for independence is the chi square test. The chi square test in R can be done simply with the function chisq.test(table(variable1,variable2))
 
-*** =instructions
- - Crosstabulate categorized cholesterol (cholcat) and gender from the diabetes-dataset. 
+`@instructions`
+- Crosstabulate categorized cholesterol (cholcat) and gender from the diabetes-dataset. 
    - Run the chi square test to check whether those two variables depend on each other.
-   
-*** =hint
+
+`@hint`
 First make a table and then put the table inside the chi square function. The chi square test in R is chisq.test()
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
 diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
 ```
- 
-*** =sample_code
+
+`@sample_code`
 ```{r}
 # The dataset diabetes is available
 
@@ -505,8 +575,8 @@ test3$p.value
 # Your answer: NO YES
  
 ```
- 
-*** =solution
+
+`@solution`
 ```{r}
 # The datasets diabetes is available
 
@@ -523,8 +593,8 @@ test3$p.value
 # Your answer: NO 
  
 ```
- 
-*** =sct
+
+`@sct`
 ```{r}
 test_student_typed("gender", not_typed_msg = "Make sure you entered the right variables in your command.")
 test_student_typed("cholcat", not_typed_msg = "Make sure you entered the right variables in your command.")
@@ -534,105 +604,112 @@ test_output_contains("0.85", incorrect_msg = "Your third chi square value seems 
 success_msg("Be there or be chi square(d)! You definately are there, well done with your chi square tests!")
 ```
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point9
+---
+
 ## Remembering what was the t-test all about
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: ex2point9
+lang: r
+xp: 50
+skills: 1
+```
+
 What is Student's t-test used for?
- 
-*** =instructions
+
+`@possible_answers`
 - To check for missingness across all variables in the data.
 - Counting the variables that are discrete.
 - Checking whether the mean of a variable is equal in two populations.
 - Calculating the median of a variable.
 
-*** =hint
+`@hint`
 Its name might give you a hint that t-test is a test. So we are testing whether something is true or not.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
  # no pec
 ```
- 
-*** =sample_code
-```{r}
 
-```
- 
-*** =solution
-Checking whether the mean of a variable is equal in two populations
-
- 
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "Not quite there yet!"
 msg2 <- "There is no shame in googling, bro."
 msg3 <- "That's right, well done!"
 msg4 <- "Come on, you can do better!"
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point10
+```
+
+---
+
 ## True or not about the t-test?
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: ex2point10
+lang: r
+xp: 50
+skills: 1
+```
+
 Which of the following is true?
- 
-*** =instructions
+
+`@possible_answers`
 - The t-statistic was invented by William van der Gosset who worked at Heineken brewery at the beginning of 1900s. 
 - The independent samples t-test could be done for example if one wanted to compare the heights of a certain group of school children at age 6 and then again at age 10.
 - The t-test is especially used when we have only binary variables in our data.
-- The t-test could be used to compare the BMI between the people born in winter and people born in summer. 
+- The t-test could be used to compare the BMI between the people born in winter and people born in summer.
 
-*** =hint
+`@hint`
 Think about what you have done with the t-test in the previous exercises.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
  # no pec
 ```
- 
-*** =sample_code
-```{r}
 
-```
- 
-*** =solution
-The t-test could be used to compare the BMI between the people born in winter and people born in summer.
-
- 
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "It was indeed invented by a certain William that worked in a brewery, but that wasn't Heineken. Google if interested ;)"
 msg2 <- "If we are measuring the same group of people again, then we are not talking about independent, but dependent samples."
 msg3 <- "The t-test is often used to compare means, and means shouldn't be even calculated for binary variables."
 msg4 <- "Yes, that is correct! The t-test can be used to compare for example the BMI between two independent groups."
 test_mc(4, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point11
+```
+
+---
+
 ## Do you still remember the Chi square?
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: ex2point11
+lang: r
+xp: 50
+skills: 1
+```
+
 What is the Chi square test usually used for?
- 
-*** =instructions
+
+`@possible_answers`
 - To test for independence between variables. 
 - To test whether the data is continuous or not.
 - To find the upper and lower quartile of both variables.
-- To check if a certain observation has a certain variable value. 
+- To check if a certain observation has a certain variable value.
 
-*** =hint
+`@hint`
 Now we are talking about the chi square test that is often used after crosstabulating variables.
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
  # no pec
 ```
- 
-*** =sample_code
-```{r}
 
-```
- 
-*** =solution
-To test for independence between variables.
-
- 
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "Awesome, you knew it!"
 msg2 <- "Chi square usually doesn't test the whole data at once."
 msg3 <- "Usually the chi square test isn't used to find summary statistics for a variable."
@@ -640,37 +717,40 @@ msg4 <- "Usually the chi square test isn't used to find check for single observa
 test_mc(1, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 
---- type:MultipleChoiceExercise lang:r xp:0 skills:1 key:ex2point12
+```
+
+---
+
 ## Interpret Chi square test results
- 
+
+```yaml
+type: MultipleChoiceExercise
+key: ex2point12
+lang: r
+xp: 50
+skills: 1
+```
+
 Type print(mydata) on the console and interpret whether there is independence between variables. (significance level 0.05) Hint: Perform a chi square test, either by hand or in console.
- 
-*** =instructions
+
+`@possible_answers`
 - The p-value of the chi square test is > 0.05, so the variables don't seem to depend on each other.
 - The p-value of the chi quare test is > 0.05, so the variables seem to depend on each other.
 - The p-value of the chi square test is < 0.05, so the variables seem to depend on each other. 
 - The p-value of the chi square test is < 0.05, so the variables don't seem to depend on each other.
 
-*** =hint
+`@hint`
 Think first about what are we testing. Then think about the p-value: Does it have to be lower or greater than 0.05 for the test to be significant?
- 
-*** =pre_exercise_code
+
+`@pre_exercise_code`
 ```{r}
 a<-c(15,38)
 b<-c(97,120)
 mydata<-cbind(a,b)
 ```
- 
-*** =sample_code
-```{r}
 
-```
- 
-*** =solution
-The p-value of the chi square test is < 0.05, so the variables seem to depend on each other. 
-
- 
-*** =sct
+`@sct`
+```{undefined}
 msg1 <- "Is the p-value over 0.05 though?"
 msg2 <- "Maybe revise the interpretation of the p-value."
 msg3 <- "Very well interpreted: The low p-value indicates that the test result is statistically significant, and since the null hypotheses of the chi square test is that the variables don't depend on each other, we can now reject that hypothesis."
@@ -678,3 +758,5 @@ msg4 <- "What is the null hypotheses in the chi square test?"
 test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 
+
+```
