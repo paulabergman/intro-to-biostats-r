@@ -4,7 +4,51 @@ title: 'Correlation and linear regression'
 description: 'In this chapter you will learn to check association of continous variables. You will first learn to calculate correlation coefficients, and then linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models.'
 ---
 
+---
+## Correlation coefficient
 
+```yaml
+type: NormalExercise
+key: exercise5_1
+lang: r
+xp: 0
+skills: 1
+```
+
+In R, correlation coefficient of two variables can be calculated using cor() function. For that fucntion you give two variables, separated by ','. 
+
+`@instructions`
+- Calculate correlation coefficient of variables 'sbp' and 'maxhr' in cardiac- data set.
+
+- Calculate correlation coefficient of variables 'sbp' and 'age' in caridac- data set.
+
+
+`@hint`
+Use command cor(). Add correct variables inside that function. Separate your variables by ','.
+
+`@pre_exercise_code`
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+
+`@sample_code`
+```{r}
+# Calculate correlation coefficient of variables 'sbp' and 'maxhr' in cardiac- data set.
+
+# Calculate correlation coefficient of variables 'sbp' and 'age' in caridac- data set.
+
+```
+
+`@solution`
+```{r}
+# Calculate correlation coefficient of variables 'sbp' and 'maxhr' in cardiac- data set.
+cor(cardiac$sbp, cardiac$maxhr)
+
+# Calculate correlation coefficient of variables 'sbp' and 'age' in caridac- data set.
+cor(cardiac$sbp, cardiac$age)
+
+```
 
 ## Linear regression with one explanatory variable
 
