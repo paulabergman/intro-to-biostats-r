@@ -24,7 +24,7 @@ In R, correlation coefficient of two variables can be calculated using cor() fun
 
 
 `@hint`
-Use command cor(). Add correct variables inside that function. Separate your variables by ,.
+Use command cor(). Add correct variables inside that function. Separate your variables by ','.
 
 `@pre_exercise_code`
 ```{r}
@@ -52,7 +52,7 @@ cor(cardiac$sbp, cardiac$age)
 
 `@sct`
 ```{r}
-test_student_typed("cor", not_typed_msg = "Make sure you used cor- command. Also make sure you referred to right data set and variables.")
+test_student_typed("cor", not_typed_msg = "Make sure you used cor command. Also make sure you referred to right data set and variables.")
 success_msg("Great job!")
 ```
 
