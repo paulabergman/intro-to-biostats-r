@@ -70,7 +70,7 @@ skills: 1
 Cor function you learned in previous exercise does not handle missing values (NA) by default. If either your variables includes missing values, you have to tell cor- function to use only complete samples. You can do that by adding argument use = "compelete". 
 
 `@instructions`
-- Calculate correlation coefficient of variables 'waits' and 'bmi' in diabetes- data set.
+- Calculate correlation coefficient of variables 'waist' and 'bmi' in diabetes- data set.
 
 - Calculate correlation coefficient of variables 'waist' and 'hip' in diabetes- data set.
 
