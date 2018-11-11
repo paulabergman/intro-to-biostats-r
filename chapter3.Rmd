@@ -175,3 +175,60 @@ plot(cardiac$sbp, cardiac$maxhr, main = "Example title", ylab = "Maximum heart r
 test_student_typed("plot(", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")
 success_msg("Nice one! You are about to become a real plotting wizard!")
 ```
+
+
+
+---
+## Adding some colour!
+
+```yaml
+type: NormalExercise
+key: exercise2_4
+lang: r
+xp: 0
+skills: 1
+```
+
+R has very verstatile selection of colours. Basic colours, such as red and green can be obtained by typing "red" or "green". To learn more  colours: check http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf. To add colour into your plot, add argument col = "" inside your plotting command. If you want to add multiple colours, for example pie chart for gender, just give col as many colours you want inside vector (c()). For example: col = c("red", "green").
+
+`@instructions`
+- Draw scatter plot of variables 'sbp' (systolic blood pressure) and 'maxhr' (maximum heart rate) in cardiac data set, and make your dots yellow.
+
+- Draw pie chart from variable 'gender' in cardiac- data set, and make your sections red and blue.
+
+
+
+`@hint`
+Use command plot() and pie ()to create your plot. Add correct colours to your plots
+`@pre_exercise_code`
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+
+`@sample_code`
+```{r}
+# Draw scatter plot of variables 'sbp' (systolic blood pressure) and 'maxhr' (maximum heart rate) in cardiac data set, and make your dots yellow.
+
+# Draw pie chart from variable 'gender' in cardiac- data set, and make your sections red and blue.
+
+
+```
+
+`@solution`
+```{r}
+# Draw scatter plot of variables 'sbp' (systolic blood pressure) and 'maxhr' (maximum heart rate) in cardiac data set, and make your dots yellow.
+
+plot(cardiac$sbp, cardiac$maxhr, col = "yellow")
+
+# Draw pie chart from variable 'gender' in cardiac- data set, and make your sections red and blue.
+pie(table(cardiac$gender, col = c("red", "blue"))
+```
+
+`@sct`
+```{r}
+test_student_typed("col", not_typed_msg = "Make sure you used col- argument. Also make sure you referred to right data set and variable.")
+test_student_typed("c(", not_typed_msg = "Make sure you uput colours in vector c(). Also make sure you referred to right data set and variable.")
+test_student_typed("pie(table(cardiac$gender)", not_typed_msg = "Make sure you used pie()- command. Also make sure you referred to right data set and variable.")
+success_msg("Nice one! You are about to become a real plotting wizard!")
+```
