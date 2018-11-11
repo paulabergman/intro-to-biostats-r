@@ -15,7 +15,7 @@ xp: 0
 skills: 1
 ```
 
-In R, correlation coefficient of two variables can be calculated using cor() function. For that fucntion you give two variables, separated by ','. 
+In R, correlation coefficient of two variables can be calculated using cor function. For that fucntion you give two variables, separated by. 
 
 `@instructions`
 - Calculate correlation coefficient of variables 'sbp' and 'maxhr' in cardiac- data set.
@@ -48,6 +48,12 @@ cor(cardiac$sbp, cardiac$maxhr)
 # Calculate correlation coefficient of variables 'sbp' and 'age' in caridac- data set.
 cor(cardiac$sbp, cardiac$age)
 
+```
+
+`@sct`
+```{r}
+test_student_typed("cor", not_typed_msg = "Make sure you used cor command. Also make sure you referred to right data set and variables.")
+success_msg("Great job!")
 ```
 
 ## Linear regression with one explanatory variable
