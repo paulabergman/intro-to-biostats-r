@@ -1,9 +1,8 @@
 ---
 title_meta: 'Chapter 4'
 title: 'Correlation and linear regression'
-description: 'In this chapter's exerciser you will learn to check association of continous variables. You will first learn to calculate correlation coefficients, and then linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models.'
+description: 'In this chapter you will learn to check association of continous variables. You will first learn to calculate correlation coefficients, and then linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models.'
 ---
-
 
 ---
 ## Correlation coefficient
@@ -16,7 +15,7 @@ xp: 0
 skills: 1
 ```
 
-In R, correlation coefficient of two variables can be calculated using cor()- function. For that fucntion you give two variables, separated by ','. 
+In R, correlation coefficient of two variables can be calculated using cor() function. For that fucntion you give two variables, separated by ','. 
 
 `@instructions`
 - Calculate correlation coefficient of variables 'sbp' and 'maxhr' in cardiac- data set.
@@ -69,7 +68,7 @@ xp: 0
 skills: 1
 ```
 
-Cor- function you learned in previous exercise does not handle missing values (NA) by default. If either your variables includes missing values, you have to tell cor- function to use only complete samples. You can do that by adding argument use = "compelete". 
+Cor() function you learned in previous exercise does not handle missing values (NA) by default. If either your variables includes missing values, you have to tell cor- function to use only complete samples. You can do that by adding argument use = "compelete". 
 
 `@instructions`
 - Calculate correlation coefficient of variables 'waits' and 'bmi' in diabetes- data set.
