@@ -176,7 +176,7 @@ pie(table(cardiac$gender), col = c("red", "blue"))
 
 `@sct`
 ```{r}
-test_student_typed("plot(cardiac$sbp, cardiac$maxhr, col", not_typed_msg = "Remember to put your variable inside table, and refer to your variable as data$variable. Also make sure you referred to right data set.")
-test_student_typed("pie(table(cardiac$gender), col", not_typed_msg = "Remember to put your variable inside table, and refer to your variable as data$variable. Also make sure you referred to right data set.")
+test_student_typed("plot", not_typed_msg = "Remember to put your variable inside table, and refer to your variable as data$variable. Also make sure you referred to right data set.")
+test_student_typed("pie(table(", not_typed_msg = "Remember to put your variable inside table, and refer to your variable as data$variable. Also make sure you referred to right data set.")
 success_msg("Hey, got some fancy looking plots over there! Now Let's make them even fancier.")
 ```
