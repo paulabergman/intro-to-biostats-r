@@ -222,7 +222,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 plot(cardiac$sbp, cardiac$maxhr, col = "yellow")
 
 # Draw pie chart from variable 'gender' in cardiac- data set, and make your sections red and blue.
-pie(table(cardiac$gender, col = c("red", "blue"))
+pie(table(cardiac$gender), col = c("red", "blue"))
 ```
 
 `@sct`
