@@ -1,7 +1,7 @@
 ---
 title_meta: 'Chapter 4'
 title: 'Correlation and linear regression'
-description: 'In this chapter you will learn to check association of continous variables. You will first learn to calculate correlation coefficients, and then linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models.'
+description: 'In this chapter you will learn learn to calculate correlation coefficients, and perform linear regression. You will form a few models yourself and train to interpret the results from those models. You will also learn to evaluate the assumptions of the models.'
 ---
 ## Correlation coefficient
 
@@ -13,7 +13,7 @@ xp: 0
 skills: 1
 ```
 
-In R, correlation coefficient of two variables can be calculated using cor function. For that fucntion you give two variables, separated by. 
+In R, correlation coefficient of two variable can be calculated using cor()- function. For that fucntion you give two variables, separated by ','. 
 
 
 `@instructions`
@@ -104,6 +104,7 @@ cor(diabetes$waist, diabetes$hip, use = "complete")
 `@sct`
 ```{r}
 test_student_typed("cor", not_typed_msg = "Make sure you used cor function. Also make sure you referred to right data set and variables.")
+test_student_typed("use = "complete"", not_typed_msg = "Make sure you added argument 'use= "complete"'")
 success_msg("Great! Now even the missing values won't stop you!" )
 ```
 ---
@@ -118,7 +119,7 @@ xp: 0
 skills: 1
 ```
 
-In this exercise you will form a linear regression model, see the results and make some interpretations based on those. In R linear regression can be done using lm()- function, for example: lm(cardiac$dobEF~cardiac$baseEF). Before the ~ sign you can put only one variable, the outcome variable. After it you can put one or multiple explanatory variables devided by the + sign.
+In this exercise you will form a linear regression model, see it's results and make some interpretations based on them. In R linear regression can be done using lm()- function, for example: lm(cardiac$dobEF~cardiac$baseEF). Before the ~ sign you can put only one variable, the outcome variable. After it you can put one or multiple explanatory variables devided by the + sign.
 
 `@instructions`
 - Form a linear regression model, in which you will have systolic blood pressure (sbp) as an outcome variable and age as an explanatory variable. Use the Cardiac-data. (Don't use the with-function this time.)
