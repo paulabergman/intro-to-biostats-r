@@ -1,22 +1,20 @@
 ---
 title_meta: 'Chapter 0'
 title: Sandbox
-description: 'In this chapter, you will learn the basics of how to work on DataCamp and how to handle with exercises.  Since many of you are working with iPads, there will also be some advice regarding special characters such as `^` or `''`. Let''s get started!'
+description: 'In this chapter, you will learn the very basics of R language, how to work on DataCamp and how to handle with exercises.  Since many of you are working with iPads, there will also be some advice regarding special characters such as `^` or `''`. So let''s get started!'
 ---
 
-## THE WARM UP STARTS HERE: How does DataCamp work
+## How does DataCamp work
 
 ```yaml
 type: NormalExercise
 key: exercise0_1
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
 In the box below you can see the instructions for the exercise. 
-
-In the editor on the right you should type R code to solve the exercises. When you hit the 'Submit Answer' button, every line of code is interpreted and executed by R and you get a message whether or not your code was correct. The output of your R code is shown in the console in the lower right corner. You can also execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac)
 
 On the right in the upper window you can type your code. That window is called editor. 
 You can execute the code by pressing Ctrl+Enter (Cmd+Enter in Mac) when the cursor is on the same line with your command,
@@ -26,8 +24,7 @@ When you run your commands, the results appear in the window under the editor. T
 
 Tips for iPad users:
 In case you are using an iPad, you can just go ahead and run all the commands by pressing the Submit-button. 
-If you do this when you are not yet 
-finished and some sort of error message appears, you can try to comment out the parts that you have not completed yet. 
+If you do this when you are not yet finished and some sort of error message appears, you can try to comment out the parts that you have not completed yet. 
 That can be done by inserting a hashtag `#` at the beginning of the not completed lines.
 
 `@instructions`
@@ -46,15 +43,19 @@ Just add a line of R code that calculates the sum of 4 and 18, just like the exa
 ```{r}
 # Calculate 3 + 4
 3 + 4
+
 # Calculate 4 + 18
+
 ```
 
 `@solution`
 ```{r}
 # Calculate 3 + 4
 3 + 4
+
 # Calculate 4 + 18
 4 + 18
+
 ```
 
 `@sct`
@@ -65,13 +66,91 @@ success_msg("Awesome! See how the console shows the result of the R code you sub
 
 ---
 
-## Arithmetic with R
+## Special characters
 
 ```yaml
 type: NormalExercise
 key: exercise0_2
 lang: r
-xp: 100
+xp: 0
+skills: 1
+```
+
+In R laguage, some special characters are very essential. Here you can test you find all of them from your keyboard. 
+
+`@instructions`
+Type following character(s):
+- *
+- ^
+- #
+- ""
+- ''
+- $
+
+
+`@hint`
+If you have very hard time findig the characters from your keyboard, you can always google and copy+paste them!
+
+`@pre_exercise_code`
+```{r}
+ # no pec
+```
+
+`@sample_code`
+```{r}
+#Type following character(s):
+# *
+
+# ^
+
+# #
+
+# ""
+
+# ''
+
+# $
+
+```
+
+`@solution`
+```{r}
+#Type following character(s):
+# *
+*
+# ^
+^
+# #
+#
+# ""
+""
+# ''
+''
+# $
+$
+```
+
+`@sct`
+```{r}
+test_output_contains("*", incorrect_msg = "Make sure yours star is an 'upper star'")
+test_output_contains("^", incorrect_msg = "Make sure you got '^' sign correctly!")
+test_output_contains("#", incorrect_msg = "Make sure you got '#' sign correctly!")
+test_output_contains('""', incorrect_msg = "Make sure you got 'straight'  quotation marks!")
+test_output_contains("''", incorrect_msg = "Make sure you got 'straight'  quotation marks!")
+test_output_contains("$", incorrect_msg = "Make sure you got '$' sign correctly!")
+
+success_msg("Awesome! Now you are ready for some serious business!")
+```
+
+---
+
+## Arithmetic with R
+
+```yaml
+type: NormalExercise
+key: exercise0_3
+lang: r
+xp: 0
 skills: 1
 ```
 
@@ -142,9 +221,9 @@ success_msg("Great! Head over to the next exercise.")
 
 ```yaml
 type: NormalExercise
-key: exercise0_3
+key: exercise0_4
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
@@ -199,9 +278,9 @@ success_msg("Good job! Have you noticed that R does not print the value of a var
 
 ```yaml
 type: NormalExercise
-key: exercise0_4
+key: exercise0_5
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
@@ -249,9 +328,9 @@ success_msg("Great! Continue to the next exercise!")
 
 ```yaml
 type: NormalExercise
-key: exercise0_5
+key: exercise0_6
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
@@ -311,9 +390,9 @@ success_msg("Nice one! The great advantage of doing calculations with variables 
 
 ```yaml
 type: NormalExercise
-key: exercise0_6
+key: exercise0_7
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
@@ -369,9 +448,9 @@ success_msg("Awesome, keep up the good work! Continue to the next exercise.")
 
 ```yaml
 type: NormalExercise
-key: exercise0_7
+key: exercise0_8
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
