@@ -166,7 +166,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 
 `@solution`
 ```{r}
-Create your plot:
+# Create your plot:
 plot(cardiac$sbp, cardiac$maxhr, main = "Example title", ylab = "Maximum heart rate", xlab = "Systolic blood pressure")
 
 ```
