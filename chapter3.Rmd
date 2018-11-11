@@ -4,7 +4,7 @@ title: Plotting
 description: 'In this chapter, you will learn to plot in R.'
 ---
 
-## Basic plotting
+## Basics of plotting and barplot- command
 
 ```yaml
 type: NormalExercise
@@ -14,7 +14,7 @@ xp: 100
 skills: 1
 ```
 
-One of R's best features is its plots. In R it is easy and fun to adjust your plots just the way you like it. But now, let's start from the basics. Propably one of the first things you want to do with your data set is to check your gender distibution. The best way to do that is to draw a barplot from your variable 'gender'. To draw a barplot, use barplot(table(data$variable)).  Why table you may ask? What barplot wants inside of it is the heights of the bars, so if you would type in barplot(data$variable), it would produce as many bars as you have individuals.
+One of R's best features is its plotting features. In R it is easy and fun to adjust your plots just the way you like it. But now, let's start from the basics. Propably one of the first things you want to do with your data set is to check your gender distibution. The best way to do that is to draw a barplot from your variable 'gender'. To draw a barplot, use barplot(table(data$variable)).  Why table you may ask? What barplot wants inside of it is the heights of the bars, so if you would type in barplot(data$variable), it would produce as many bars as you have individuals.
 
 `@instructions`
 - Draw a barplot of the variable 'gender' in diabetes-dataset.
@@ -55,7 +55,7 @@ success_msg("Hey, got some fancy looking plots over there! Now Let's make them e
 
 ---
 
-## More plotting
+## Different plotting commands
 
 ```yaml
 type: NormalExercise
