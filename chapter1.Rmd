@@ -98,36 +98,19 @@ If you have very hard time findig the characters from your keyboard, you can alw
 
 `@sample_code`
 ```{r}
-#Type following character(s):
-# *
-
-# ^
-
-# #
-
-# ""
-
-# ''
-
-# $
+#Type here all the characters (Note:: remember to put comment sign '#' before every line!):
 
 ```
 
 `@solution`
 ```{r}
-#Type following character(s):
+#Type here all the characters (Note:: remember to put comment sign '#' before every line!):
 # *
-*
 # ^
-^
 # #
-#
 # ""
-""
 # ''
-''
 # $
-$
 ```
 
 `@sct`
