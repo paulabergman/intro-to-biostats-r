@@ -56,58 +56,6 @@ test_student_typed("cor", not_typed_msg = "Make sure you used cor command. Also 
 success_msg("Great job!")
 ```
 
----
-## Handling missing values
-
-```yaml
-type: NormalExercise
-key: exercise5_2
-lang: r
-xp: 0
-skills: 1
-```
-
-Cor function you learned in previous exercise does not handle missing values (NA) by default. If either your variables includes missing values, you have to tell cor- function to use only complete samples. You can do that by adding argument use = "compelete". 
-
-`@instructions`
-- Calculate correlation coefficient of variables 'waist' and 'bmi' in diabetes- data set.
-
-- Calculate correlation coefficient of variables 'waist' and 'hip' in diabetes- data set.
-
-
-`@hint`
-Use command cor(). Add correct variables inside that function. Separate your variables by ',' sign. Remember to add argument to use only complete samples!
-
-`@pre_exercise_code`
-```{r}
-cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
-diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
-```
-
-`@sample_code`
-```{r}
-# Calculate correlation coefficient of variables 'waist' and 'bmi' in diabetes- data set.
-
-# Calculate correlation coefficient of variables 'waist' and 'hip' in diabetes- data set.
-
-```
-
-`@solution`
-```{r}
-# Calculate correlation coefficient of variables 'waist' and 'bmi' in diabetes- data set.
-cor(diabetes$waist, diabetes$bmi, use = "complete")
-
-# Calculate correlation coefficient of variables 'waist' and 'hip' in diabetes- data set.
-cor(diabetes$waist, diabetes$hip, use = "complete")
-
-```
-
-`@sct`
-```{r}
-test_student_typed("cor", not_typed_msg = "Make sure you used cor function. Also make sure you referred to right data set and variables.")
-
-success_msg("Great! Now even the missing values won't stop you!" )
-```
 
 ## Linear regression with one explanatory variable
 
