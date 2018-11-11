@@ -170,3 +170,8 @@ Create your plot:
 plot(diabetes$sbp, diabetes$maxhr, main = "Example title", ylab = "Maximum heart rate", xlab = "Systolic blood pressure")
 
 ```
+`@sct`
+```{r}
+test_student_typed("plot", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")
+success_msg("Nice one! You are about to become a real plotting wizard!")
+```
