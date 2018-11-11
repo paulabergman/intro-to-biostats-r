@@ -91,15 +91,29 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 
 `@sample_code`
 ```{r}
+# Draw histogram from the variable 'age' in diabetes data set:
+
+# Draw scatter plot of variables 'sbp' and 'maxhr' in cardiac data set:
+
+# Draw pie chart from variable 'gender' in cardiac- data set:
+
+# Draw a boxplot from variable 'age' in diabetes- data set:
+
+```
+
+`@solution`
+```{r}
 # Draw histogram from the variable 'age' in diabetes data set
 hist(diabetes$age)
 
 # Draw scatter plot of variables 'sbp' and 'maxhr' in cardiac data set. 
 plot(cardiac$sbp, cardiac$maxhr)
-```
 
-`@solution`
-```{undefined}
+# Draw pie chart from variable 'gender' in cardiac- data set:
+pie(cardiac$sbp)
+
+# Draw a boxplot from variable 'age' in diabetes- data set:
+boxplot(diabetes$age)
 
 ```
 
@@ -107,5 +121,7 @@ plot(cardiac$sbp, cardiac$maxhr)
 ```{r}
 test_student_typed("hist(diabetes$age)", not_typed_msg = "Make sure you used hist()- command. Also make sure you referred to right data set and variable.")
 test_student_typed("plot(cardiac$sbp, cardiac$maxhr)", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")
+test_student_typed("pie(cardiac$sbp)", not_typed_msg = "Make sure you used pie()- command. Also make sure you referred to right data set and variable.")
+test_student_typed("boxplot(diabetes$age)", not_typed_msg = "Make sure you used pboxlot()- command. Also make sure you referred to right data set and variable.")
 success_msg("Nice one! You are about to become a real plotting wizard!")
 ```
