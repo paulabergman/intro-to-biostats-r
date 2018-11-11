@@ -232,3 +232,66 @@ test_student_typed("c(", not_typed_msg = "Make sure you uput colours in vector c
 test_student_typed("pie(table(cardiac$gender)", not_typed_msg = "Make sure you used pie()- command. Also make sure you referred to right data set and variable.")
 success_msg("Nice one! You are about to become a real plotting wizard!")
 ```
+
+
+---
+## Grouped boxplot
+
+```yaml
+type: NormalExercise
+key: exercise2_5
+lang: r
+xp: 0
+skills: 1
+```
+
+In previous exercise you created a boxplot from one variable. If you want to see how some continous variable, such as systolic blood pressure is distributed between some groups, such as gender, drawing separate boxplots for both groups is very convenient way. You can do this by first giving boxplot command the continous variable, and after '~' sign give the grouping variable. For example: boxplot(cardiac$sbp~cardiac$gender)
+
+`@instructions`
+- Draw boxplot from maximum heart rate (maxhr) in cardiac- data set
+
+- Draw the same boxplot, but now separating it by variable "gender"
+
+- Give both boxplots a different colour
+
+
+`@hint`
+Use command boplot(). Add correct colours to your plots. Separate continous and grouping variable by '~' sign.
+
+`@pre_exercise_code`
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+
+`@sample_code`
+```{r}
+# Draw boxplot from maximum heart rate (maxhr) in cardiac- data set
+
+# Draw the same boxplot, but now separating it by variable "gender"
+
+# Give both boxplots a different colour
+
+
+```
+
+`@solution`
+```{r}
+# Draw boxplot from maximum heart rate (maxhr) in cardiac- data set
+boxplot(cardiac$maxhr)
+
+# Draw the same boxplot, but now separating it by variable "gender"
+boxplot(cardiac$maxhr~cardiac$gender)
+
+# Give both boxplots a different colour
+boxplot(cardiac$maxhr~cardiac$gender, col=c("red", "green"))
+
+```
+
+`@sct`
+```{r}
+test_student_typed("boxplot(cardiac$maxhr", not_typed_msg = "Make sure you used boxplot- command. Also make sure you referred to right data set and variable.")
+test_student_typed("col", not_typed_msg = "Make sure you added colours to your plot!")
+test_student_typed("~", not_typed_msg = "Make sure you separated your continous and grouping variable by '~' sign")
+success_msg("Nice one! You are about to become a real plotting wizard!")
+```
