@@ -58,7 +58,6 @@ test_student_typed("cor", not_typed_msg = "Make sure you used cor- command. Also
 success_msg("Great job!")
 ```
 
-
 ---
 ## Handling missing values
 
@@ -112,14 +111,13 @@ test_student_typed("cor", not_typed_msg = "Make sure you used cor- command. Also
 success_msg("Great! Now even the missing values won't stop you!" )
 ```
 
-
 ## Linear regression with one explanatory variable
 
 ```yaml
 type: NormalExercise
-key: exercise3_1
+key: exercise5_3
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
@@ -183,9 +181,9 @@ success_msg("Super! This, however, is just a beginning...")
 
 ```yaml
 type: NormalExercise
-key: exercise3_2
+key: exercise5_4
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
@@ -257,9 +255,9 @@ success_msg("Great! This is a great startfor this week")
 
 ```yaml
 type: NormalExercise
-key: exercise3_3
+key: exercise5_5
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
@@ -336,9 +334,9 @@ success_msg("Awesome! You old Q-Q plotting wizard!")
 
 ```yaml
 type: MultipleChoiceExercise
-key: exercise3_4
+key: exercise5_6
 lang: r
-xp: 50
+xp: 0
 skills: 1
 ```
 
@@ -376,9 +374,9 @@ test_mc(2, feedback_msgs = c(msg1, msg2))
 
 ```yaml
 type: MultipleChoiceExercise
-key: exercise3_5
+key: exercise5_7
 lang: r
-xp: 50
+xp: 0
 skills: 1
 ```
 
@@ -417,9 +415,9 @@ test_mc(3, feedback_msgs = c(msg1, msg2, msg3))
 
 ```yaml
 type: NormalExercise
-key: exercise3_6
+key: exercise5_8
 lang: r
-xp: 100
+xp: 0
 skills: 1
 ```
 
@@ -495,9 +493,9 @@ success_msg("Great! You're such a master in modelling now!")
 
 ```yaml
 type: MultipleChoiceExercise
-key: exercise3_7
+key: exercise5_9
 lang: r
-xp: 50
+xp: 0
 skills: 1
 ```
 
@@ -536,9 +534,9 @@ test_mc(3, feedback_msgs = c(msg1, msg2, msg3, msg4))
 
 ```yaml
 type: MultipleChoiceExercise
-key: exercise3_8
+key: exercise5_10
 lang: r
-xp: 50
+xp: 0
 skills: 1
 ```
 
