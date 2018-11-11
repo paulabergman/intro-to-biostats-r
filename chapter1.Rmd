@@ -115,10 +115,6 @@ If you have very hard time findig the characters from your keyboard, you can alw
 
 `@sct`
 ```{r}
-test_output_contains("*", incorrect_msg = "Make sure yours star is an upper star")
-test_output_contains("^", incorrect_msg = "Make sure you got ^ sign correctly!")
-test_output_contains("#", incorrect_msg = "Make sure you got # sign correctly!")
-test_output_contains("$", incorrect_msg = "Make sure you got $ sign correctly!")
 
 success_msg("Awesome! Now you are ready for some serious business!")
 ```
