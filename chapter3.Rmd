@@ -141,7 +141,7 @@ skills: 1
 In R it it easy to give a title, and rename your axes as you want. As a default, axis labels are your variable names, and title is non existing. To add title, just add main = "" inside your plotting command. Inside brackets tou can type your string to be the main. To add y- or x- labels, add xlab = "", or ylab = "", inside your plotting command.
 
 `@instructions`
-- Draw scatter plot of variables 'sbp' (systolic blood pressure) and 'maxhr' (maximum heart rate) in cardiac data set.
+- Draw scatter plot of variables 'sbp' (systolic blood pressure) and 'maxhr' (maximum heart rate) in cardiac- data set.
 
 - Add title "Example title" to your plot
 
@@ -167,7 +167,7 @@ diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-bi
 `@solution`
 ```{r}
 Create your plot:
-plot(diabetes$sbp, diabetes$maxhr, main = "Example title", ylab = "Maximum heart rate", xlab = "Systolic blood pressure")
+plot(cardiac$sbp, cardiac$maxhr, main = "Example title", ylab = "Maximum heart rate", xlab = "Systolic blood pressure")
 
 ```
 `@sct`
