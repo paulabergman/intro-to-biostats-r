@@ -104,7 +104,7 @@ cor(diabetes$waist, diabetes$hip, use = "complete")
 `@sct`
 ```{r}
 test_student_typed("cor", not_typed_msg = "Make sure you used cor function. Also make sure you referred to right data set and variables.")
-test_student_typed("use = "complete"", not_typed_msg = "Make sure you added argument 'use= "complete"'")
+test_student_typed("use = "complete"", not_typed_msg = "Make sure you added argument use = ")
 success_msg("Great! Now even the missing values won't stop you!" )
 ```
 ---
