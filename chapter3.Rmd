@@ -120,7 +120,7 @@ boxplot(diabetes$age)
 `@sct`
 ```{r}
 test_student_typed("hist(diabetes$age)", not_typed_msg = "Make sure you used hist()- command. Also make sure you referred to right data set and variable.")
-test_student_typed("plot(cardiac$sbp, cardiac$maxhr)", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")
+test_student_typed("plot(", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")
 test_student_typed("pie(table(cardiac$gender))", not_typed_msg = "Make sure you used pie()- command, and put your variable inside table()-command. Also make sure you referred to right data set and variable.")
 test_student_typed("boxplot(diabetes$age)", not_typed_msg = "Make sure you used boxlot()- command. Also make sure you referred to right data set and variable.")
 success_msg("Nice one! You are about to become a real plotting wizard!")
