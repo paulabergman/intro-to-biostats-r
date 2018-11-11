@@ -125,3 +125,58 @@ test_student_typed("pie(cardiac$sbp)", not_typed_msg = "Make sure you used pie()
 test_student_typed("boxplot(diabetes$age)", not_typed_msg = "Make sure you used boxlot()- command. Also make sure you referred to right data set and variable.")
 success_msg("Nice one! You are about to become a real plotting wizard!")
 ```
+
+---
+
+## Add title and labels for axes
+
+```yaml
+type: NormalExercise
+key: exercise2_3
+lang: r
+xp: 0
+skills: 1
+```
+
+In R it it easy to give a title, and rename your axes as you want. As a default, axis labels are your variable names, and title is non existing. To add title, just add main = "" inside your plotting command. Inside brackets tou can type your string to be the main. To add y- or x- labels, add xlab = "", or ylab = "", inside your plotting command.
+
+`@instructions`
+- Draw scatter plot of variables 'sbp' (systolic blood pressure) and 'maxhr' (maximum heart rate) in cardiac data set.
+
+- Add title "Example title" to your plot
+
+- Rename your y axis to "Maximum heart rate" and  x axis to "Systolic blood pressure"
+
+
+`@hint`
+Use command plot() to create your plot. Add title and axis labels to your plot
+
+`@pre_exercise_code`
+```{r}
+cardiac<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Cardiac.txt",header=T,row.names=1)
+diabetes<-read.table("https://raw.githubusercontent.com/paulabergman/intro-to-biostatistics-with-r/master/Diabetes.txt",header=TRUE,row.names=1)
+```
+
+`@sample_code`
+```{r}
+# Draw your plot: 
+
+
+```
+
+`@solution`
+```{r}
+# Draw your plot: 
+plot(diabetes$sbp, diabetes$maxhr, main = "Example title", ylab = "Maximum heart rate", xlab = "Systolic blood pressure")
+
+```
+
+`@sct`
+```{r}
+test_student_typed("plot(diabetes$sbp, diabetes$maxhr", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")
+test_student_typed("main", not_typed_msg = "Make sure you added the title!")
+test_student_typed("ylab" , not_typed_msg = "Make sure you added y label")
+test_student_typed("xlab" , not_typed_msg = "Make sure you added x label")
+success_msg("Super! It's like there is nothing you can't do with your plotting skills!")
+```
+---
