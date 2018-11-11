@@ -68,7 +68,7 @@ skills: 1
 In previous exercise you learned to do a barplot from discrete variable. There is however many more other possibilites, such as histograms, pie charts, scatter plots, box plots etc. Now you will learn to do couple of them. Here is a list of a few most commonly used commands:
 - histogram: hist(data$variable)
 - scatter plot: plot(data$variable1, data$variable1)
-- pie chart: pie(data$variable)
+- pie chart: pie(table(data$variable)) Note! pie- command works as barplot-command in previous exercise
 - box plot: boxplot(data$variable)
 
 `@instructions`
@@ -110,7 +110,7 @@ hist(diabetes$age)
 plot(cardiac$sbp, cardiac$maxhr)
 
 # Draw pie chart from variable 'gender' in cardiac- data set:
-pie(cardiac$sbp)
+pie(table(cardiac$gender))
 
 # Draw a boxplot from variable 'age' in diabetes- data set:
 boxplot(diabetes$age)
@@ -121,7 +121,7 @@ boxplot(diabetes$age)
 ```{r}
 test_student_typed("hist(diabetes$age)", not_typed_msg = "Make sure you used hist()- command. Also make sure you referred to right data set and variable.")
 test_student_typed("plot(cardiac$sbp, cardiac$maxhr)", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")
-test_student_typed("pie(cardiac$sbp)", not_typed_msg = "Make sure you used pie()- command. Also make sure you referred to right data set and variable.")
-test_student_typed("boxplot(diabetes$age)", not_typed_msg = "Make sure you used pboxlot()- command. Also make sure you referred to right data set and variable.")
+test_student_typed("pie(cardiac$sbp)", not_typed_msg = "Make sure you used pie()- command, and put your variable inside table()-command. Also make sure you referred to right data set and variable.")
+test_student_typed("boxplot(diabetes$age)", not_typed_msg = "Make sure you used boxlot()- command. Also make sure you referred to right data set and variable.")
 success_msg("Nice one! You are about to become a real plotting wizard!")
 ```
