@@ -14,7 +14,7 @@ xp: 0
 skills: 1
 ```
 
-One of R's best features is its plotting features. In R it is easy and fun to adjust your plots just the way you like it. But now, let's start from the basics. Propably one of the first things you want to do with your data set is to check your gender distibution. The best way to do that is to draw a barplot from your variable 'gender'. To draw a barplot, use barplot(table(data$variable)).  Why table you may ask? What barplot wants inside of it is the heights of the bars, so if you would type in barplot(data$variable), it would produce as many bars as you have individuals.
+One of R's best parts is its plotting features. In R it is easy and fun to adjust your plots just the way you like it. But now, let's start from the basics. Propably one of the first things you want to do with your data set is to check your gender distibution. The best way to do that is to draw a barplot from your variable 'gender'. To draw a barplot, use barplot(table(data$variable)).  Why table you may ask? What barplot wants inside of it is the heights of the bars, so if you would type in barplot(data$variable), it would produce as many bars as you have individuals.
 
 `@instructions`
 - Draw a barplot of the variable 'gender' in diabetes-dataset.
@@ -173,6 +173,9 @@ plot(cardiac$sbp, cardiac$maxhr, main = "Example title", ylab = "Maximum heart r
 `@sct`
 ```{r}
 test_student_typed("plot(", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")
+test_student_typed("main", not_typed_msg = "Make sure you added main- argument.")
+test_student_typed("ylab", not_typed_msg = "Make sure you added ylab- argument.")
+test_student_typed("xlab", not_typed_msg = "Make sure you added xlab- argument.")
 success_msg("Nice one! You are about to become a real plotting wizard!")
 ```
 
@@ -189,7 +192,7 @@ xp: 0
 skills: 1
 ```
 
-R has very verstatile selection of colours. Basic colours, such as red and green can be obtained by typing "red" or "green". To learn more  colours: check http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf. To add colour into your plot, add argument col = "" inside your plotting command. If you want to add multiple colours, for example pie chart for gender, just give col as many colours you want inside vector (c()). For example: col = c("red", "green").
+R has very verstatile selection of colours. All the colours, such as red and green can be obtained by typing "red" or "green". To learn more colour names in R check: http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf. To add colour into your plot, add argument col = "" inside your plotting command, for example: col = "red". If you want to add multiple colours, for example pie chart for gender, just give col as many colours you want inside vector (c()). For example: col = c("red", "green").
 
 `@instructions`
 - Draw scatter plot of variables 'sbp' (systolic blood pressure) and 'maxhr' (maximum heart rate) in cardiac data set, and make your dots yellow.
