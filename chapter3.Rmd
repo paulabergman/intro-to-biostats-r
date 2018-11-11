@@ -174,3 +174,8 @@ plot(cardiac$sbp, cardiac$maxhr, col = "yellow")
 pie(table(cardiac$gender), col = c("red", "blue"))
 ```
 
+`@sct`
+```{r}
+test_student_typed("pie(table(cardiac$gender)", not_typed_msg = "Make sure you used pie()- command. Also make sure you referred to right data set and variable.")
+success_msg("Nice one! You are about to become a real plotting wizard!")
+```
