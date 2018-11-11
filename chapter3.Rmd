@@ -175,9 +175,6 @@ plot(diabetes$sbp, diabetes$maxhr, main = "Example title", ylab = "Maximum heart
 `@sct`
 ```{r}
 test_student_typed("plot", not_typed_msg = "Make sure you used plot()- command. Also make sure you referred to right data set and variables.")
-test_student_typed("main", not_typed_msg = "Make sure you added the title!")
-test_student_typed("ylab", not_typed_msg = "Make sure you added y label")
-test_student_typed("xlab", not_typed_msg = "Make sure you added x label")
 success_msg("Super! It's like there is nothing you can't do with your plotting skills!")
 ```
 
