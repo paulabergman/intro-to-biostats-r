@@ -145,7 +145,7 @@ The last one might need some explaining:
 With this knowledge, follow the instructions below to complete the exercise.
 
 `@instructions`
-- Type `2^5` in the editor after the "Exponentiation" part to calculate 2 to the power 5.
+- Type `5^2` in the editor after the "Exponentiation" part to calculate 2 to the power 5.
 - Click 'Submit Answer' and have a look at the R output in the console.
 - Note how the `#` symbol is used to add comments on the R code.
 
